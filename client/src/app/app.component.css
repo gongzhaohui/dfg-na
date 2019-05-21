@@ -1,0 +1,19 @@
+.logo {
+    width: 22px;
+    height: 22px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 21px 21px;
+    float: left;
+}
+
+.logo img {
+    display: block;
+}
+
+.ant-radio-group {
+    margin: 10px;
+}
+
+.ant-input {
+    width: 300px;
+}
