@@ -15,20 +15,28 @@
                 <label nz-radio nzValue="jno">Jno</label>
                 <label nz-radio nzValue="mno">Mno</label>
             </nz-radio-group>
-            <input type="text" nz-input placeholder="input search text" />
-            <button nz-button nzType="primary" nzSearch><i nz-icon type="search"></i></button>
+            <input type="text" nz-input [(ngModel)]="term" placeholder="input search text" />
+            <button nz-button nzType="primary" nzSearch (click)="Search()"><i nz-icon type="search"></i></button>
             <nz-divider></nz-divider>
         </nz-content>
         <nz-layout>
-            <nz-sider [nzWidth]="200" style="background:#fff">
-                <dfg-cost-history></dfg-cost-history>
+            <nz-sider [nzWidth]="300" style="background:#fff">
+                <nz-breadcrumb>
+                    <nz-breadcrumb-item>socode</nz-breadcrumb-item>
+                    <nz-breadcrumb-item>sodate</nz-breadcrumb-item>
+                    <nz-breadcrumb-item>mocode</nz-breadcrumb-item>
+                    <nz-breadcrumb-item>modate</nz-breadcrumb-item>
+                </nz-breadcrumb>
+                <dfg-cost-history [history]="history"></dfg-cost-history>
             </nz-sider>
             <nz-layout style="padding:0 24px 24px">
-                <nz-breadcrumb style="margin:16px 0;">
-                    <nz-breadcrumb-item>Home</nz-breadcrumb-item>
-                    <nz-breadcrumb-item>List</nz-breadcrumb-item>
-                    <nz-breadcrumb-item>App</nz-breadcrumb-item>
-                </nz-breadcrumb>
+
+                <nz-content style="background:#fff; padding: 24px;width: 100%">
+                    <span>Inventory</span>
+
+                    <dfg-inventory [inventory]="inventory" [hourrate]="hourRate?hourRate.hourrate:''" [period]="period" [cost]="cost"></dfg-inventory>
+                </nz-content>
+
                 <nz-content style="background:#fff; padding: 24px; min-height: 280px;">
                     <span>bom-m</span>
                     <dfg-bom-m></dfg-bom-m>

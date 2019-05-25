@@ -17,3 +17,7 @@
 .ant-input {
     width: 300px;
 }
+
+nz-page-header {
+    border: 1px solid rgb(235, 237, 240);
+}

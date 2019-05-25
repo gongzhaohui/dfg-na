@@ -4,7 +4,7 @@ import { BarcodeComponent } from './components/barcode/barcode.component';
 import {SearchComponent} from './components/search/search.component';
 
 const routes: Routes = [
-         {        path: '', pathMatch: 'full', redirectTo: '/cost'} ,
+         { path: '', pathMatch: 'full', redirectTo: '/cost'} ,
              {path: '',
              children: [
                  {

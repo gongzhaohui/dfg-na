@@ -1,7 +1,7 @@
 export class Inventory{
 
   cinvcode:string;
-  cinvccoder:string;
+  cinvccode:string;
   cinvstd:string;
   cinvaddcode:string;
   cinvname:string;

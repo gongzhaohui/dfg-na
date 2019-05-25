@@ -1,0 +1,32 @@
+<div class="wrap">
+    <div nz-row class="extra-content" [nzGutter]="16">
+        <div nz-col nzSpan="3" class="gutter-row">
+            <span class="label">存货编码</span>
+            <p class="detail">{{inventory?inventory.cinvcode:""}}</p>
+        </div>
+        <div nz-col nzSpan="3">
+            <span class="label">规格</span>
+            <p class="detail">{{inventory?inventory.cinvstd:""}}</p>
+        </div>
+        <div nz-col nzSpan="3">
+            <span class="label">代码</span>
+            <p class="detail">{{inventory?inventory.cinvaddcode:""}}</p>
+        </div>
+        <div nz-col nzSpan="3">
+            <span class="label">分类</span>
+            <p class="detail">{{inventory?inventory.cinvccode:""}}</p>
+        </div>
+        <div nz-col nzSpan="3">
+            <span class="label">计算期</span>
+            <p class="detail">{{period?period:""}}</p>
+        </div>
+        <div nz-col nzSpan="3">
+            <span class="label">小时单价</span>
+            <p class="detail">{{hourrate?hourrate:""}}</p>
+        </div>
+        <div nz-col nzSpan="6">
+            <span class="label"> 成本</span>
+            <p class="detail">$ 568.08</p>
+        </div>
+    </div>
+</div>

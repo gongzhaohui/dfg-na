@@ -1,4 +1,4 @@
-export class History{
+export class HistoryItem{
   jno:string;
   isodid:number;
   mno:string;

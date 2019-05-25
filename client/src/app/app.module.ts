@@ -12,8 +12,8 @@ import zh from '@angular/common/locales/zh';
 import { CostHistoryComponent } from './components/cost-history/cost-history.component';
 import { BomMComponent } from './components/bom-m/bom-m.component';
 import { BomPComponent } from './components/bom-p/bom-p.component';
-// import { CostAnaComponent } from './components/cost-ana/cost-ana.component';
-// import { CostAna1Component } from './components/cost-ana1/cost-ana1.component';
+import {InventoryComponent} from './components/inventory/inventory.component';
+// import {HttpClientModule} from '@angular/common/http';
 
 registerLocaleData(zh);
 
@@ -23,6 +23,7 @@ registerLocaleData(zh);
     CostHistoryComponent,
     BomMComponent,
     BomPComponent,
+    InventoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,8 @@ registerLocaleData(zh);
     NgZorroAntdModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
