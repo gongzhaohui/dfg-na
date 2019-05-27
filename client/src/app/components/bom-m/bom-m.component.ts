@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Bom } from 'src/app/services/bom_m';
 
 @Component({
   selector: 'dfg-bom-m',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class BomMComponent implements OnInit {
   listOfParentData: any[] = [];
   listOfChildrenData: any[] = [];
+@Input() bom_m:Bom;
 
   ngOnInit(): void {
     for (let i = 0; i < 3; ++i) {

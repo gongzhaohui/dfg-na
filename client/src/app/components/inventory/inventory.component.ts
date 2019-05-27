@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Inventory } from 'src/app/services/inventory';
+import { Hourrate } from 'src/app/services/hourrate';
 
 @Component({
   selector: 'dfg-inventory',
@@ -8,8 +9,7 @@ import { Inventory } from 'src/app/services/inventory';
 })
 export class InventoryComponent implements OnInit {
   @Input() inventory:Inventory;
-  @Input() period:string;
-  @Input() hourrate:number;
+  @Input() hourrate:Hourrate;
   @Input() cost:number;
   constructor() { }
 

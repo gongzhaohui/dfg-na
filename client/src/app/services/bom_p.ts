@@ -1,4 +1,4 @@
-export class Bom{
+export class Bom_P{
   bomid:number;
   fatherid:number;
   moid:number;

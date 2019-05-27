@@ -5,5 +5,6 @@ export class Inventory{
   cinvstd:string;
   cinvaddcode:string;
   cinvname:string;
+  cinvcname:string;
   partid :number;
 }
