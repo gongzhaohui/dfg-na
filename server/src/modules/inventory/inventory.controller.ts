@@ -13,3 +13,4 @@ export class InventoryController {
 		// console.log(JSON.stringify(query));
 		return this.service.findOne(query);
 	}
+}

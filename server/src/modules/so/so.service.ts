@@ -17,8 +17,8 @@ export class SoService extends BaseService<SO>{
   }
 
   public async findOneById(id: string): Promise<SO> {
-    // console.log('findOneById ' + id);
-    // this.repository.findByIds
+    console.log('findOneById ' + id);
+    this.repository.findByIds
     const so = this.repository.createQueryBuilder('so')
     .select()
     .where('so.cdefine34=:cond')
@@ -26,7 +26,8 @@ export class SoService extends BaseService<SO>{
     .setParameters({cond: id})
     .getOne();
     return so;
-    // return this.repository.findOne(id);
+    // console.log('r=id');
+    // return this.repository.findOne({where:{id:id},order:{id:"ASC"}});
 	}
   public async findOne(conditions?: FindConditions<SO>, options?: FindOneOptions<SO>): Promise<SO> {
     console.log('find one ' + JSON.stringify( conditions));

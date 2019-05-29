@@ -1,8 +1,8 @@
 import { Entity, Column,  PrimaryColumn } from 'typeorm';
-import { SupperEntity } from '../base';
+// import { SupperEntity } from '../base';
 
 @Entity('dfg_na_inventory')
-export class Inventory extends SupperEntity  {
+export class Inventory {
   @PrimaryColumn({type: 'nvarchar', name: 'cinvcode'})
   cinvcode: string;
 
@@ -10,9 +10,9 @@ export class Inventory extends SupperEntity  {
 cinvccode: string;
 @Column({type: 'nvarchar', length: 60, name: 'cinvstd'})
 cinvstd: string;
-cinvname: string;
+@Column({type: 'nvarchar', length: 255, name: 'cinvname'}
+)cinvname: string;
 @Column({type: 'nvarchar', length: 60, name: 'cinvaddcode'})
-@Column({type: 'nvarchar', length: 255, name: 'cinvname'})
 cinvaddcode: string;
 @Column({type: 'nvarchar', length: 255, name: 'cinvcname'})
 cinvcname: string;

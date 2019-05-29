@@ -3,6 +3,6 @@ import {Column, BaseEntity,  Entity, PrimaryColumn} from 'typeorm';
 
 @Entity()
 export class SupperEntity extends BaseEntity {
-@PrimaryColumn({type: 'int', name: 'cdefine34'})
+@PrimaryColumn({type: 'int'})
 id: number;
 }
