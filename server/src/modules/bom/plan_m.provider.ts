@@ -3,7 +3,12 @@ import { BomParent } from 'entities/bom_parent.entity';
 
 export const BomPMProviders = [
   {
-    provide: 'BomPmRepositoryToken',
+    provide: 'BomParentRepositoryToken',
+    useFactory: (connection: Connection) => connection.getRepository(BomParent),
+    inject: ['DbConnectionToken'],
+  },
+  {
+    provide: 'BomChildRepositoryToken',
     useFactory: (connection: Connection) => connection.getRepository(BomParent),
     inject: ['DbConnectionToken'],
   },

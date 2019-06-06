@@ -20,6 +20,9 @@ export class BomChild  {
   @ManyToOne(type => BomParent, parent => parent.children)
   @JoinColumn({name: 'bomid'})
   bomid: number;
+  @OneToOne(type => BomParent,parent=>parent.id)
+  @JoinColumn({name: 'cbomid'})
+  cbomid: number;
   @Column()
   seq: string;
   @OneToOne(type => Inventory, inventory => inventory.partid)
