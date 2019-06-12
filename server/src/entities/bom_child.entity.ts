@@ -25,9 +25,9 @@ export class BomChild  {
   cbomid: number;
   @Column()
   seq: string;
-  @OneToOne(type => Inventory, inventory => inventory.partid)
-  @JoinColumn({ name: 'child', referencedColumnName: 'partid' })
-  child: Inventory;
+  @OneToOne(type => BomParent, parent => parent.id)
+  @JoinColumn({ name: 'cbomid', referencedColumnName: 'id' })
+  child: BomParent;
   @Column()
   parentqty: number;
   @Column()

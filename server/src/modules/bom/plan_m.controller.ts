@@ -4,6 +4,7 @@ import {BaseController} from '../../base';
 import {FindConditions} from 'typeorm/find-options/FindConditions';
 import { FindCondition } from 'misc/findcondition';
 import { BomParent } from 'entities/bom_parent.entity';
+import { BomBase } from 'entities/bom_base.entity';
 @Controller('/api/bom/pm')
 export class BomPMController {
   constructor(protected service: BomPMService) {
@@ -18,4 +19,9 @@ export class BomPMController {
 		// console.log(JSON.stringify(query));
 		return this.service.test(query);
 	}
+	@Get('/testb')
+	public async testb(@Query() query: FindConditions<FindCondition>): Promise<BomBase> {
+		// console.log(JSON.stringify(query));
+		return this.service.testbase(query);
+}
 }

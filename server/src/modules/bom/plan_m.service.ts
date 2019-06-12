@@ -6,14 +6,18 @@ import { FindCondition } from 'misc/findcondition';
 import { BomParent } from 'entities/bom_parent.entity';
 import { BomChild } from 'entities/bom_child.entity';
 import { Inventory } from 'entities/inventory.entity';
+import { BomBase } from 'entities/bom_base.entity';
 
 @Injectable()
 export class BomPMService {
+  i: number;
   constructor(
     @Inject('BomParentRepositoryToken')
     protected pRepository: Repository<BomParent>,
     @Inject('BomChildRepositoryToken')
-    protected cRepository: Repository<BomParent>,
+    protected cRepository: Repository<BomChild>,
+    @Inject('BomBaseRepositoryToken')
+    protected bRepository: Repository<BomBase>,
   ) {}
 
   public async find(
@@ -77,8 +81,8 @@ export class BomPMService {
       .where('pinv.cinvcode=:cond')
       .setParameters({ cond: conditions.term })
       .getOne();
-
-    parent=await this.getChildren(parent);
+    parent.qty = 2;
+    parent = await this.getChildren(parent);
     return parent;
   }
   protected async getChildren(parent: BomParent): Promise<BomParent> {
@@ -87,22 +91,64 @@ export class BomPMService {
       .relation(BomChild, 'children')
       .of(parent)
       .loadMany();
+    console.log('p:' + JSON.stringify(parent));
     parent.children.map(async c => {
+      c.parentqty = parent.qty;
       c.qty = c.unitqty * parent.qty;
       c.seq = parent.lvl + '.' + c.seq;
-
-      console.log('cbomid:'+c.seq)
-      const p: BomParent = await this.cRepository
+      // console.log('crepository:'+this.cRepository.metadata.relations.map(_=>_.joinColumns.map(_=>_.databasePath+';'+_.propertyName)));
+      // console.log('c.seq:'+c.seq)
+      let p: BomParent = await this.cRepository
         .createQueryBuilder()
-        .relation(BomParent, 'cbomid')
+        .relation(BomChild, 'child')
         .of(c)
         .loadOne();
       if (p) {
         p.lvl = c.seq;
         p.qty = c.qty;
-        await this.getChildren(p);
+        c.child = p;
+        p = await this.getChildren(p);
+        c.child = p;
+        // return p;
       }
     });
+    return parent;
+  }
+  public async testbase(
+    conditions: FindConditions<FindCondition>,
+    options?: FindOneOptions<BomBase>,
+  ): Promise<BomBase> {
+    let parent: BomBase = await this.bRepository
+      .createQueryBuilder('p')
+      .leftJoinAndSelect('p.inv', 'pinv')
+      .where('pinv.cinvcode=:cond')
+      .andWhere('p.id =0')
+      .setParameters({ cond: conditions.term })
+      .getOne();
+    parent.qty = 2;
+    this.i = 0;
+    parent = await this.getChildrenb(parent);
+    return parent;
+  }
+  protected async getChildrenb(parent: BomBase): Promise<BomBase> {
+    // console.log('p:'+JSON.stringify(parent));
+    this.i++;
+    parent.children = await this.bRepository
+      .createQueryBuilder()
+      .relation(BomBase, 'children')
+      .of(parent)
+      .loadMany();
+    console.log('p:' + JSON.stringify(parent));
+    parent.children.map(async c => {
+      // c.parentqty=parent.qty;
+      c.qty = c.unitqty * parent.qty;
+      c.lvl = parent.lvl + '.' + c.lvl;
+      if (c.bomid) await this.getChildrenb(c);
+      // c.child=p;
+      // return c;
+      // }
+    });
+    console.log('parent' + this.i + ':' + JSON.stringify(parent));
     return parent;
   }
 }
