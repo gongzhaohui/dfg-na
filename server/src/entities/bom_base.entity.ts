@@ -6,20 +6,23 @@ import {
   JoinColumn,
   OneToOne,
   ManyToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Inventory } from './inventory.entity';
 
 @Entity('dfg_na_bom_base')
 export class BomBase {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: number;
+  @Column()
+  parentbomid: number;
   @Column()
   partid: number;
   @OneToOne(type => Inventory, inventory => inventory.partid)
   @JoinColumn({ name: 'partid', referencedColumnName: 'partid' })
   inv: Inventory;
   @Column()
-  bomid: number;
+  childbomid: number;
   @Column()
   unitqty: number;
   @Column()
@@ -27,9 +30,8 @@ export class BomBase {
   @Column()
   lvl: string;
   @ManyToOne(type => BomBase, parent => parent.children)
-  @JoinColumn({ name: 'id', referencedColumnName: 'bomid' })
+  @JoinColumn({ name: 'parentbomid', referencedColumnName: 'childbomid' })
   parent: BomBase;
-  @OneToMany(type => BomBase, child => child.parent)
-  @JoinColumn({ name: 'bomid', referencedColumnName: 'id' })
+  @OneToMany(type => BomBase, children => children.parent)
   children: BomBase[];
 }

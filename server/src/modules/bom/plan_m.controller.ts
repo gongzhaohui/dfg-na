@@ -10,18 +10,13 @@ export class BomPMController {
   constructor(protected service: BomPMService) {
   }
   @Get()
-	public async find(@Query() query: FindConditions<FindCondition>): Promise<BomParent> {
+	public async find(@Query() query: FindConditions<FindCondition>): Promise<BomBase> {
 		// console.log(JSON.stringify(query));
 		return this.service.find(query);
 	}
 	@Get('/test')
-	public async test(@Query() query: FindConditions<FindCondition>): Promise<BomParent> {
-		// console.log(JSON.stringify(query));
-		return this.service.test(query);
-	}
-	@Get('/testb')
 	public async testb(@Query() query: FindConditions<FindCondition>): Promise<BomBase> {
 		// console.log(JSON.stringify(query));
-		return this.service.testbase(query);
+		return this.service.getBom(query);
 }
 }
