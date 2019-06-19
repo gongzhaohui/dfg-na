@@ -1,5 +1,6 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild, Input } from '@angular/core';
 import { NzInputDirective } from 'ng-zorro-antd';
+import { BomPlan } from 'src/app/entities/bom_plan';
 
 @Component({
   selector: 'dfg-bom-p',
@@ -7,6 +8,7 @@ import { NzInputDirective } from 'ng-zorro-antd';
   styleUrls: ['./bom-p.component.css']
 })
 export class BomPComponent implements OnInit {
+  @Input( )bom_p:BomPlan[];
   i = 0;
   editId: string | null;
   listOfData: any[] = [];

@@ -1,10 +1,12 @@
+import { Inventory } from './inventory';
+
 export class HistoryItem{
   jno:string;
   isodid:number;
   mno:string;
   moid:number;
-  cinvcode:string;
-  orderdate :Date;
+  cinvcode:Inventory;
+  ddate :Date;
+  mdate:Date;
   ccusabbname:string;
-
 }

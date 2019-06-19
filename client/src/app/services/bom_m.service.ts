@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Bom_M } from './bom_m';
+import { Bom_M } from '../entities/bom_m';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 @Injectable({

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Routing } from './routing';
+import { Routing } from '../entities/routing';
 import { Observable } from 'rxjs';
 
 @Injectable({

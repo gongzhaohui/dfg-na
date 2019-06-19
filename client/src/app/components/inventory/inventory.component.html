@@ -1,5 +1,5 @@
 <div class="wrap">
-    <div nz-row class="extra-content" [nzGutter]="16">
+    <div nz-row class="extra-content" [nzGutter]="24">
         <div nz-col nzSpan="3" class="gutter-row">
             <span class="label">存货编码</span>
             <p class="detail">{{inventory?inventory.cinvcode:""}}</p>
@@ -26,7 +26,7 @@
         </div>
         <div nz-col nzSpan="6">
             <span class="label"> 成本</span>
-            <p class="detail">$ 568.08</p>
+            <p class="detail">{{cost}}</p>
         </div>
     </div>
 </div>

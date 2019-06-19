@@ -1,4 +1,4 @@
-export class Hourrate {
+export class HourRate {
 
     period:string;
     cinvccode:string;

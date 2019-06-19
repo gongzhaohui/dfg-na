@@ -22,31 +22,30 @@
         <nz-layout>
             <nz-sider [nzWidth]="300" style="background:#fff">
                 <nz-breadcrumb>
-                    <nz-breadcrumb-item>??</nz-breadcrumb-item>
-                    <nz-breadcrumb-item>??</nz-breadcrumb-item>
-                    <nz-breadcrumb-item>??</nz-breadcrumb-item>
-                    <nz-breadcrumb-item>??</nz-breadcrumb-item>
+                    <nz-breadcrumb-item>JNo</nz-breadcrumb-item>
+                    <nz-breadcrumb-item>Mno</nz-breadcrumb-item>
+                    <nz-breadcrumb-item>存货</nz-breadcrumb-item>
+                    <nz-breadcrumb-item>订单日</nz-breadcrumb-item>
                 </nz-breadcrumb>
                 <dfg-cost-history [history]="history"></dfg-cost-history>
             </nz-sider>
             <nz-layout style="padding:0 24px 24px">
 
                 <nz-content style="background:#fff; padding: 24px;width: 100%">
-                    <span>Inventory</span>
-
+                    <span>Inventory:</span>
                     <dfg-inventory [inventory]="inventory" [hourrate]="hourRate" [cost]="cost"></dfg-inventory>
                 </nz-content>
 
                 <nz-content style="background:#fff; padding: 24px; min-height: 280px;">
-                    <span>bom-m</span>
-                    <dfg-bom-m [bom_m]="bom_m"></dfg-bom-m>
+                    <span>bom-m:</span>
+                    <dfg-bom-m [bom_m]="bom"></dfg-bom-m>
                 </nz-content>
                 <nz-content style="background:#fff; padding: 24px; min-height: 280px;">
-                    <span>bom-p</span>
+                    <span>bom-p:</span>
                     <dfg-bom-p [bom_p]="bom_p"></dfg-bom-p>
                 </nz-content>
             </nz-layout>
         </nz-layout>
     </nz-layout>
-    <nz-footer style="text-align: left;">Ant Design Â©2019 Implement By Angular</nz-footer>
+    <nz-footer style="text-align: left;">Ant Design Ã‚Â©2019 Implement By Angular</nz-footer>
 </nz-layout>

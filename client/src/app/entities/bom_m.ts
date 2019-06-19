@@ -1,14 +1,14 @@
 import { Routing } from './routing';
+import { Inventory } from './inventory';
 
 export class Bom_M{
-  bomid:number;
-  fatherid:number;
+  parentbomid:number;
+  partid:number;
   moid:number;
-  childid:number;
-  cinvcode:string;
-  cinvname:string;
-  cinvstd:string;
-  quantity :number;
+  childbomid:number;
+  inv:Inventory;
+  unitqty
+  qty :number;
   routingid:number;
   bpurchase:boolean;
   bself:boolean;

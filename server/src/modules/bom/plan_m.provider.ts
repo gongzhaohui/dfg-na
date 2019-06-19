@@ -1,12 +1,10 @@
 import { Connection } from 'typeorm';
-import { BomParent } from 'entities/bom_parent.entity';
-import { BomChild } from 'entities/bom_child.entity';
-import { BomBase } from 'entities/bom_base.entity';
+import { BomItem } from 'entities/bomitem.entity';
 
 export const BomPMProviders = [
   {
     provide: 'BomBaseRepositoryToken',
-    useFactory: (connection: Connection) => connection.getRepository(BomBase),
+    useFactory: (connection: Connection) => connection.getRepository(BomItem),
     inject: ['DbConnectionToken'],
   },
 ];

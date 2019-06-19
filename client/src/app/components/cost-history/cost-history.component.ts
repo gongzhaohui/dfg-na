@@ -1,5 +1,5 @@
 import { Component,Input } from '@angular/core';
-import { HistoryItem } from 'src/app/services/historyitem';
+import { HistoryItem } from 'src/app/entities/historyitem';
 
 @Component({
   selector: 'dfg-cost-history',

@@ -9,10 +9,11 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Inventory } from './inventory.entity';
+import { Routing } from './routing.entity';
 
 @Entity('dfg_na_bom_base')
-export class BomBase {
-  @PrimaryGeneratedColumn()
+export class BomItem {
+  @PrimaryColumn()
   id: number;
   @Column()
   parentbomid: number;
@@ -29,9 +30,12 @@ export class BomBase {
   qty: number;
   @Column()
   lvl: string;
-  @ManyToOne(type => BomBase, parent => parent.children)
+  @ManyToOne(type => BomItem, parent => parent.children)
   @JoinColumn({ name: 'parentbomid', referencedColumnName: 'childbomid' })
-  parent: BomBase;
-  @OneToMany(type => BomBase, children => children.parent)
-  children: BomBase[];
+  parent: BomItem;
+  @OneToMany(type => BomItem, children => children.parent)
+  children: BomItem[];
+  @OneToMany(type => Routing, routing => routing.bomitem)
+  @JoinColumn({ name: 'partid', referencedColumnName: 'partid' })
+  routings: Routing[];
 }

@@ -3,23 +3,22 @@ import { Repository } from 'typeorm';
 import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
 import { FindConditions } from 'typeorm/find-options/FindConditions';
 import { FindCondition } from 'misc/findcondition';
-import { BomParent } from 'entities/bom_parent.entity';
-import { BomChild } from 'entities/bom_child.entity';
 import { Inventory } from 'entities/inventory.entity';
-import { BomBase } from 'entities/bom_base.entity';
+import { BomItem } from 'entities/bomitem.entity';
+import { Routing } from 'entities/routing.entity';
 
 @Injectable()
 export class BomPMService {
   // i: number;
   constructor(
     @Inject('BomBaseRepositoryToken')
-    protected bRepository: Repository<BomBase>,
+    protected bRepository: Repository<BomItem>,
   ) {}
 
   public async find(
     conditions: FindConditions<FindCondition>,
-    options?: FindOneOptions<BomParent>,
-  ): Promise<BomBase> {
+    options?: FindOneOptions<BomItem>,
+  ): Promise<BomItem> {
     console.log('find one ' + JSON.stringify(conditions));
     // this.repository.findByIds
     const type = conditions.type;
@@ -35,7 +34,7 @@ export class BomPMService {
   }
   public async findByInv(
     conditions: FindConditions<FindCondition>,
-  ): Promise<BomBase> {
+  ): Promise<BomItem> {
     console.log('findOneByinv ' + conditions.term);
     // this.repository.findByIds
 
@@ -55,7 +54,7 @@ export class BomPMService {
 
   public async findByJno(
     conditions: FindConditions<FindCondition>,
-  ): Promise<BomBase> {
+  ): Promise<BomItem> {
     // console.log('jno:' + jno);
     const bom = await this.bRepository
       .createQueryBuilder('h')
@@ -70,13 +69,15 @@ export class BomPMService {
   
   public async getBom(
     conditions: FindConditions<FindCondition>,
-    options?: FindOneOptions<BomBase>,
-  ): Promise<BomBase> {
-    let parent: BomBase = await this.bRepository
-      .createQueryBuilder('p')
-      .leftJoinAndSelect('p.inv', 'pinv')
+    options?: FindOneOptions<BomItem>,
+  ): Promise<BomItem> {
+    let parent: BomItem = await this.bRepository
+      .createQueryBuilder('b')
+      .leftJoinAndSelect('b.inv', 'pinv')
+      .leftJoinAndSelect('b.routings','pr')
       .where('pinv.cinvcode=:cond')
-      .andWhere('p.parentbomid =0')
+      .andWhere('b.parentbomid =0')
+      .orderBy('pr.opseq')
       .setParameters({ cond: conditions.term })
       .getOne();
     // parent.qty = 2;
@@ -84,22 +85,22 @@ export class BomPMService {
 
     return parent;
   }
-  protected async getChildren(parent: BomBase): Promise<BomBase> {
+  protected async getChildren(parent: BomItem): Promise<BomItem> {
     // console.log('p:'+JSON.stringify(parent));
     
     const children = await this.bRepository
-      .createQueryBuilder('p')
+      .createQueryBuilder('b')
       .select()
-      .leftJoinAndSelect('p.inv', 'pinv')
-      .where('parentbomid=:bomid', { bomid: parent.childbomid })
-      .orderBy('id')
+      .leftJoinAndSelect('b.inv', 'pinv')
+      .leftJoinAndSelect('b.routings','pr')
+      .where('b.parentbomid=:bomid', { bomid: parent.childbomid })
+      .orderBy('b.id,pr.opseq')
       .getMany();
 
     const newChildren = children.map(async child => {
       child.qty = child.unitqty * parent.qty;
       child.lvl = parent.lvl + '.' + child.lvl;
       if (child.childbomid) {
-        // c.children=[];
         child = await this.getChildren(child);
         // console.log('c:' + JSON.stringify(c));
       }
@@ -112,4 +113,5 @@ export class BomPMService {
     return parent;
     // console.log('parent' + this.i + ':' + JSON.stringify(parent));
   }
+  
 }
