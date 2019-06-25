@@ -2,21 +2,22 @@ import { Injectable, Inject } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
 import { FindConditions } from 'typeorm/find-options/FindConditions';
-import { FindCondition } from 'misc/findcondition';
+import { SearchFindCondition } from 'misc/findcondition';
 import { Inventory } from 'entities/inventory.entity';
 import { BomItem } from 'entities/bomitem.entity';
 import { Routing } from 'entities/routing.entity';
+import { RdsIn } from 'entities/rdsin.entity';
 
 @Injectable()
-export class BomPMService {
+export class BomPlanService {
   // i: number;
   constructor(
-    @Inject('BomBaseRepositoryToken')
+    @Inject('BomPlanRepositoryToken')
     protected bRepository: Repository<BomItem>,
   ) {}
 
   public async find(
-    conditions: FindConditions<FindCondition>,
+    conditions: FindConditions<SearchFindCondition>,
     options?: FindOneOptions<BomItem>,
   ): Promise<BomItem> {
     console.log('find one ' + JSON.stringify(conditions));
@@ -33,7 +34,7 @@ export class BomPMService {
     }
   }
   public async findByInv(
-    conditions: FindConditions<FindCondition>,
+    conditions: FindConditions<SearchFindCondition>,
   ): Promise<BomItem> {
     console.log('findOneByinv ' + conditions.term);
     // this.repository.findByIds
@@ -46,14 +47,14 @@ export class BomPMService {
       .where('pinv.cinvcode=:cond')
       .setParameters({ cond: conditions.term })
       .getOne();
-    console.log('parent:' + JSON.stringify(parent));
+    // console.log('parent:' + JSON.stringify(parent));
 
     return parent;
     // return this.repository.findOne(id);
   }
 
   public async findByJno(
-    conditions: FindConditions<FindCondition>,
+    conditions: FindConditions<SearchFindCondition>,
   ): Promise<BomItem> {
     // console.log('jno:' + jno);
     const bom = await this.bRepository
@@ -68,20 +69,21 @@ export class BomPMService {
 
   
   public async getBom(
-    conditions: FindConditions<FindCondition>,
+    conditions: FindConditions<SearchFindCondition>,
     options?: FindOneOptions<BomItem>,
   ): Promise<BomItem> {
     let parent: BomItem = await this.bRepository
       .createQueryBuilder('b')
       .leftJoinAndSelect('b.inv', 'pinv')
       .leftJoinAndSelect('b.routings','pr')
+      .leftJoinAndSelect('pinv.rdsins','rds')
       .where('pinv.cinvcode=:cond')
       .andWhere('b.parentbomid =0')
       .orderBy('pr.opseq')
       .setParameters({ cond: conditions.term })
       .getOne();
     // parent.qty = 2;
-    parent = await this.getChildren(parent);
+    if (parent && parent.childbomid) {parent = await this.getChildren(parent);}
 
     return parent;
   }
@@ -93,6 +95,7 @@ export class BomPMService {
       .select()
       .leftJoinAndSelect('b.inv', 'pinv')
       .leftJoinAndSelect('b.routings','pr')
+      .leftJoinAndSelect('pinv.rdsins','rds','rn < 11')
       .where('b.parentbomid=:bomid', { bomid: parent.childbomid })
       .orderBy('b.id,pr.opseq')
       .getMany();

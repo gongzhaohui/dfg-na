@@ -1,3 +1,5 @@
+import { Rdsin } from './rdsin';
+
 export class Inventory{
 
   cinvcode:string;
@@ -7,4 +9,7 @@ export class Inventory{
   cinvname:string;
   cinvcname:string;
   partid :number;
+  unitcost?:number;
+  isbuying:boolean;
+  rdsind:Rdsin[];
 }

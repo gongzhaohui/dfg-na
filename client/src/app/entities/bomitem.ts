@@ -1,7 +1,7 @@
 import { Routing } from './routing';
 import { Inventory } from './inventory';
 
-export class BomPlan {
+export class BomItem {
   parentbomid: number;
   partid: number;
   moid: number;
@@ -11,6 +11,6 @@ export class BomPlan {
   qty: number;
   lvl: string;
   routings?: Routing[];
-  children?: BomPlan[];
+  children?: BomItem[];
   expend:boolean=false;
 }

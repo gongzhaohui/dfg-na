@@ -1,0 +1,323 @@
+[{
+        "expend": false,
+        "id": "1000042934",
+        "parentbomid": 0,
+        "partid": 339321,
+        "childbomid": 1000042934,
+        "unitqty": 1,
+        "qty": 1,
+        "lvl": "1",
+        "inv": {
+            "cinvcode": "HSK-A63-HRG13-105-12",
+            "cinvccode": "30100003",
+            "cinvstd": "2509YH080",
+            "cinvname": "弹簧夹套刀柄",
+            "cinvaddcode": "HSK-A63-HRG13-105-12",
+            "cinvcname": "无刃刀柄",
+            "partid": 339321,
+            "unitcost": null,
+            "isbuying": false
+        },
+        "routings": [{
+                "id": 1000430616,
+                "partid": 339321,
+                "opseq": "0010",
+                "opname": "激光打字",
+                "remark": "",
+                "resqty": 5
+            },
+            {
+                "id": 1000430617,
+                "partid": 339321,
+                "opseq": "0020",
+                "opname": "刀柄检查",
+                "remark": "",
+                "resqty": 20
+            },
+            {
+                "id": 1000430618,
+                "partid": 339321,
+                "opseq": "0030",
+                "opname": "刀柄装配",
+                "remark": "",
+                "resqty": 30
+            }
+        ]
+    },
+    {
+        "expend": false,
+        "id": "1",
+        "parentbomid": 1000042934,
+        "partid": 339751,
+        "childbomid": 1000043011,
+        "unitqty": 1,
+        "qty": 1,
+        "lvl": "1.1",
+        "inv": {
+            "cinvcode": "2509YH080-01",
+            "cinvccode": "400003",
+            "cinvstd": "2509YH080-01",
+            "cinvname": "本体",
+            "cinvaddcode": null,
+            "cinvcname": "在产品没有加工刃的各种刀柄",
+            "partid": 339751,
+            "unitcost": null,
+            "isbuying": false
+        },
+        "routings": [{
+                "id": 1000430604,
+                "partid": 339751,
+                "opseq": "0010",
+                "opname": "锯",
+                "remark": "",
+                "resqty": 5
+            },
+            {
+                "id": 1000430605,
+                "partid": 339751,
+                "opseq": "0020",
+                "opname": "NC车床",
+                "remark": "",
+                "resqty": 60
+            },
+            {
+                "id": 1000430606,
+                "partid": 339751,
+                "opseq": "0021",
+                "opname": "车铣复合加工",
+                "remark": "",
+                "resqty": 60
+            },
+            {
+                "id": 1000430607,
+                "partid": 339751,
+                "opseq": "0022",
+                "opname": "车",
+                "remark": "",
+                "resqty": 20
+            },
+            {
+                "id": 1000430608,
+                "partid": 339751,
+                "opseq": "0040",
+                "opname": "热处理",
+                "remark": "真空淬火",
+                "resqty": 1
+            },
+            {
+                "id": 1000430609,
+                "partid": 339751,
+                "opseq": "0050",
+                "opname": "刀柄万磨",
+                "remark": "",
+                "resqty": 60
+            },
+            {
+                "id": 1000430610,
+                "partid": 339751,
+                "opseq": "0060",
+                "opname": "刀柄万磨",
+                "remark": "",
+                "resqty": 30
+            },
+            {
+                "id": 1000430611,
+                "partid": 339751,
+                "opseq": "0070",
+                "opname": "刀柄万磨",
+                "remark": "",
+                "resqty": 25
+            },
+            {
+                "id": 1000430612,
+                "partid": 339751,
+                "opseq": "0090",
+                "opname": "刀柄内磨",
+                "remark": "",
+                "resqty": 40
+            },
+            {
+                "id": 1000430613,
+                "partid": 339751,
+                "opseq": "0100",
+                "opname": "车铣复合加工",
+                "remark": "",
+                "resqty": 30
+            },
+            {
+                "id": 1000430614,
+                "partid": 339751,
+                "opseq": "0110",
+                "opname": "刀柄加工中心",
+                "remark": "",
+                "resqty": 20
+            },
+            {
+                "id": 1000430615,
+                "partid": 339751,
+                "opseq": "0120",
+                "opname": "螺纹磨",
+                "remark": "到集合架",
+                "resqty": 35
+            }
+        ]
+    },
+    {
+        "expend": false,
+        "id": "1",
+        "parentbomid": 1000043011,
+        "partid": 129522,
+        "childbomid": null,
+        "unitqty": 134,
+        "qty": 134,
+        "lvl": "1.1.1",
+        "inv": {
+            "cinvcode": "50081",
+            "cinvccode": "101004",
+            "cinvstd": "ф70",
+            "cinvname": "圆42CrMo",
+            "cinvaddcode": "ф70",
+            "cinvcname": "42CrMo",
+            "partid": 129522,
+            "unitcost": 0.2124548071838,
+            "isbuying": true
+        },
+        "routings": []
+    },
+    {
+        "expend": false,
+        "id": "2",
+        "parentbomid": 1000042934,
+        "partid": 339752,
+        "childbomid": 1000043012,
+        "unitqty": 1,
+        "qty": 1,
+        "lvl": "1.2",
+        "inv": {
+            "cinvcode": "2509YH080-02",
+            "cinvccode": "400003",
+            "cinvstd": "2509YH080-02",
+            "cinvname": "调整螺钉",
+            "cinvaddcode": null,
+            "cinvcname": "在产品没有加工刃的各种刀柄",
+            "partid": 339752,
+            "unitcost": null,
+            "isbuying": false
+        },
+        "routings": [{
+                "id": 1000430598,
+                "partid": 339752,
+                "opseq": "0010",
+                "opname": "锯",
+                "remark": "",
+                "resqty": 3
+            },
+            {
+                "id": 1000430599,
+                "partid": 339752,
+                "opseq": "0020",
+                "opname": "车",
+                "remark": "右加工艺脐子20长",
+                "resqty": 20
+            },
+            {
+                "id": 1000430600,
+                "partid": 339752,
+                "opseq": "0030",
+                "opname": "铣-部品",
+                "remark": "",
+                "resqty": 25
+            },
+            {
+                "id": 1000430601,
+                "partid": 339752,
+                "opseq": "0040",
+                "opname": "车",
+                "remark": "去脐子",
+                "resqty": 15
+            },
+            {
+                "id": 1000430602,
+                "partid": 339752,
+                "opseq": "0050",
+                "opname": "电火花",
+                "remark": "",
+                "resqty": 15
+            },
+            {
+                "id": 1000430603,
+                "partid": 339752,
+                "opseq": "0060",
+                "opname": "热处理",
+                "remark": "到集合架",
+                "resqty": 1
+            }
+        ]
+    },
+    {
+        "expend": false,
+        "id": "1",
+        "parentbomid": 1000043012,
+        "partid": 129516,
+        "childbomid": null,
+        "unitqty": 40,
+        "qty": 40,
+        "lvl": "1.2.1",
+        "inv": {
+            "cinvcode": "50074",
+            "cinvccode": "101004",
+            "cinvstd": "ф20",
+            "cinvname": "圆42CrMo",
+            "cinvaddcode": "20",
+            "cinvcname": "42CrMo",
+            "partid": 129516,
+            "unitcost": 0.0189316925501,
+            "isbuying": true
+        },
+        "routings": []
+    },
+    {
+        "expend": false,
+        "id": "3",
+        "parentbomid": 1000042934,
+        "partid": 134960,
+        "childbomid": null,
+        "unitqty": 1,
+        "qty": 1,
+        "lvl": "1.3",
+        "inv": {
+            "cinvcode": "LM017",
+            "cinvccode": "216008",
+            "cinvstd": "HRG-22N",
+            "cinvname": "螺母",
+            "cinvaddcode": null,
+            "cinvcname": "螺母",
+            "partid": 134960,
+            "unitcost": 286.2587142857142,
+            "isbuying": true
+        },
+        "routings": []
+    },
+    {
+        "expend": false,
+        "id": "4",
+        "parentbomid": 1000042934,
+        "partid": 131660,
+        "childbomid": null,
+        "unitqty": 1,
+        "qty": 1,
+        "lvl": "1.4",
+        "inv": {
+            "cinvcode": "CCDL0413",
+            "cinvccode": "2162Ji0201",
+            "cinvstd": "4949.18.063",
+            "cinvname": "水管",
+            "cinvaddcode": "4949.18.063",
+            "cinvcname": "水管",
+            "partid": 131660,
+            "unitcost": 74.92736,
+            "isbuying": true
+        },
+        "routings": []
+    }
+]

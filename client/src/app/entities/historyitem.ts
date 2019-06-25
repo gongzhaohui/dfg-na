@@ -5,7 +5,7 @@ export class HistoryItem{
   isodid:number;
   mno:string;
   moid:number;
-  cinvcode:Inventory;
+  inventory:Inventory;
   ddate :Date;
   mdate:Date;
   ccusabbname:string;

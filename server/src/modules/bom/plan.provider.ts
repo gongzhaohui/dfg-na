@@ -1,9 +1,9 @@
 import { Connection } from 'typeorm';
 import { BomItem } from 'entities/bomitem.entity';
 
-export const BomPMProviders = [
+export const BomPlanProviders = [
   {
-    provide: 'BomBaseRepositoryToken',
+    provide: 'BomPlanRepositoryToken',
     useFactory: (connection: Connection) => connection.getRepository(BomItem),
     inject: ['DbConnectionToken'],
   },

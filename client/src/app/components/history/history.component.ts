@@ -3,8 +3,9 @@ import { HistoryItem } from 'src/app/entities/historyitem';
 
 @Component({
   selector: 'dfg-cost-history',
-  templateUrl: './cost-history.component.html'
+  templateUrl: './history.component.html',
+  styleUrls:['./history.component.css'],
 })
-export class CostHistoryComponent {
+export class HistoryComponent {
   @Input() history:HistoryItem[];
 }

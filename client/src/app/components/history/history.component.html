@@ -1,0 +1,14 @@
+<ul nz-menu *ngFor="let item of history; let i=index" style="height:100%">
+
+    <i nz-icon nzType="caret-right" nzTheme="outline"></i>
+    <li nz-menu-item>
+        <a>
+            <nz-breadcrumb>
+                <nz-breadcrumb-item>{{item.jno}}</nz-breadcrumb-item>
+                <nz-breadcrumb-item>{{item.ddate|date:'yyyy-MM-dd'}}</nz-breadcrumb-item>
+            </nz-breadcrumb>
+        </a>
+    </li>
+
+
+</ul>

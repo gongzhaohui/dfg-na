@@ -21,3 +21,13 @@
 nz-page-header {
     border: 1px solid rgb(235, 237, 240);
 }
+
+.bom-table-title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.bom-table-title:first-child {
+    align-self: center;
+}

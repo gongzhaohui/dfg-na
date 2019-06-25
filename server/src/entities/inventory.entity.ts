@@ -1,4 +1,6 @@
-import { Entity, Column,  PrimaryColumn } from 'typeorm';
+import { Entity, Column,  PrimaryColumn, ManyToOne, OneToMany, JoinColumn } from 'typeorm';
+import { RdsIn } from './rdsin.entity';
+import { type } from 'os';
 // import { SupperEntity } from '../base';
 
 @Entity('dfg_na_inventory')
@@ -18,4 +20,11 @@ cinvaddcode: string;
 cinvcname: string;
 @Column({type: 'int',  name: 'partid'})
 partid: number;
+@Column({type: 'float',  name: 'unitcost'})
+unitcost: number;
+@Column({type: 'bit',  name: 'isbuying'})
+isbuying: number;
+@OneToMany(type=>RdsIn,rdsin=>rdsin.inv)
+@JoinColumn({ name: 'cinvcode', referencedColumnName: 'cinvcode' })
+rdsins:RdsIn[]
 }

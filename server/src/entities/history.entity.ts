@@ -18,7 +18,7 @@ export class History {
   @OneToOne(type => Inventory)
   @JoinColumn({name:'cinvcode'})
   inventory: Inventory;
-  @Column({ type: 'int'})
+  @Column({ type: 'float'})
   qty: number;
   @Column({ type: 'smalldatetime', name: 'ddate' })
   ddate: number;

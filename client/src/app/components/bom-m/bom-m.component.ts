@@ -9,7 +9,7 @@ import {
   SimpleChange
 } from '@angular/core';
 // import { Bom } from 'src/app/entities/bom_m';
-import { BomPlan } from 'src/app/entities/bom_plan';
+import { BomItem } from 'src/app/entities/bomitem';
 import { NzTableComponent } from 'ng-zorro-antd';
 
 @Component({
@@ -17,20 +17,19 @@ import { NzTableComponent } from 'ng-zorro-antd';
   templateUrl: './bom-m.component.html'
 })
 export class BomMComponent implements OnInit, AfterViewInit, AfterContentInit {
-  @Input() bom_m: BomPlan[] ;
+  @Input() bom: BomItem[]=[];
 
   @ViewChild('nestedTable')
   tabComp: NzTableComponent;
 
   ngOnInit(): void {
-    console.log('bom-data:' + JSON.stringify(this.bom_m));
+    this.bom=[];
+    // console.log('bom-data:' + JSON.stringify(this.bom_m));
   }
-  ngAfterContentInit(): void {
-
-  }
+  ngAfterContentInit(): void {}
   ngAfterViewInit(): void {
-      this.tabComp.data=this.bom_m;
-    }
+    this.tabComp.data = this.bom;
+  }
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
     let log: string[] = [];
@@ -44,6 +43,6 @@ export class BomMComponent implements OnInit, AfterViewInit, AfterContentInit {
         log.push(`${propName} changed from ${from} to ${to}`);
       }
     }
-    console.log(log.join(', '));
- }
+    // console.log(log.join(', '));
+  }
 }

@@ -3,13 +3,13 @@ import { HistoryService } from './history.service';
 import {History} from '../../entities/History.entity';
 import {BaseController} from '../../base';
 import {FindConditions} from 'typeorm/find-options/FindConditions';
-import { FindCondition } from 'misc/findcondition';
+import { SearchFindCondition } from 'misc/findcondition';
 @Controller('/api/history')
 export class HistoryController {
   constructor(protected service: HistoryService) {
   }
   @Get()
-	public async find(@Query() query: FindConditions<FindCondition>): Promise<History[]> {
+	public async find(@Query() query: FindConditions<SearchFindCondition>): Promise<History[]> {
 		// console.log(JSON.stringify(query));
 		return this.service.find(query);
 	}

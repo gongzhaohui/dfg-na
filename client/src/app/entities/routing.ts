@@ -1,7 +1,9 @@
 export class Routing{
-  routingid:number;
-  routingdid:number;
+  id:number;
+  partid:number;
   opseq:string;
   opcode:string;
-  hour:number;
+  opname:string;
+  remark:string;
+  resqty:number;
 }

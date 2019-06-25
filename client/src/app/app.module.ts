@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import { CostHistoryComponent } from './components/cost-history/cost-history.component';
+import { HistoryComponent } from './components/history/history.component';
 import { BomMComponent } from './components/bom-m/bom-m.component';
 import { BomPComponent } from './components/bom-p/bom-p.component';
 import {InventoryComponent} from './components/inventory/inventory.component';
@@ -20,7 +20,7 @@ registerLocaleData(zh);
 @NgModule({
   declarations: [
     AppComponent,
-    CostHistoryComponent,
+    HistoryComponent,
     BomMComponent,
     BomPComponent,
     InventoryComponent,

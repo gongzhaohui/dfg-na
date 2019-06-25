@@ -8,7 +8,8 @@ import { SearchModule } from './modules/search/search.module';
 import { InventoryModule } from './modules/inventory/inventory.module';
 import { DatabaseModule } from 'modules/database/database.module';
 import { HistoryModule } from 'modules/history/history.module';
-import { BomPMModule } from 'modules/bom/plan_m.module';
+import { BomPlanModule } from 'modules/bom/plan.module';
+import { HourRateModule } from 'modules/hourrate/hourrate.module';
 @Module({
   imports: [
     DatabaseModule,
@@ -16,7 +17,8 @@ import { BomPMModule } from 'modules/bom/plan_m.module';
     SearchModule,
     InventoryModule,
     HistoryModule,
-    BomPMModule,
+    BomPlanModule,
+    HourRateModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -4,7 +4,7 @@ import { BaseService, SupperEntity } from '../../base';
 import { History } from '../../entities/history.entity';
 import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
 import { FindConditions } from 'typeorm/find-options/FindConditions';
-import { FindCondition } from 'misc/findcondition';
+import { SearchFindCondition } from 'misc/findcondition';
 
 @Injectable()
 export class HistoryService {
@@ -14,10 +14,10 @@ export class HistoryService {
   ) {}
 
   public async find(
-    conditions: FindConditions<FindCondition>,
+    conditions: FindConditions<SearchFindCondition>,
     options?: FindOneOptions<History>,
   ): Promise<History[]> {
-    console.log('find one ' + JSON.stringify(conditions));
+    // console.log('find one ' + JSON.stringify(conditions));
     // this.repository.findByIds
     const type = conditions.type;
     console.log('type:' + type);
@@ -32,16 +32,16 @@ export class HistoryService {
     }
   }
   public async findByInv(
-    conditions: FindConditions<FindCondition>,
+    conditions: FindConditions<SearchFindCondition>,
   ): Promise<History[]> {
-    console.log('findOneById ' + conditions.term);
+    // console.log('findOneById ' + conditions.term);
     // this.repository.findByIds
-    console.log(
-      'repository:' +
-        JSON.stringify(
-          this.repository.metadata.columns.map(_ => _.propertyAliasName),
-        ),
-    );
+    // console.log(
+    //   'repository:' +
+    //     JSON.stringify(
+    //       this.repository.metadata.columns.map(_ => _.propertyAliasName),
+    //     ),
+    // );
     const history = this.repository
       .createQueryBuilder('h')
       .leftJoinAndSelect('h.inventory', 'inventory')
@@ -54,7 +54,7 @@ export class HistoryService {
   }
 
   public async findByJno(
-    conditions: FindConditions<FindCondition>,
+    conditions: FindConditions<SearchFindCondition>,
   ): Promise<History[]> {
     // console.log('jno:' + jno);
     const history = this.repository

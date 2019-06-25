@@ -4,7 +4,7 @@ import { BaseService, SupperEntity } from '../../base';
 import { Inventory } from '../../entities/inventory.entity';
 import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
 import { FindConditions } from 'typeorm/find-options/FindConditions';
-import { FindCondition } from 'misc/findcondition';
+import { SearchFindCondition } from 'misc/findcondition';
 
 @Injectable()
 export class InventoryService {
@@ -13,7 +13,7 @@ export class InventoryService {
     protected repository: Repository<Inventory>,
   ) {}
   public async findOne(
-    conditions: FindConditions<FindCondition>,
+    conditions: FindConditions<SearchFindCondition>,
     options?: FindOneOptions<Inventory>,
   ): Promise<Inventory> {
     console.log('find one ' + JSON.stringify(conditions));
@@ -31,7 +31,7 @@ export class InventoryService {
     }
   }
   public async findOneById(
-    conditions: FindConditions<FindCondition>,
+    conditions: FindConditions<SearchFindCondition>,
   ): Promise<Inventory> {
     console.log('findOneById ' + conditions.term);
     // this.repository.findByIds
@@ -48,7 +48,7 @@ export class InventoryService {
   }
 
   public async findOneByJno(
-    conditions: FindConditions<FindCondition>,
+    conditions: FindConditions<SearchFindCondition>,
   ): Promise<Inventory> {
     // console.log('jno:' + jno);
     const inventory = this.repository

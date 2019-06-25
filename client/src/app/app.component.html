@@ -11,9 +11,9 @@
         <nz-content>
             <!-- <dfg-cost-search></dfg-cost-search> -->
             <nz-radio-group [(ngModel)]="searchType" nzName="radiogroup">
-                <label nz-radio nzValue="cinvcode">Inv</label>
-                <label nz-radio nzValue="jno">Jno</label>
-                <label nz-radio nzValue="mno">Mno</label>
+                <label nz-radio nzValue="cinvcode">存货</label>
+                <label nz-radio nzValue="jno">销售订单</label>
+                <label nz-radio nzValue="mno">生产订单</label>
             </nz-radio-group>
             <input type="text" nz-input [(ngModel)]="term" placeholder="input search text" />
             <button nz-button nzType="primary" nzSearch (click)="Search()"><i nz-icon type="search"></i></button>
@@ -21,31 +21,32 @@
         </nz-content>
         <nz-layout>
             <nz-sider [nzWidth]="300" style="background:#fff">
-                <nz-breadcrumb>
-                    <nz-breadcrumb-item>JNo</nz-breadcrumb-item>
-                    <nz-breadcrumb-item>Mno</nz-breadcrumb-item>
-                    <nz-breadcrumb-item>存货</nz-breadcrumb-item>
-                    <nz-breadcrumb-item>订单日</nz-breadcrumb-item>
-                </nz-breadcrumb>
+                <span title>订单履历</span>
                 <dfg-cost-history [history]="history"></dfg-cost-history>
             </nz-sider>
             <nz-layout style="padding:0 24px 24px">
 
                 <nz-content style="background:#fff; padding: 24px;width: 100%">
-                    <span>Inventory:</span>
+                    <span>存货信息:</span>
                     <dfg-inventory [inventory]="inventory" [hourrate]="hourRate" [cost]="cost"></dfg-inventory>
                 </nz-content>
 
                 <nz-content style="background:#fff; padding: 24px; min-height: 280px;">
-                    <span>bom-m:</span>
-                    <dfg-bom-m [bom_m]="bom"></dfg-bom-m>
+                    <div class='bom-table-title'>
+                        <span>制作件:</span>
+                        <span>工时费：{{cost_m|currency:'CNY':'symbol-narrow'}}</span>
+                    </div>
+                    <dfg-bom-m [bom]="bom_m"></dfg-bom-m>
                 </nz-content>
                 <nz-content style="background:#fff; padding: 24px; min-height: 280px;">
-                    <span>bom-p:</span>
-                    <dfg-bom-p [bom_p]="bom_p"></dfg-bom-p>
+                    <div class='bom-table-title'>
+                        <span>外购件:</span>
+                        <span>外购费：{{cost_p|currency:'CNY':'symbol-narrow'}}</span>
+                    </div>
+                    <dfg-bom-p [bom]="bom_p"></dfg-bom-p>
                 </nz-content>
             </nz-layout>
         </nz-layout>
     </nz-layout>
-    <nz-footer style="text-align: left;">Ant Design Ã‚Â©2019 Implement By Angular</nz-footer>
+    <nz-footer #message style="text-align: left;">{{mess}}</nz-footer>
 </nz-layout>
