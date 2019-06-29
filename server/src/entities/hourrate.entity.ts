@@ -10,5 +10,4 @@ export class HourRate{
   period:string;
   @Column()
   hourrate:number;
-  
 }

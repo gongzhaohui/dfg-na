@@ -6,4 +6,5 @@ export class Routing{
   opname:string;
   remark:string;
   resqty:number;
+  amount?:number;
 }

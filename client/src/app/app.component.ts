@@ -1,8 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+  Renderer
+} from '@angular/core';
 import { HistoryService } from './services/history.service';
 import { HistoryItem } from './entities/historyitem';
 import { Inventory } from './entities/inventory';
-import { Rdsin } from './entities/rdsin';
 import { HourRateService } from './services/hourrate.service';
 import { HourRate } from './entities/hourrate';
 import { PeriodService } from './services/period.service';
@@ -15,7 +21,7 @@ import { concatMap, mergeMap } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'DFG NA';
   searchType = 'cinvcode';
   term = '';
@@ -28,9 +34,11 @@ export class AppComponent implements OnInit {
   bom_p: BomItem[];
   hourRate: HourRate;
   period: string;
-  cost: number ;
+  cost: number;
   cost_m: number;
   cost_p: number;
+  @ViewChild('invcode')
+  invcodeElement: ElementRef;
 
   constructor(
     // private iService: InventoryService,
@@ -38,10 +46,19 @@ export class AppComponent implements OnInit {
     // private rService: RdsinService,
     private hrService: HourRateService,
     private pService: PeriodService,
-    private bomPlanService: BomPlanService
+    private bomPlanService: BomPlanService,
+    private renderer: Renderer
   ) {}
   ngOnInit(): void {
     this.period = this.pService.GetPeriod(new Date());
+  }
+  ngAfterViewInit(): void {
+    this.invcodeElement.nativeElement.focus();
+    // console.log('avi:'+JSON.stringify(this.invcodeElement));
+    // this.renderer.invokeElementMethod(this.invcodeElement,'focus');
+  }
+  onInvcodeFocus(): void {
+    this.invcodeElement.nativeElement.select();
   }
   Search() {
     // this.GetInventory();
@@ -98,6 +115,7 @@ export class AppComponent implements OnInit {
     this.cost_m = 0;
     this.bom_m.forEach((b, i) => {
       b.routings.forEach((r, i) => {
+        r.amount=(r.resqty / 60) * this.hourRate.hourrate;
         this.cost_m += (r.resqty / 60) * this.hourRate.hourrate;
         // console.log(r.routingdid+'.hour:'+JSON.stringify(r));
       });
@@ -105,6 +123,7 @@ export class AppComponent implements OnInit {
     });
     this.cost_p = 0;
     this.bom_p.forEach((v, i) => {
+      v.amount=v.qty * v.inv.unitcost;
       this.cost_p += v.qty * v.inv.unitcost;
     });
     this.cost = this.cost_m + this.cost_p;

@@ -12,5 +12,6 @@ export class BomItem {
   lvl: string;
   routings?: Routing[];
   children?: BomItem[];
+  amount?:number;
   expend:boolean=false;
 }

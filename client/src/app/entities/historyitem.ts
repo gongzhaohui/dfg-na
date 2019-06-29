@@ -9,4 +9,5 @@ export class HistoryItem{
   ddate :Date;
   mdate:Date;
   ccusabbname:string;
+  sounitprice:number;
 }

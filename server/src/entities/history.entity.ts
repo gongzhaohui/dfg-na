@@ -20,6 +20,8 @@ export class History {
   inventory: Inventory;
   @Column({ type: 'float'})
   qty: number;
+  @Column({ type: 'float'})
+  sounitprice: number;
   @Column({ type: 'smalldatetime', name: 'ddate' })
   ddate: number;
   @Column({ type: 'smalldatetime', name: 'mdate' })

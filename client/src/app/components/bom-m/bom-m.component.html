@@ -30,6 +30,7 @@
                                 <th>工序</th>
                                 <th>说明</th>
                                 <th>工时</th>
+                                <th>工时费</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,6 +39,7 @@
                                 <td>{{ data.opname }}</td>
                                 <td>{{ data.remark }}</td>
                                 <td>{{ data.resqty }}</td>
+                                <td>{{ data.amount |currency:'CNY':'symbol-narrow' }}</td>
                             </tr>
                         </tbody>
                     </nz-table>

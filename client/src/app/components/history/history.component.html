@@ -5,10 +5,9 @@
         <a>
             <nz-breadcrumb>
                 <nz-breadcrumb-item>{{item.jno}}</nz-breadcrumb-item>
-                <nz-breadcrumb-item>{{item.ddate|date:'yyyy-MM-dd'}}</nz-breadcrumb-item>
+                <nz-breadcrumb-item>{{item.sounitprice|currency:'CNY':'symbol-narrow'}}</nz-breadcrumb-item>
+                <nz-breadcrumb-item>{{item.ddate|date:'yy-MM-dd'}}</nz-breadcrumb-item>
             </nz-breadcrumb>
         </a>
     </li>
-
-
 </ul>

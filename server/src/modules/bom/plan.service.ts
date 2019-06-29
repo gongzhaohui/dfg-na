@@ -3,10 +3,7 @@ import { Repository } from 'typeorm';
 import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
 import { FindConditions } from 'typeorm/find-options/FindConditions';
 import { SearchFindCondition } from 'misc/findcondition';
-import { Inventory } from 'entities/inventory.entity';
 import { BomItem } from 'entities/bomitem.entity';
-import { Routing } from 'entities/routing.entity';
-import { RdsIn } from 'entities/rdsin.entity';
 
 @Injectable()
 export class BomPlanService {
@@ -20,10 +17,7 @@ export class BomPlanService {
     conditions: FindConditions<SearchFindCondition>,
     options?: FindOneOptions<BomItem>,
   ): Promise<BomItem> {
-    console.log('find one ' + JSON.stringify(conditions));
-    // this.repository.findByIds
     const type = conditions.type;
-    console.log('type:' + type);
     switch (type) {
       case 'jno':
         return this.findByJno(conditions);

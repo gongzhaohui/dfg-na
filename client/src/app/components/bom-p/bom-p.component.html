@@ -8,6 +8,7 @@
             <th>存货代码</th>
             <th>数量</th>
             <th>单价</th>
+            <th>金额</th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
                 <td>{{ data.inv.cinvaddcode }}</td>
                 <td>{{ data.qty }}</td>
                 <td>{{ data.inv.unitcost|currency:'CNY':'symbol-narrow' }}</td>
+                <td>{{ data.amount|currency:'CNY':'symbol-narrow' }}</td>
             </tr>
             <tr [nzExpand]="data.expand">
                 <td></td>
