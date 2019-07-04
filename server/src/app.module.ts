@@ -13,10 +13,10 @@ import { HourRateModule } from 'modules/hourrate/hourrate.module';
 @Module({
   imports: [
     DatabaseModule,
+    HistoryModule,
     SoModule,
     SearchModule,
     InventoryModule,
-    HistoryModule,
     BomPlanModule,
     HourRateModule,
   ],

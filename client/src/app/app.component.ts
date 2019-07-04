@@ -15,6 +15,8 @@ import { PeriodService } from './services/period.service';
 import { BomItem } from './entities/bomitem';
 import { BomPlanService } from './services/bom_plan.service';
 import { concatMap, mergeMap } from 'rxjs/operators';
+import { NzNotificationService } from 'ng-zorro-antd';
+
 
 @Component({
   selector: 'app-root',
@@ -47,7 +49,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     private hrService: HourRateService,
     private pService: PeriodService,
     private bomPlanService: BomPlanService,
-    private renderer: Renderer
+    private renderer: Renderer,
+    private notiSvr:NzNotificationService,
   ) {}
   ngOnInit(): void {
     this.period = this.pService.GetPeriod(new Date());
@@ -64,7 +67,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     // this.GetInventory();
     this.bom = [];
     this.history = [];
+    // this.notiSvr=new NzNotificationService();
     this.mess = '数据查询中...';
+    this.notiSvr.info('status','数据查询中...');
     this.GetHistory();
     this.GetBomPlan();
     // this.GetBom();
@@ -72,12 +77,16 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
   GetBomPlan() {
     this.mess = 'BOM数据查询中...';
+    this.notiSvr.info('status','BOM数据查询中。。。');
     this.bomPlanService
       .GetManufactureBom(this.searchType, this.term)
       .pipe(
         concatMap((bp, i) => {
           this.mess = 'BOM数据查询完成。';
-          this.inventory = bp.inv;
+          this.notiSvr.info('status','BOM数据查询完成。');
+          if(bp && bp.inv)
+          {
+            this.inventory = bp.inv;
           this.bom = [];
 
           this.getChildren(bp);
@@ -96,14 +105,21 @@ export class AppComponent implements OnInit, AfterViewInit {
 
           // console.log('bom_p:' + JSON.stringify(this.bom_p));
           this.mess = '小时单价查询中...';
+          this.notiSvr.info('status','小时单价查询中。。。');
           return this.hrService.GetHourrate(
             this.inventory.cinvccode.substr(0, 6),
             this.period
           );
+        }else
+        {
+          this.notiSvr.warning('status','未查询到有效BOM。');
+          return [];
+        }
         })
       )
       .subscribe(hr => {
         this.mess = '小时单价完成。';
+        this.notiSvr.info('status','小时单价查询完成。');
         this.hourRate = hr;
         // console.log('hr:'+JSON.stringify(this.hourRate));
         this.CalcCost();
@@ -112,6 +128,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
   CalcCost() {
     this.mess = '成本计算中...';
+    this.notiSvr.info('status','成本计算中。。。');
     this.cost_m = 0;
     this.bom_m.forEach((b, i) => {
       b.routings.forEach((r, i) => {
@@ -128,6 +145,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
     this.cost = this.cost_m + this.cost_p;
     this.mess = '数据查询完成.';
+    this.notiSvr.info('status','查询完成。');
   }
   getChildren(parent: BomItem) {
     let child = new BomItem();
@@ -145,7 +163,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   GetHistory() {
+    this.notiSvr.info('status','历史记录查询中。。。');
     this.hService.GetHistory(this.searchType, this.term).subscribe(h => {
+      this.notiSvr.info('status','历史记录查询完成。');
       this.history = h;
       // console.log('his:' + JSON.stringify(this.history));
     });

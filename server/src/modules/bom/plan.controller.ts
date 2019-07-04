@@ -16,6 +16,6 @@ export class BomPlanController {
 	@Get()
 	public async getBom(@Query() query: FindConditions<SearchFindCondition>): Promise<BomItem> {
 		// console.log(JSON.stringify(query));
-		return this.service.getBom(query);
+		return this.service.find(query);
 }
 }

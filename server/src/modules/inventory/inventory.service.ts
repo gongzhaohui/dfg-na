@@ -1,6 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Repository, FindOperator } from 'typeorm';
-import { BaseService, SupperEntity } from '../../base';
 import { Inventory } from '../../entities/inventory.entity';
 import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
 import { FindConditions } from 'typeorm/find-options/FindConditions';
@@ -24,7 +23,7 @@ export class InventoryService {
       case 'jno':
         return this.findOneByJno(conditions);
       case 'mno':
-        return this.findOneByJno(conditions);
+        return this.findOneByMno(conditions);
 
       default:
         return this.findOneById(conditions);
@@ -33,9 +32,9 @@ export class InventoryService {
   public async findOneById(
     conditions: FindConditions<SearchFindCondition>,
   ): Promise<Inventory> {
-    console.log('findOneById ' + conditions.term);
-    // this.repository.findByIds
-    console.log('repository:'+JSON.stringify (this.repository.metadata.columns.map(_=>_.propertyAliasName)));
+    // console.log('findOneById ' + conditions.term);
+    // // this.repository.findByIds
+    // console.log('repository:'+JSON.stringify (this.repository.metadata.columns.map(_=>_.propertyAliasName)));
     const inventory = this.repository
       .createQueryBuilder('inventory')
       .select()
@@ -48,6 +47,19 @@ export class InventoryService {
   }
 
   public async findOneByJno(
+    conditions: FindConditions<SearchFindCondition>,
+  ): Promise<Inventory> {
+    // console.log('jno:' + jno);
+    const inventory = this.repository
+      .createQueryBuilder('inventory')
+      .select()
+      .where('inventory.jno=:cond')
+      .setParameters({ cond: conditions.term })
+      .getOne();
+    return inventory;
+    // return this.repository.findOne(id);
+  }
+  public async findOneByMno(
     conditions: FindConditions<SearchFindCondition>,
   ): Promise<Inventory> {
     // console.log('jno:' + jno);
