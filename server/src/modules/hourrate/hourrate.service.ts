@@ -2,9 +2,9 @@ import { Injectable, Inject } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
 import { FindConditions } from 'typeorm/find-options/FindConditions';
-import { HourRateFindCondition } from 'misc/findcondition';
-import { BomItem } from 'entities/bomitem.entity';
-import { HourRate } from 'entities/hourrate.entity';
+import { HourRateFindCondition } from '../../misc/findcondition';
+// import { BomItem } from 'entities/bomitem.entity';
+import { HourRate } from '../../entities/hourrate.entity';
 
 @Injectable()
 export class HourRateService {

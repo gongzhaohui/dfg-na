@@ -3,9 +3,9 @@ import { Repository } from 'typeorm';
 import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
 import { FindConditions } from 'typeorm/find-options/FindConditions';
 import { SearchFindCondition } from 'misc/findcondition';
-import { BomItem } from 'entities/bomitem.entity';
-import { History } from 'entities/history.entity';
-import { Inventory } from 'entities/inventory.entity';
+import { BomItem } from '../../entities/bomitem.entity';
+import { History } from '../../entities/history.entity';
+import { Inventory } from '../../entities/inventory.entity';
 
 @Injectable()
 export class BomPlanService {

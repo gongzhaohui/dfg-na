@@ -3,7 +3,7 @@ import { Repository, FindOperator } from 'typeorm';
 import { History } from '../../entities/history.entity';
 import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
 import { FindConditions } from 'typeorm/find-options/FindConditions';
-import { SearchFindCondition } from 'misc/findcondition';
+import { SearchFindCondition } from '../../misc/findcondition';
 
 @Injectable()
 export class HistoryService {
@@ -19,7 +19,7 @@ export class HistoryService {
     // console.log('find one ' + JSON.stringify(conditions));
     // this.repository.findByIds
     const type = conditions.type;
-    console.log('type:' + type);
+    // console.log('type:' + type);
     switch (type) {
       case 'jno':
         return this.findByJno(conditions);

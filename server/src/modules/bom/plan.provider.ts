@@ -1,5 +1,5 @@
 import { Connection } from 'typeorm';
-import { BomItem } from 'entities/bomitem.entity';
+import { BomItem } from '../../entities/bomitem.entity';
 
 export const BomPlanProviders = [
   {

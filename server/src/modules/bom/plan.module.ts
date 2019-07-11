@@ -3,8 +3,8 @@ import { DatabaseModule } from '../database/database.module';
 import { BomPlanProviders } from './plan.provider';
 import { BomPlanService } from './plan.service';
 import {BomPlanController} from './plan.controller';
-import { HistoryModule } from 'modules/history/history.module';
-import { InventoryModule } from 'modules/inventory/inventory.module';
+import { HistoryModule } from '../history/history.module';
+import { InventoryModule } from '../inventory/inventory.module';
 
 @Module({
   imports: [DatabaseModule,HistoryModule,InventoryModule],
