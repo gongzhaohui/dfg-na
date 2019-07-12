@@ -8,7 +8,9 @@
         <nz-content>
             <!-- <dfg-cost-search></dfg-cost-search> -->
             <nz-radio-group [(ngModel)]="searchType" nzName="radiogroup">
-                <label nz-radio nzValue="cinvcode">存货</label>
+                <label nz-radio nzValue="cinvcode">存货编码</label>
+                <label nz-radio nzValue="cinvaddcode">存货代码</label>
+                <label nz-radio nzValue="cinvstd">规格型号</label>
                 <label nz-radio nzValue="jno">销售订单</label>
                 <label nz-radio nzValue="mno">生产订单</label>
             </nz-radio-group>
@@ -41,6 +43,13 @@
                         <span>外购费：{{cost_p|currency:'CNY':'symbol-narrow'}}</span>
                     </div>
                     <dfg-bom-p [bom]="bom_p"></dfg-bom-p>
+                </nz-content>
+                <nz-content style="background:#fff; padding: 24px; min-height: 280px;">
+                    <div class='bom-table-title'>
+                        <span>入库记录:</span>
+                        <!-- <span>外购费：{{cost_p|currency:'CNY':'symbol-narrow'}}</span> -->
+                    </div>
+                    <dfg-rdsin [rdsins]="rdsins"></dfg-rdsin>
                 </nz-content>
             </nz-layout>
         </nz-layout>

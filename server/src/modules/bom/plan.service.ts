@@ -37,18 +37,17 @@ export class BomPlanService {
     conditions: FindConditions<SearchFindCondition>,
   ): Promise<BomItem> {
     // console.log('search by inv');
+    const type = conditions.type;
+    const strWhere=`${type}=:cond`;
     const inv = await this.iRepository
       .createQueryBuilder('')
-      .where('cinvcode=:cond')
-      .orWhere('cinvaddcode=:cond')
-      .orWhere('cinvstd=:cond')
+      .where(strWhere)
       .setParameters({ cond: conditions.term })
       .getOne();
-    if(inv){
-    const invcode = inv.cinvcode;
-    return await this.getBom(invcode);
-    }
-    else{
+    if (inv) {
+      const invcode = inv.cinvcode;
+      return await this.getBom(invcode);
+    } else {
       return new BomItem();
     }
   }
@@ -88,9 +87,7 @@ export class BomPlanService {
     }
   }
 
-  public async getBom(
-    invcode: string,
-    ): Promise<BomItem> {
+  public async getBom(invcode: string): Promise<BomItem> {
     let parent: BomItem = await this.bRepository
       .createQueryBuilder('b')
       .leftJoinAndSelect('b.inv', 'pinv')

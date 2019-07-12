@@ -1,25 +1,30 @@
-import { Component, OnInit, ViewChild, Input, AfterViewInit } from '@angular/core';
-import {  NzTableComponent } from 'ng-zorro-antd';
+import {
+    Component,
+    OnInit,
+    ViewChild,
+    Input,
+    AfterViewInit,
+} from '@angular/core';
+import { NzTableComponent } from 'ng-zorro-antd';
 import { BomItem } from 'src/app/entities/bomitem';
 
 @Component({
-  selector: 'dfg-bom-p',
-  templateUrl: './bom-p.component.html',
-  styleUrls: ['./bom-p.component.css']
+    selector: 'dfg-bom-p',
+    templateUrl: './bom-p.component.html',
+    styleUrls: ['./bom-p.component.css'],
 })
-export class BomPComponent implements OnInit,AfterViewInit {
-  @Input() bom: BomItem[]=[];
+export class BomPComponent implements OnInit, AfterViewInit {
+    @Input() bom: BomItem[] = [];
 
-  @ViewChild('nestedTable')
-  tabComp: NzTableComponent;
+    @ViewChild('nestedTable')
+    tabComp: NzTableComponent;
 
-  ngOnInit(): void {
-    this.bom=[];
-    // console.log('bom-data:' + JSON.stringify(this.bom_m));
-  }
+    ngOnInit(): void {
+        this.bom = [];
+        // console.log('bom-data:' + JSON.stringify(this.bom_m));
+    }
 
-  ngAfterViewInit(): void {
-    this.tabComp.data = this.bom;
-  }
-
+    ngAfterViewInit(): void {
+        this.tabComp.data = this.bom;
+    }
 }

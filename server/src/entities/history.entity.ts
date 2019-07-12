@@ -16,11 +16,11 @@ export class History {
   @Column({ type: 'nvarchar', length: 255, name: 'ccusabbname' })
   cusname: string;
   @OneToOne(type => Inventory)
-  @JoinColumn({name:'cinvcode'})
+  @JoinColumn({ name: 'cinvcode' })
   inventory: Inventory;
-  @Column({ type: 'float'})
+  @Column({ type: 'float' })
   qty: number;
-  @Column({ type: 'float'})
+  @Column({ type: 'float' })
   sounitprice: number;
   @Column({ type: 'smalldatetime', name: 'ddate' })
   ddate: number;

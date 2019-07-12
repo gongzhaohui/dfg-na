@@ -10,7 +10,7 @@ export class AppController {
   // root(@Res() res) {
   //   res.sendFile(join(__dirname+"../../client/"+"index.html"));
   // }
-  root():string{
+  root(): string {
     return this.appService.root();
   }
 }

@@ -20,7 +20,9 @@ import { HourRateModule } from './modules/hourrate/hourrate.module';
     BomPlanModule,
     HourRateModule,
   ],
-  controllers: [/*AppController*/],
+  controllers: [
+    /*AppController*/
+  ],
   providers: [AppService],
 })
 export class AppModule {}

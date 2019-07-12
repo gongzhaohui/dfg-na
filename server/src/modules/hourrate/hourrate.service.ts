@@ -18,13 +18,15 @@ export class HourRateService {
     conditions: FindConditions<HourRateFindCondition>,
     options?: FindOneOptions<HourRate>,
   ): Promise<HourRate> {
-    const hr=await this.hRepository
-    .createQueryBuilder('h')
-    .where('h.cinvccode=:invcccode')
-    .andWhere('h.period =:period')
-    .setParameters({ invcccode: conditions.cinvccode,period:conditions.period })
-    .getOne();
+    const hr = await this.hRepository
+      .createQueryBuilder('h')
+      .where('h.cinvccode=:invcccode')
+      .andWhere('h.period =:period')
+      .setParameters({
+        invcccode: conditions.cinvccode,
+        period: conditions.period,
+      })
+      .getOne();
     return hr;
   }
-    
 }

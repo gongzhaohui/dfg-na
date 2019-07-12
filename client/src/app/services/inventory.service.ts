@@ -4,14 +4,16 @@ import { Inventory } from '../entities/inventory';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class InventoryService {
-  private url = 'http://localhost:3000/api/inventory/';
+    private url = 'http://localhost:3000/api/inventory/';
 
-constructor(private http:HttpClient) { }
+    constructor(private http: HttpClient) {}
 
-GetInventory(searchType:string,term:string):Observable<Inventory>{
-  return this.http.get<Inventory>(this.url+'?type='+searchType+'&term=' + term)
-}
+    GetInventory(searchType: string, term: string): Observable<Inventory> {
+        return this.http.get<Inventory>(
+            this.url + '?type=' + searchType + '&term=' + term
+        );
+    }
 }

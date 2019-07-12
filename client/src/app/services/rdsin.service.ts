@@ -4,14 +4,16 @@ import { Observable } from 'rxjs';
 import { Rdsin } from '../entities/rdsin';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class RdsinService {
-private url = 'http://localhost:3000/api/rdsin/';
+    private url = 'http://localhost:3000/api/rdsin/';
 
-constructor(private http:HttpClient) { }
+    constructor(private http: HttpClient) {}
 
-GetRdsIn(searchType :string,term:string):Observable<Rdsin[]>{
-  return this.http.get<Rdsin[]>(this.url+'?type='+searchType+'&term='+term);
-}
+    GetRdsIn(searchType: string, term: string): Observable<Rdsin[]> {
+        return this.http.get<Rdsin[]>(
+            this.url + '?type=' + searchType + '&term=' + term
+        );
+    }
 }

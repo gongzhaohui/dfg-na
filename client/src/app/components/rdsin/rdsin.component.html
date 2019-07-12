@@ -1,0 +1,20 @@
+<nz-table #innerTable [nzData]="rdsins" nzSize="middle" [nzShowPagination]="false">
+    <thead>
+        <tr>
+            <th>JNO</th>
+            <th>日期</th>
+            <th>数量</th>
+            <th>单价</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of innerTable.data">
+            <td>{{data.jno}}</td>
+            <td>{{ data.rdate |date:'yyyy-MM-dd'}}</td>
+            <td>{{ data.qty}}</td>
+            <td>{{ data.unitcost|currency:'CNY':'symbol-narrow' }}</td>
+
+        </tr>
+    </tbody>
+</nz-table>

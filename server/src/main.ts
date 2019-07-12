@@ -6,7 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.enableCors();
 
-  const htmlpath=join(__dirname, '../', 'client/');
+  const htmlpath = join(__dirname, '../', 'client/');
   // console.log(htmlpath);
   app.useStaticAssets(htmlpath);
   app.setBaseViewsDir(htmlpath);

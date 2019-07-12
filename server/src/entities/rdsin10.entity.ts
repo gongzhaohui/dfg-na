@@ -8,8 +8,8 @@ import {
 import { Inventory } from './inventory.entity';
 // import { SupperEntity } from '../base';
 
-@Entity('dfg_na_rdsins')
-export class RdsIn {
+@Entity('dfg_na_rdsins10')
+export class RdsIn10 {
   @PrimaryColumn()
   id: number;
   @Column()

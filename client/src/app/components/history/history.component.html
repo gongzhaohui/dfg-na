@@ -1,13 +1,10 @@
-<ul nz-menu *ngFor="let item of history; let i=index" style="height:100%">
+<ul nz-menu style="height:100%">
+    <li nz-menu-item *ngFor="let item of history; let i=index">
+        <nz-breadcrumb>
+            <nz-breadcrumb-item>{{item.jno}}</nz-breadcrumb-item>
+            <nz-breadcrumb-item>{{item.sounitprice|currency:'CNY':'symbol-narrow'}}</nz-breadcrumb-item>
+            <nz-breadcrumb-item>{{item.ddate|date:'yy-MM-dd'}}</nz-breadcrumb-item>
+        </nz-breadcrumb>
 
-    <i nz-icon nzType="caret-right" nzTheme="outline"></i>
-    <li nz-menu-item>
-        <a>
-            <nz-breadcrumb>
-                <nz-breadcrumb-item>{{item.jno}}</nz-breadcrumb-item>
-                <nz-breadcrumb-item>{{item.sounitprice|currency:'CNY':'symbol-narrow'}}</nz-breadcrumb-item>
-                <nz-breadcrumb-item>{{item.ddate|date:'yy-MM-dd'}}</nz-breadcrumb-item>
-            </nz-breadcrumb>
-        </a>
     </li>
 </ul>

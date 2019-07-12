@@ -1,13 +1,13 @@
-import { Entity, PrimaryColumn, Column } from "typeorm";
+import { Entity, PrimaryColumn, Column } from 'typeorm';
 
 @Entity('dfg_na_hourrate')
-export class HourRate{
+export class HourRate {
   @PrimaryColumn()
-  id:number;
+  id: number;
   @Column()
-  cinvccode:string;
+  cinvccode: string;
   @Column()
-  period:string;
+  period: string;
   @Column()
-  hourrate:number;
+  hourrate: number;
 }

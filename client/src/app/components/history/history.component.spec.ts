@@ -1,22 +1,21 @@
 import { fakeAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HistoryComponent as HistoryComponent } from './history.component';
+import { HistoryComponent } from './history.component';
 
 describe('CostSearchComponent', () => {
-  let component: HistoryComponent;
-  let fixture: ComponentFixture<HistoryComponent>;
+    let component: HistoryComponent;
+    let fixture: ComponentFixture<HistoryComponent>;
 
-  beforeEach(fakeAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ HistoryComponent ]
-    })
-    .compileComponents();
+    beforeEach(fakeAsync(() => {
+        TestBed.configureTestingModule({
+            declarations: [HistoryComponent],
+        }).compileComponents();
 
-    fixture = TestBed.createComponent(HistoryComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+        fixture = TestBed.createComponent(HistoryComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    }));
 
-  it('should compile', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should compile', () => {
+        expect(component).toBeTruthy();
+    });
 });
