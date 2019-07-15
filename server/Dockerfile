@@ -3,8 +3,7 @@ FROM node:alpine as build
 COPY . /app
 WORKDIR /app
 
-RUN ls -l src/entities && \
-    yarn && \
+RUN yarn && \
     yarn cache clean && \
     yarn run prestart:prod 
     
