@@ -1,5 +1,4 @@
 import { Entity, Column, PrimaryColumn, OneToOne, JoinColumn } from 'typeorm';
-import { SupperEntity } from '../base';
 import { Inventory } from './inventory.entity';
 
 @Entity('dfg_na_history')

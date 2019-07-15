@@ -1,20 +1,29 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "declaration": true,
+    "declaration": false,
     "noImplicitAny": false,
     "removeComments": true,
     "noLib": false,
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "moduleResolution": "node",
     "target": "es6",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./src"
-  },
+    "baseUrl": "./",
+    "paths":{
+       "*":[
+        "*",
+        "entities/*",
+        "modules/*",
+        "misc/*"
+      ],
+    }}
+  ,
   "include": [
-    "src/**/*"
+    "src/**/**/*"
   ],
   "exclude": [
     "node_modules",

@@ -7,9 +7,9 @@ import {
   Controller,
 } from '@nestjs/common';
 import { HistoryService } from './history.service';
-import { History } from '../../entities/History.entity';
+import { History } from '../../entities/history.entity';
 import { FindConditions } from 'typeorm/find-options/FindConditions';
-import { SearchFindCondition } from 'misc/findcondition';
+import { SearchFindCondition } from '../../misc/findcondition';
 @Controller('/api/history')
 export class HistoryController {
   constructor(protected service: HistoryService) {}

@@ -1,16 +1,19 @@
 FROM node:alpine as build
 
-COPY . /src
-WORKDIR /src
+COPY . /app
+WORKDIR /app
 
-RUN yarn && \
-    yarn cache clean
+RUN ls -l src/entities && \
+    yarn && \
+    yarn cache clean && \
+    yarn run prestart:prod 
+    
 
 FROM node:alpine
-COPY --from=build /src/tsconfig.json /opt/app/tsconfig.json
-COPY --from=build /src/tslint.json /opt/app/tslint.json
-COPY --from=build /src/dist /opt/app
-COPY --from=build /src/node_modules /opt/app/node_modules
+COPY --from=build /app/tsconfig.json /opt/app/tsconfig.json
+COPY --from=build /app/tslint.json /opt/app/tslint.json
+COPY --from=build /app/dist /opt/app
+COPY --from=build /app/node_modules /opt/app/node_modules
 WORKDIR /opt/app
 
 ENV NODE_ENV=development

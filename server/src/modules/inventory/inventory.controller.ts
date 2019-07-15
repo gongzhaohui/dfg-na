@@ -10,7 +10,7 @@ import { InventoryService } from './inventory.service';
 import { Inventory } from '../../entities/inventory.entity';
 import { BaseController } from '../../base';
 import { FindConditions } from 'typeorm/find-options/FindConditions';
-import { SearchFindCondition } from 'misc/findcondition';
+import { SearchFindCondition } from '../../misc/findcondition';
 @Controller('/api/inventory')
 export class InventoryController {
   constructor(protected service: InventoryService) {}
