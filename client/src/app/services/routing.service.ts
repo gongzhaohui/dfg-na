@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable, Inject } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Routing } from '../entities/routing';
 import { Observable } from 'rxjs';
 
@@ -7,12 +7,16 @@ import { Observable } from 'rxjs';
     providedIn: 'root',
 })
 export class RoutingService {
-    private url = 'http://localhost:3000/api/rounting/';
+    private url = `${this.baseUrl}/api/rounting`;
 
-    constructor(private http: HttpClient) {}
+    constructor(
+        @Inject('BASE_URL') private baseUrl: string,
+        private http: HttpClient
+    ) {}
     GetRounting(searchType: string, term: string): Observable<Routing> {
-        return this.http.get<Routing>(
-            this.url + '?type=' + searchType + '&term=' + term
-        );
+        const params = new HttpParams({
+            fromString: `type=' + ${searchType} &term=${term}`,
+        });
+        return this.http.get<Routing>(this.url, { params: params });
     }
 }

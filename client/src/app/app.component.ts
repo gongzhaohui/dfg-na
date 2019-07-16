@@ -28,7 +28,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     searchType = 'cinvcode';
     term = '';
     history: HistoryItem[] = [];
-    rdsins: Rdsin[]=[];
+    rdsins: Rdsin[] = [];
     inventory: Inventory;
     invccode: string;
     mess = '';
@@ -159,11 +159,16 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.hService.GetHistory(this.searchType, this.term).subscribe(h => {
             this.notiSvr.info('status', '历史记录查询完成。');
             if (h) {
-              this.history = h;
-              if (h[0].inventory && (h[0].inventory.rdsins || h[0].inventory.rdsins10 ) ){
-
-                this.rdsins =( h[0].inventory.rdsins||[]).concat( h[0].inventory.rdsins10)||[];
-              }
+                this.history = h;
+                if (
+                    h[0].inventory &&
+                    (h[0].inventory.rdsins || h[0].inventory.rdsins10)
+                ) {
+                    this.rdsins =
+                        (h[0].inventory.rdsins || []).concat(
+                            h[0].inventory.rdsins10
+                        ) || [];
+                }
             }
         });
     }

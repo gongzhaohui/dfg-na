@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable, Inject } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Rdsin } from '../entities/rdsin';
 
@@ -7,13 +7,17 @@ import { Rdsin } from '../entities/rdsin';
     providedIn: 'root',
 })
 export class RdsinService {
-    private url = 'http://localhost:3000/api/rdsin/';
+    private url = `${this.baseUrl}/api/rdsin/`;
 
-    constructor(private http: HttpClient) {}
+    constructor(
+        @Inject('BASE_URL') private baseUrl: string,
+        private http: HttpClient
+    ) {}
 
     GetRdsIn(searchType: string, term: string): Observable<Rdsin[]> {
-        return this.http.get<Rdsin[]>(
-            this.url + '?type=' + searchType + '&term=' + term
-        );
+        const params = new HttpParams({
+            fromString: `type=' + ${searchType} &term=${term}`,
+        });
+        return this.http.get<Rdsin[]>(this.url, { params: params });
     }
 }

@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable, Inject } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BomItem } from '../entities/bomitem';
 
@@ -7,16 +7,21 @@ import { BomItem } from '../entities/bomitem';
     providedIn: 'root',
 })
 export class BomPlanService {
-    private url = 'http://localhost:3000/api/bom/plan';
-    constructor(private http: HttpClient) {}
+    private url = `${this.baseUrl}/api/bom/plan`;
+    constructor(
+        @Inject('BASE_URL') private baseUrl: string,
+        private http: HttpClient
+    ) {}
     GetManufactureBom(searchType: string, term: string): Observable<BomItem> {
-        return this.http.get<BomItem>(
-            this.url + '/m/?type=' + searchType + '&term=' + term
-        );
+        const params = new HttpParams({
+            fromString: `type=${searchType}&term=${term}`,
+        });
+        return this.http.get<BomItem>(this.url + '/m', { params: params });
     }
     GetPurchaseBom(searchType: string, term: string): Observable<BomItem> {
-        return this.http.get<BomItem>(
-            this.url + '/p/?type=' + searchType + '&term=' + term
-        );
+        const params = new HttpParams({
+            fromString: `type=${searchType}&term=${term}`,
+        });
+        return this.http.get<BomItem>(this.url + '/p', { params: params });
     }
 }

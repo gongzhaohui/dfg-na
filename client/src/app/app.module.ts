@@ -21,7 +21,7 @@ import { InventoryComponent } from './components/inventory/inventory.component';
 import { HttpErrorInterceptor } from './interceptors/HttpErrorInterceptor';
 import { RdsinComponent } from './components/rdsin/rdsin.component';
 // import {HttpClientModule} from '@angular/common/http';
-
+import { environment } from '../environments/environment';
 registerLocaleData(zh);
 
 @NgModule({
@@ -50,6 +50,7 @@ registerLocaleData(zh);
             multi: true,
         },
         { provide: NzNotificationService, useClass: NzNotificationService },
+        { provide: 'BASE_URL', useValue: environment.apiHost },
     ],
     bootstrap: [AppComponent],
 })
