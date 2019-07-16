@@ -13,14 +13,7 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "paths":{
-       "*":[
-        "*",
-        "entities/*",
-        "modules/*",
-        "misc/*"
-      ],
-    }}
+   }
   ,
   "include": [
     "src/**/**/*"
