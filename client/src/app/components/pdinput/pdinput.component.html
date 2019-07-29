@@ -1,0 +1,49 @@
+<form nz-form [nzLayout]="'inline'" [formGroup]="inputForm" (ngSubmit)="submitForm()" #formGroupAccessor="ngForm">
+    <nz-form-item [nzFlex]="true" [nzGutter]="xs">
+        <nz-form-label [nzSpan]="1" nzRequired nzFor="period">期</nz-form-label>
+        <nz-form-control [nzSpan]="2" nzErrorTip="当前盘点期">
+            <nz-input-group nzPrefixIcon="clock-circle">
+                <input formControlName="period" nz-input placeholder="当前盘点期" />
+            </nz-input-group>
+        </nz-form-control>
+        <nz-form-label [nzSpan]="1" nzRequired nzFor="category">分类</nz-form-label>
+        <nz-form-control [nzSpan]="2" nzErrorTip="输入类别：在制？集合架？库房？">
+
+            <!-- <nz-input-group nzSuffixIcon="shop"> -->
+            <nz-select formControlName="category" placeholder="在制？集合架？库房？" style="text-align: right" tabindex="0">
+                <nz-option nzValue="zz" nzLabel="在制"></nz-option>
+                <nz-option nzValue="jhj" nzLabel="集合架"></nz-option>
+                <nz-option nzValue="kf" nzLabel="库房"></nz-option>
+            </nz-select>
+            <!-- </nz-input-group> -->
+        </nz-form-control>
+        <nz-form-label [nzSpan]="1" nzRequired nzFor="creator">录入员</nz-form-label>
+        <nz-form-control [nzSpan]="2" nzErrorTip="用户名必输">
+            <nz-input-group nzPrefixIcon="user">
+                <input formControlName="creator" nz-input placeholder="用友用户编码" tabindex="1" />
+            </nz-input-group>
+        </nz-form-control>
+
+        <nz-form-label [nzSpan]="1" nzRequired nzFor="location">货架号</nz-form-label>
+        <nz-form-control [nzSpan]="2" nzErrorTip="在制可以不填，集合架及库房选填">
+            <nz-input-group nzPrefixIcon="tag">
+                <input formControlName="location" nz-input placeholder="货架号" tabindex="2" />
+            </nz-input-group>
+        </nz-form-control>
+        <nz-form-label [nzSpan]="1" nzRequired nzFor="barcode">条码</nz-form-label>
+        <nz-form-control [nzSpan]="2" nzErrorTip="生产订单号条码或销售订单条码">
+            <nz-input-group nzPrefixIcon="barcode">
+                <input #barcode formControlName="barcode" nz-input placeholder="条码" tabindex="3" />
+            </nz-input-group>
+        </nz-form-control>
+        <nz-form-label [nzSpan]="1" nzRequired nzFor="pds">盘点数</nz-form-label>
+        <nz-form-control [nzSpan]="2" nzErrorTip="盘点数必输">
+            <nz-input-group nzPrefixIcon="number">
+                <input formControlName="pds" nz-input placeholder="盘点数" tabindex="4" />
+            </nz-input-group>
+        </nz-form-control>
+        <nz-form-control>
+            <button nz-button nzType="primary" [disabled]="!inputForm.valid" tabindex="5">提交</button>
+        </nz-form-control>
+    </nz-form-item>
+</form>

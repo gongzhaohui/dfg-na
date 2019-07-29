@@ -1,0 +1,55 @@
+<nz-table #basicTable [nzData]="pdData" [nzLoading]="loading" [(nzPageIndex)]="pageIndex" [(nzPageSize)]="pageSize" [nzLoadingDelay]=100 style="height: 100%">
+    <thead>
+        <tr>
+            <th>分类</th>
+            <th>货架</th>
+            <th>条码</th>
+            <th>盘点数</th>
+            <th>动作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of basicTable.data">
+            <td>{{ data.category }}</td>
+            <td>
+                <ng-container *ngIf="
+                        !_editCache[data.id] || !_editCache[data.id].edit;
+                        else locationInputTpl
+                    ">
+                    {{ data.location }}
+                </ng-container>
+                <ng-template #locationInputTpl>
+                    <input type="text" nz-input [(ngModel)]="_editCache[data.id].data.location" />
+                </ng-template>
+            </td>
+            <td>{{ data.barcode }}</td>
+            <td>
+                <ng-container *ngIf="
+                        !_editCache[data.id] || !_editCache[data.id].edit;
+                        else pdsInputTpl
+                    ">
+                    {{ data.pds }}
+                </ng-container>
+                <ng-template #pdsInputTpl>
+                    <input type="text" nz-input [(ngModel)]="_editCache[data.id].data.pds" />
+                </ng-template>
+            </td>
+            <td>
+                <div class="editable-row-operations">
+                    <ng-container *ngIf="
+                            !_editCache[data.id] || !_editCache[data.id].edit;
+                            else saveTpl
+                        ">
+                        <a (click)="startEdit(data.id)">Edit</a>
+                        <a nz-popconfirm nzTitle="Sure to delete?" (nzOnConfirm)="deleteRow(data.id)">Delete</a
+                        >
+                    </ng-container>
+                    <ng-template #saveTpl>
+                        <a (click)="saveEdit(data.id)">Save</a>
+                        <a (click)="cancelEdit(data.id)">Cancel</a>
+                        </ng-template>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>

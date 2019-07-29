@@ -1,58 +1,12 @@
-<nz-layout class="layout">
+<nz-layout class="layout" style="height: 65px;position: relative">
     <nz-header nz-style="grey">
         <div class="logo"><img width="20" alt="DFG Logo" src="data:image/gif;base64,R0lGODdhFAAVAGAAACwAAAAAFAAVAIcAAAAAADMAAGYAAJkAAMwAAP8AKwAAKzMAK2YAK5kAK8wAK/8AVQAAVTMAVWYAVZkAVcwAVf8AgAAAgDMAgGYAgJkAgMwAgP8AqgAAqjMAqmYAqpkAqswAqv8A1QAA1TMA1WYA1ZkA1cwA1f8A/wAA/zMA/2YA/5kA/8wA//8zAAAzADMzAGYzAJkzAMwzAP8zKwAzKzMzK2YzK5kzK8wzK/8zVQAzVTMzVWYzVZkzVcwzVf8zgAAzgDMzgGYzgJkzgMwzgP8zqgAzqjMzqmYzqpkzqswzqv8z1QAz1TMz1WYz1Zkz1cwz1f8z/wAz/zMz/2Yz/5kz/8wz//9mAABmADNmAGZmAJlmAMxmAP9mKwBmKzNmK2ZmK5lmK8xmK/9mVQBmVTNmVWZmVZlmVcxmVf9mgABmgDNmgGZmgJlmgMxmgP9mqgBmqjNmqmZmqplmqsxmqv9m1QBm1TNm1WZm1Zlm1cxm1f9m/wBm/zNm/2Zm/5lm/8xm//+ZAACZADOZAGaZAJmZAMyZAP+ZKwCZKzOZK2aZK5mZK8yZK/+ZVQCZVTOZVWaZVZmZVcyZVf+ZgACZgDOZgGaZgJmZgMyZgP+ZqgCZqjOZqmaZqpmZqsyZqv+Z1QCZ1TOZ1WaZ1ZmZ1cyZ1f+Z/wCZ/zOZ/2aZ/5mZ/8yZ///MAADMADPMAGbMAJnMAMzMAP/MKwDMKzPMK2bMK5nMK8zMK//MVQDMVTPMVWbMVZnMVczMVf/MgADMgDPMgGbMgJnMgMzMgP/MqgDMqjPMqmbMqpnMqszMqv/M1QDM1TPM1WbM1ZnM1czM1f/M/wDM/zPM/2bM/5nM/8zM////AAD/ADP/AGb/AJn/AMz/AP//KwD/KzP/K2b/K5n/K8z/K///VQD/VTP/VWb/VZn/Vcz/Vf//gAD/gDP/gGb/gJn/gMz/gP//qgD/qjP/qmb/qpn/qsz/qv//1QD/1TP/1Wb/1Zn/1cz/1f///wD//zP//2b//5n//8z///8AAAAAAAAAAAAAAAAIxAD3CRxIsKBBg+3AZcv27Zy+gwTPSZtIcWI2iPuyTZwmDVy9geCk0TP4TRrHbNEKprxI0B2qhSwhmsNIMOVAm/vcfcs2cyA9hjH3tVvozp20etKGDeyVjV47gtLc0RN5EdxTgVYNSht47tu+qCAp2qSHat+5dudmbh0osmDCfeDiglO2NqW0ZW63yt15jqBXg+Be/aV58+C5kRBhZgNXMJvSfTjJVjwoLdthpxqncVx70BxFVJsrQ6aZcBo2bT0x4qx5MCAAOw=="
             /></div>
         <span style="color: brown">DFGNA</span>
     </nz-header>
-    <nz-layout>
-        <nz-content>
-            <!-- <dfg-cost-search></dfg-cost-search> -->
-            <nz-radio-group [(ngModel)]="searchType" nzName="radiogroup">
-                <label nz-radio nzValue="cinvcode">存货编码</label>
-                <label nz-radio nzValue="cinvaddcode">存货代码</label>
-                <label nz-radio nzValue="cinvstd">规格型号</label>
-                <label nz-radio nzValue="jno">销售订单</label>
-                <label nz-radio nzValue="mno">生产订单</label>
-            </nz-radio-group>
-            <input type="text" #invcode nz-input [(ngModel)]="term" placeholder="input search text" (keyup.enter)="Search()" (focus)='$event.target.select()' nz-select-on-focus />
-            <button nz-button nzType="primary" nzSearch (click)="Search()"><i nz-icon type="search"></i></button>
-            <nz-divider></nz-divider>
-        </nz-content>
-        <nz-layout>
-            <nz-sider [nzWidth]="300" style="background:#fff">
-                <span title>订单履历</span>
-                <dfg-cost-history [history]="history"></dfg-cost-history>
-            </nz-sider>
-            <nz-layout style="padding:0 24px 24px">
-
-                <nz-content style="background:#fff; padding: 24px;width: 100%">
-                    <span>存货信息:</span>
-                    <dfg-inventory [inventory]="inventory" [hourrate]="hourRate" [cost]="cost"></dfg-inventory>
-                </nz-content>
-
-                <nz-content style="background:#fff; padding: 24px; min-height: 280px;">
-                    <div class='bom-table-title'>
-                        <span>制作件:</span>
-                        <span>工时费：{{cost_m|currency:'CNY':'symbol-narrow'}}</span>
-                    </div>
-                    <dfg-bom-m [bom]="bom_m"></dfg-bom-m>
-                </nz-content>
-                <nz-content style="background:#fff; padding: 24px; min-height: 280px;">
-                    <div class='bom-table-title'>
-                        <span>外购件:</span>
-                        <span>外购费：{{cost_p|currency:'CNY':'symbol-narrow'}}</span>
-                    </div>
-                    <dfg-bom-p [bom]="bom_p"></dfg-bom-p>
-                </nz-content>
-                <nz-content style="background:#fff; padding: 24px; min-height: 280px;">
-                    <div class='bom-table-title'>
-                        <span>入库记录:</span>
-                        <!-- <span>外购费：{{cost_p|currency:'CNY':'symbol-narrow'}}</span> -->
-                    </div>
-                    <dfg-rdsin [rdsins]="rdsins"></dfg-rdsin>
-                </nz-content>
-            </nz-layout>
-        </nz-layout>
-    </nz-layout>
-    <nz-footer #message style="text-align: left;">{{mess}}</nz-footer>
+    <router-outlet style="height: 100%"></router-outlet>
+    <nz-footer #message style="text-align: left;height: 40px;
+    position: relative;
+    bottom: 0;
+   ">DFG BI 2019</nz-footer>
 </nz-layout>

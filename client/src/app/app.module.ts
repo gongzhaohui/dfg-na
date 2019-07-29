@@ -9,7 +9,7 @@ import {
     zh_CN,
     NzNotificationService,
 } from 'ng-zorro-antd';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
@@ -22,6 +22,11 @@ import { HttpErrorInterceptor } from './interceptors/HttpErrorInterceptor';
 import { RdsinComponent } from './components/rdsin/rdsin.component';
 // import {HttpClientModule} from '@angular/common/http';
 import { environment } from '../environments/environment';
+import { CostComponent } from './components/cost/cost.component';
+import { NoPageComponent } from './components/nopage/nopage.component';
+import { PandianComponent } from './components/pandian/pandian.component';
+import { PdInputComponent } from './components/pdinput/pdinput.component';
+import { PdEditComponent } from './components/pdedit/pdedit.component';
 registerLocaleData(zh);
 
 @NgModule({
@@ -32,12 +37,18 @@ registerLocaleData(zh);
         BomPComponent,
         InventoryComponent,
         RdsinComponent,
+        CostComponent,
+        NoPageComponent,
+        PandianComponent,
+        PdInputComponent,
+        PdEditComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         NgZorroAntdModule,
         FormsModule,
+        ReactiveFormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
         HttpClientModule,
