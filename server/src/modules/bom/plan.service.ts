@@ -6,6 +6,8 @@ import { SearchFindCondition } from '../../misc/findcondition';
 import { BomItem } from '../../entities/bomitem.entity';
 import { History } from '../../entities/history.entity';
 import { Inventory } from '../../entities/inventory.entity';
+import { HistoryService } from '../history/history.service';
+import { InventoryService } from '../inventory/inventory.service';
 
 @Injectable()
 export class BomPlanService {
@@ -15,75 +17,39 @@ export class BomPlanService {
     protected bRepository: Repository<BomItem>,
     @Inject('HistoryRepositoryToken')
     protected hRepository: Repository<History>,
+    protected hService: HistoryService,
     @Inject('InventoryRepositoryToken')
     protected iRepository: Repository<Inventory>,
+    protected iService: InventoryService,
   ) {}
 
-  public async find(
-    conditions: FindConditions<SearchFindCondition>,
-    options?: FindOneOptions<BomItem>,
-  ): Promise<BomItem> {
-    const type = conditions.type;
+  public async find(type: string, term: string): Promise<BomItem> {
     switch (type) {
       case 'jno':
-        return this.findByJno(conditions);
       case 'mno':
-        return this.findByJno(conditions);
+        return this.findByJMno(type, term);
       default:
-        return this.findByInv(conditions);
+        return this.findByInv(type, term);
     }
   }
-  public async findByInv(
-    conditions: FindConditions<SearchFindCondition>,
-  ): Promise<BomItem> {
-    // console.log('search by inv');
-    const type = conditions.type;
-    const strWhere=`${type}=:cond`;
-    const inv = await this.iRepository
-      .createQueryBuilder('')
-      .where(strWhere)
-      .setParameters({ cond: conditions.term })
-      .getOne();
+  public async findByInv(type: string, term: string): Promise<BomItem> {
+    // const strWhere = `${type}=:cond`;
+    const inv = await this.iService.findOne(type, term);
     if (inv) {
       const invcode = inv.cinvcode;
       return await this.getBom(invcode);
     } else {
-      return new BomItem();
+      return null;
     }
   }
 
-  public async findByJno(
-    conditions: FindConditions<SearchFindCondition>,
-  ): Promise<BomItem> {
-    // console.log('jno:' + jno);
-    const his = await this.hRepository
-      .createQueryBuilder('h')
-      .leftJoinAndSelect('h.inventory', 'inv')
-      .where('h.jno=:cond')
-      .setParameters({ cond: conditions.term })
-      .getOne();
+  public async findByJMno(type: string, term: string): Promise<BomItem> {
+    const his = await this.hService.findOne(type, term);
     if (his && his.inventory) {
       const invcode = his.inventory.cinvcode;
       return await this.getBom(invcode);
     } else {
-      return new BomItem();
-    }
-  }
-  public async findByMno(
-    conditions: FindConditions<SearchFindCondition>,
-  ): Promise<BomItem> {
-    // console.log('jno:' + jno);
-    const his = await this.hRepository
-      .createQueryBuilder('h')
-      .leftJoinAndSelect('h.inventory', 'inv')
-      .where('h.mno=:cond')
-      .setParameters({ cond: conditions.term })
-      .getOne();
-    if (his && his.inventory) {
-      const invcode = his.inventory.cinvcode;
-      return await this.getBom(invcode);
-    } else {
-      return new BomItem();
+      return null;
     }
   }
 
@@ -106,8 +72,6 @@ export class BomPlanService {
     return parent;
   }
   protected async getChildren(parent: BomItem): Promise<BomItem> {
-    // console.log('p:'+JSON.stringify(parent));
-
     const children = await this.bRepository
       .createQueryBuilder('b')
       .select()
@@ -123,15 +87,12 @@ export class BomPlanService {
       child.lvl = parent.lvl + '.' + child.lvl;
       if (child.childbomid) {
         child = await this.getChildren(child);
-        // console.log('c:' + JSON.stringify(c));
       }
       return child;
     });
     await Promise.all(newChildren).then(childrenTree => {
-      // console.log('v:' + JSON.stringify(value));
       parent.children = childrenTree;
     });
     return parent;
-    // console.log('parent' + this.i + ':' + JSON.stringify(parent));
   }
 }

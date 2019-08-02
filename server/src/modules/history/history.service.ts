@@ -12,28 +12,32 @@ export class HistoryService {
     protected repository: Repository<History>,
   ) {}
 
-  public async find(
-    conditions: FindConditions<SearchFindCondition>,
-    options?: FindOneOptions<History>,
-  ): Promise<History[]> {
-    // console.log('find one ' + JSON.stringify(conditions));
-    // this.repository.findByIds
-    const type = conditions.type;
-    const alias=type==='jno'||type==='mno'?'h':'i';
-    const strWhere=`${alias}.${type}=:cond`;
-    const history = this.repository
+  public async findWithRds(type: string, term: string): Promise<History[]> {
+    const alias = type === 'jno' || type === 'mno' ? 'h' : 'i';
+    const strWhere = `${alias}.${type}=:cond`;
+    const histories = await this.repository
       .createQueryBuilder('h')
       .leftJoinAndSelect('h.inventory', 'i')
-      .leftJoinAndSelect('i.rdsins','rds1')
-      .leftJoinAndSelect('i.rdsins10','rds10')
+      .leftJoinAndSelect('i.rdsins', 'rds1')
+      .leftJoinAndSelect('i.rdsins10', 'rds10')
       .where(strWhere)
-      // .orWhere('inventory.cinvaddcode=:cond')
-      // .orWhere('inventory.cinvstd=:cond')
       .andWhere('isnull(rds1.rn,0)<11')
       .andWhere('isnull(rds10.rn,0)<11')
       .orderBy('h.jno')
-      .setParameters({ cond: conditions.term })
+      .setParameters({ cond: term })
       .getMany();
+    return histories;
+  }
+  public async findOne(type: string, term: string): Promise<History> {
+    const alias = type === 'jno' || type === 'mno' ? 'h' : 'i';
+    const strWhere = `${alias}.${type}=:cond`;
+    const history = await this.repository
+      .createQueryBuilder('h')
+      .leftJoinAndSelect('h.inventory', 'i')
+      .where(strWhere)
+      .orderBy('h.jno')
+      .setParameters({ cond: term })
+      .getOne();
     return history;
   }
- }
+}

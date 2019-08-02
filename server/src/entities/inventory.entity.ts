@@ -1,10 +1,4 @@
-import {
-  Entity,
-  Column,
-  PrimaryColumn,
-  OneToMany,
-  JoinColumn,
-} from 'typeorm';
+import { Entity, Column, PrimaryColumn, OneToMany, JoinColumn } from 'typeorm';
 import { RdsIn10 } from './rdsin10.entity';
 import { RdsIn } from './rdsin.entity';
 // import { SupperEntity } from '../base';

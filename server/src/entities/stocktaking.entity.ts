@@ -3,7 +3,7 @@ import { Entity, Column, PrimaryColumn, ManyToOne, JoinColumn } from 'typeorm';
 
 @Entity('dfg_na_pd')
 export class StockTaking {
-  @PrimaryColumn({generated:true})
+  @PrimaryColumn({ generated: true })
   id: number;
   @Column()
   barcode: string;

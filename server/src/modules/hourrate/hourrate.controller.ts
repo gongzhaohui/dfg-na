@@ -15,9 +15,10 @@ export class HourRateController {
   constructor(protected service: HourRateService) {}
   @Get()
   public async find(
-    @Query() query: FindConditions<HourRateFindCondition>,
+    @Query() query: HourRateFindCondition,
   ): Promise<HourRate> {
-    // console.log(JSON.stringify(query));
-    return this.service.find(query);
+    const cinvccode = query.cinvccode;
+    const period = query.period;
+    return this.service.find(cinvccode, period);
   }
 }

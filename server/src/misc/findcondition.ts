@@ -1,6 +1,6 @@
 export class SearchFindCondition {
   type: string;
-  term: string;
+  term: any;
 }
 export class HourRateFindCondition {
   cinvccode: string;

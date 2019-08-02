@@ -6,7 +6,8 @@ import { DatabaseModule } from './modules/database/database.module';
 import { HistoryModule } from './modules/history/history.module';
 import { BomPlanModule } from './modules/bom/plan.module';
 import { HourRateModule } from './modules/hourrate/hourrate.module';
-import {StockTakingModule} from './modules/stocktaking/stocktaking.module';
+import { StockTakingModule } from './modules/stocktaking/stocktaking.module';
+import { MoModule } from './modules/mo/mo.module';
 @Module({
   imports: [
     DatabaseModule,
@@ -15,10 +16,9 @@ import {StockTakingModule} from './modules/stocktaking/stocktaking.module';
     HourRateModule,
     HistoryModule,
     StockTakingModule,
+    MoModule,
   ],
-  controllers: [
-    AppController,
-  ],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
