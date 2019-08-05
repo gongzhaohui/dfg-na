@@ -1,5 +1,5 @@
 <form nz-form [nzLayout]="'inline'" [formGroup]="inputForm" (ngSubmit)="submitForm()" #formGroupAccessor="ngForm">
-    <nz-form-item [nzFlex]="true" [nzGutter]="xs">
+    <nz-form-item [nzFlex]="true">
         <nz-form-label [nzSpan]="1" nzRequired nzFor="period">期</nz-form-label>
         <nz-form-control [nzSpan]="2" nzErrorTip="当前盘点期">
             <nz-input-group nzPrefixIcon="clock-circle">
