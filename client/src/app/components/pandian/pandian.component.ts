@@ -13,8 +13,8 @@ export class PandianComponent implements OnInit {
     constructor(private pandianSvc: StockTakingService) {}
     title = 'pandian';
     // listOfData: StockTaking[] = [];
-    @ViewChild(PdInputComponent) inputCmp: PdInputComponent;
-    @ViewChild(PdEditComponent) editCmp: PdEditComponent;
+    @ViewChild(PdInputComponent,{static:true}) inputCmp: PdInputComponent;
+    @ViewChild(PdEditComponent,{static:true}) editCmp: PdEditComponent;
     ngOnInit(): void {
         // this.listOfData = [];
     }

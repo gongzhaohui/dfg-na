@@ -33,7 +33,7 @@ export class CostComponent implements OnInit,AfterViewInit {
   cost: number;
   cost_m: number;
   cost_p: number;
-  @ViewChild('invcode')
+  @ViewChild('invcode',{static:true})
   invcodeElement: ElementRef;
 
   constructor(

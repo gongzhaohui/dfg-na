@@ -24,9 +24,9 @@ import { StockTaking } from 'src/app/entities/stocktaking.entity';
 export class PdInputComponent implements OnInit {
     @Output() submitData: EventEmitter<StockTaking> = new EventEmitter();
     inputForm: FormGroup;
-    @ViewChild('formGroupAccessor')
-    private formGroupAccessor: FormGroupDirective;
-    @ViewChild('barcode')
+    // @ViewChild('formGroupAccessor')
+    // private formGroupAccessor: FormGroupDirective;
+    @ViewChild('barcode',{static:true})
     private barEl: ElementRef;
 
     constructor(private fb: FormBuilder, private periodSvc: PeriodService) {}
@@ -62,8 +62,8 @@ export class PdInputComponent implements OnInit {
                 const val = (<any>ctl).value;
                 if (val) {
                     const elIndex: number =
-                        parseInt(ctl.getAttribute('tabindex'), 10) + 1;
-                    this.focusNext(elIndex);
+                        parseInt(ctl.getAttribute('tabindex'), 10);
+                    this.focusNext(elIndex + 1);
                 }
             }
         }

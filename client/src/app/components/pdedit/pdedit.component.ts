@@ -9,7 +9,7 @@ import { NzTableComponent } from 'ng-zorro-antd';
     styleUrls: ['./pdedit.component.css'],
 })
 export class PdEditComponent implements OnInit,AfterViewInit {
-  @ViewChild('basicTable')
+  @ViewChild('basicTable',{static:true})
     tabComp: NzTableComponent;
     pdData: StockTaking[];
     // @Output() deleteData: EventEmitter<number> = new EventEmitter();

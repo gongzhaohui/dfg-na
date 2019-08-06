@@ -16,7 +16,7 @@ import { BomItem } from 'src/app/entities/bomitem';
 export class BomPComponent implements OnInit, AfterViewInit {
     @Input() bom: BomItem[] = [];
 
-    @ViewChild('nestedTable')
+    @ViewChild('nestedTable',{static:true})
     tabComp: NzTableComponent;
 
     ngOnInit(): void {
