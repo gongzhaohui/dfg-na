@@ -39,6 +39,7 @@ Root
 ### client
 
 `cd client`
+
 Run `ng serve` or `npm run start` for a angular dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ### Server
@@ -47,6 +48,7 @@ Before run server instance,make sure you have executed
 `cp server\src\modules\database\database.providers.sample.ts server\src\modules\database\database.providers.ts`, and edited the file appropriately.
 
 `cd server`
+
 Run `npm run start:dev` for a nestjs server. Navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
@@ -54,11 +56,13 @@ Run `npm run start:dev` for a nestjs server. Navigate to `http://localhost:3000/
 ### client components
 
 `cd client\src\app\components`
+
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ### server modules
 
 `cd server\src\modules`
+
 Run `nest generate module module-name` to generate a new module. You can also use `nest generate angular-app|pipe|service|class|guard|interface|filter|module`.
 
 ## Build
@@ -66,11 +70,13 @@ Run `nest generate module module-name` to generate a new module. You can also us
 ### client build
 
 `cd client`
+
 Run `ng build` to build the client project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ### server build
 
 `cd server`
+
 Run `npm run prestart:prod` to build the server project. The build artifacts will be stored in the `dist/` directory.
 
 ## docker

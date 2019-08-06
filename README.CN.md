@@ -17,7 +17,7 @@
 
 ## 主要目录结构
 
-``
+```
 Root
 ├─client
 │  └─src
@@ -32,7 +32,7 @@ Root
        │─entities
        │─misc
        └─modules
-``
+```
 
 客户端使用 [Angular CLI](https://github.com/angular/angular-cli) version 8.1.3生成。
 服务端使用 [Nest CLI](https://github.com/nestjs/nest-cli) version 6.5.0生成。
@@ -42,6 +42,7 @@ Root
 ### 客户端
 
 `cd client`
+
 运行 `ng serve` 或`npm run start` 启动客户端. 浏览器打开 `http://localhost:4200/`。 修改代码保存后，会自动重新载入。
 
 ### 服务端
@@ -50,6 +51,7 @@ Root
 `cp server\src\modules\database\database.providers.sample.ts server\src\modules\database\database.providers.ts`, 编辑该文件，正确配置数据库连接。
 
 `cd server`
+
 运行 `npm run start:dev`可以开发模式启动服务端. 浏览器打开`http://localhost:3000/`可以确认服务器端状态。 修改代码保存后，会自动重新载入。
 
 ## 生成组件
@@ -67,6 +69,7 @@ Root
 服务端以module的形式组织。在server\src\modules下。
 
 `cd server\src\modules`
+
 运行 `nest generate module module-name` 生成新模块。可用的命令还有`nest generate angular-app|pipe|service|class|guard|interface|filter|module`。
 
 ## Build
@@ -74,11 +77,13 @@ Root
 ### 客户端 build
 
 `cd  client`
+
 运行 `ng build` 可以构建客户端。构建目标文件夹为`dist/`。使用`--prod` 标识进行产品构建。
 
 ### 服务端 build
 
 `cd server`
+
 运行 `npm run prestart:prod` 构建服务端。 构建目标文件夹为`dist/`。
 
 ## docker
