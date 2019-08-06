@@ -2,7 +2,7 @@
 
 ## What is the name meaning
 
-* DFG is the abb. of my company.
+* DFG is the abb. name of my company.
 * *N*est  --Nest is a framework for building efficient, scalable Node.js server-side applications. It uses progressive JavaScript, is built with TypeScript (preserves compatibility with pure JavaScript) and combines elements of OOP (Object Oriented Programming), FP (Functional Programming), and FRP (Functional Reactive Programming).[github](https://github.com/nestjs/nest),[official](https://nestjs.com/)
 * *A*ngular --Angular is a development platform for building mobile and desktop web applications using Typescript/JavaScript and other languages.[github](https://github.com/angular/angular),[official](https://angular.io/)
   
