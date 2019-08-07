@@ -34,6 +34,16 @@ Root
        └─modules
 ```
 
+## Package install
+
+`cd client`
+
+`npm i`
+
+`cd server`
+
+`npm i`
+
 ## Development server
 
 ### client

@@ -37,6 +37,16 @@ Root
 客户端使用 [Angular CLI](https://github.com/angular/angular-cli) version 8.1.3生成。
 服务端使用 [Nest CLI](https://github.com/nestjs/nest-cli) version 6.5.0生成。
 
+## 安装依赖
+
+`cd client`
+
+`npm i`
+
+`cd server`
+
+`npm i`
+
 ## 开发服务器
 
 ### 客户端
