@@ -8,7 +8,6 @@
         </nz-form-control>
         <nz-form-label [nzSpan]="1" nzRequired nzFor="category">分类</nz-form-label>
         <nz-form-control [nzSpan]="2" nzErrorTip="输入类别：在制？集合架？库房？">
-
             <!-- <nz-input-group nzSuffixIcon="shop"> -->
             <nz-select formControlName="category" placeholder="在制？集合架？库房？" style="text-align: right" tabindex="0">
                 <nz-option nzValue="zz" nzLabel="在制"></nz-option>
@@ -43,7 +42,9 @@
             </nz-input-group>
         </nz-form-control>
         <nz-form-control>
-            <button nz-button nzType="primary" [disabled]="!inputForm.valid" tabindex="5">提交</button>
+            <button nz-button nzType="primary" [disabled]="!inputForm.valid" tabindex="5">
+                提交
+            </button>
         </nz-form-control>
     </nz-form-item>
 </form>

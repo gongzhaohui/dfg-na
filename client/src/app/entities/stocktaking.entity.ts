@@ -1,26 +1,26 @@
 export class StockTaking {
-  id?: number;
+    id?: number;
 
-  barcode:string;
+    barcode: string;
 
-  soser?: string;
+    soser?: string;
 
-  moser?: string;
+    moser?: string;
 
-  location?: string;
+    location?: string;
 
-  sodid?: number;
+    sodid?: number;
 
-  modid?: number;
+    modid?: number;
 
-  pds: number;
+    pds: number;
 
-  category: string;
+    category: string;
 
-  period: string;
-  creator:string;
+    period: string;
+    creator: string;
 
-  created?: Date;
+    created?: Date;
 
-  updateed?: Date;
+    updateed?: Date;
 }

@@ -7,9 +7,7 @@ import { MoService } from './mo.service';
 export class MoController {
   constructor(protected service: MoService) {}
   @Get()
-  public async find(
-    @Query() query: SearchFindCondition,
-  ): Promise<MoEntity> {
+  public async find(@Query() query: SearchFindCondition): Promise<MoEntity> {
     const field = query.type;
     const term = query.term;
     return this.service.find(field, term);

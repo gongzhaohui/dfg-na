@@ -8,9 +8,7 @@ export class BomPlanController {
   constructor(protected service: BomPlanService) {}
 
   @Get()
-  public async getBom(
-    @Query() query: SearchFindCondition,
-  ): Promise<BomItem> {
+  public async getBom(@Query() query: SearchFindCondition): Promise<BomItem> {
     const field = query.type;
     const term = query.term;
     return this.service.find(field, term);

@@ -14,9 +14,7 @@ import { HourRate } from '../../entities/hourrate.entity';
 export class HourRateController {
   constructor(protected service: HourRateService) {}
   @Get()
-  public async find(
-    @Query() query: HourRateFindCondition,
-  ): Promise<HourRate> {
+  public async find(@Query() query: HourRateFindCondition): Promise<HourRate> {
     const cinvccode = query.cinvccode;
     const period = query.period;
     return this.service.find(cinvccode, period);

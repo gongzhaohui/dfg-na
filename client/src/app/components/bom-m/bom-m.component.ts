@@ -19,7 +19,7 @@ import { NzTableComponent } from 'ng-zorro-antd';
 export class BomMComponent implements OnInit, AfterViewInit, AfterContentInit {
     @Input() bom: BomItem[] = [];
 
-    @ViewChild('nestedTable',{static:true})
+    @ViewChild('nestedTable', { static: true })
     tabComp: NzTableComponent;
 
     ngOnInit(): void {

@@ -21,5 +21,4 @@ export class SoEntity {
   creator: string;
   @Column()
   created: Date;
-
 }

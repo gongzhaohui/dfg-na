@@ -8,8 +8,8 @@ const routes: Routes = [
     { path: 'cost', component: CostComponent },
     { path: 'pd', component: PandianComponent },
 
-    { path: '', redirectTo: '/cost',pathMatch:'full' },
-    { path: '**', component: NoPageComponent }
+    { path: '', redirectTo: '/cost', pathMatch: 'full' },
+    { path: '**', component: NoPageComponent },
 ];
 
 @NgModule({

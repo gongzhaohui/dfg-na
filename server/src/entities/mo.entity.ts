@@ -23,5 +23,4 @@ export class MoEntity {
   creator?: string;
   @Column()
   created?: Date;
-  
 }

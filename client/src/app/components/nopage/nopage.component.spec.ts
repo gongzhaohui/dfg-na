@@ -6,23 +6,22 @@ import { DebugElement } from '@angular/core';
 import { NoPageComponent } from './nopage.component';
 
 describe('NopageComponent', () => {
-  let component: NoPageComponent;
-  let fixture: ComponentFixture<NoPageComponent>;
+    let component: NoPageComponent;
+    let fixture: ComponentFixture<NoPageComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ NoPageComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [NoPageComponent],
+        }).compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(NoPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(NoPageComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

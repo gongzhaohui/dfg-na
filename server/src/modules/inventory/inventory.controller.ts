@@ -7,9 +7,7 @@ import { SearchFindCondition } from '../../misc/findcondition';
 export class InventoryController {
   constructor(protected service: InventoryService) {}
   @Get()
-  public async find(
-    @Query() query: SearchFindCondition,
-  ): Promise<Inventory> {
+  public async find(@Query() query: SearchFindCondition): Promise<Inventory> {
     // console.log(JSON.stringify(query));
     const type = query.type;
     const term = query.term;
