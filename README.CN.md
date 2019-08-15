@@ -18,20 +18,331 @@
 ## 主要目录结构
 
 ```
-Root
-├─client
-│  └─src
-│     └─app
-│      │─components
-│      │─entities
-│      │─intercepetors
-│      └─services
-└─server
-   └─src
-       │─base
-       │─entities
-       │─misc
-       └─modules
+.
+├── client
+│   ├── dist
+│   │   └── client
+│   │       └── assets
+│   │           ├── animal
+│   │           ├── fill
+│   │           ├── outline
+│   │           └── twotone
+│   ├── e2e
+│   │   └── src
+│   └── src
+│       ├── app
+│       │   ├── components
+│       │   │   ├── bom-m
+│       │   │   ├── bom-p
+│       │   │   ├── cost
+│       │   │   ├── history
+│       │   │   ├── inventory
+│       │   │   ├── nopage
+│       │   │   ├── pandian
+│       │   │   ├── pdedit
+│       │   │   ├── pdinput
+│       │   │   └── rdsin
+│       │   ├── entities
+│       │   ├── interceptors
+│       │   └── services
+│       ├── assets
+│       └── environments
+└── server
+    ├── dist
+    │   ├── base
+    │   ├── entities
+    │   ├── misc
+    │   └── modules
+    │       ├── bom
+    │       ├── database
+    │       ├── history
+    │       ├── hourrate
+    │       └── inventory
+    ├── src
+    │   ├── base
+    │   ├── entities
+    │   ├── misc
+    │   └── modules
+    │       ├── aps
+    │       ├── bom
+    │       ├── database
+    │       ├── history
+    │       ├── hourrate
+    │       ├── inventory
+    │       ├── mo
+    │       └── stocktaking
+    └── test
+.
+├── client
+│   ├── dist
+│   │   └── client
+│   │       └── assets
+│   │           ├── animal
+│   │           ├── fill
+│   │           ├── outline
+│   │           └── twotone
+│   ├── e2e
+│   │   └── src
+│   └── src
+│       ├── app
+│       │   ├── components
+│       │   │   ├── bom-m
+│       │   │   ├── bom-p
+│       │   │   ├── cost
+│       │   │   ├── history
+│       │   │   ├── inventory
+│       │   │   ├── nopage
+│       │   │   ├── pandian
+│       │   │   ├── pdedit
+│       │   │   ├── pdinput
+│       │   │   └── rdsin
+│       │   ├── entities
+│       │   ├── interceptors
+│       │   └── services
+│       ├── assets
+│       └── environments
+└── server
+    ├── dist
+    │   ├── base
+    │   ├── entities
+    │   ├── misc
+    │   └── modules
+    │       ├── bom
+    │       ├── database
+    │       ├── history
+    │       ├── hourrate
+    │       └── inventory
+    ├── src
+    │   ├── base
+    │   ├── entities
+    │   ├── misc
+    │   └── modules
+    │       ├── aps
+    │       ├── bom
+    │       ├── database
+    │       ├── history
+    │       ├── hourrate
+    │       ├── inventory
+    │       ├── mo
+    │       └── stocktaking
+    └── test
+.
+├── client
+│   ├── dist
+│   │   └── client
+│   │       └── assets
+│   │           ├── animal
+│   │           ├── fill
+│   │           ├── outline
+│   │           └── twotone
+│   ├── e2e
+│   │   └── src
+│   └── src
+│       ├── app
+│       │   ├── components
+│       │   │   ├── bom-m
+│       │   │   ├── bom-p
+│       │   │   ├── cost
+│       │   │   ├── history
+│       │   │   ├── inventory
+│       │   │   ├── nopage
+│       │   │   ├── pandian
+│       │   │   ├── pdedit
+│       │   │   ├── pdinput
+│       │   │   └── rdsin
+│       │   ├── entities
+│       │   ├── interceptors
+│       │   └── services
+│       ├── assets
+│       └── environments
+└── server
+    ├── dist
+    │   ├── base
+    │   ├── entities
+    │   ├── misc
+    │   └── modules
+    │       ├── bom
+    │       ├── database
+    │       ├── history
+    │       ├── hourrate
+    │       └── inventory
+    ├── src
+    │   ├── base
+    │   ├── entities
+    │   ├── misc
+    │   └── modules
+    │       ├── aps
+    │       ├── bom
+    │       ├── database
+    │       ├── history
+    │       ├── hourrate
+    │       ├── inventory
+    │       ├── mo
+    │       └── stocktaking
+    └── test
+.
+├── client
+│   ├── dist
+│   │   └── client
+│   │       └── assets
+│   │           ├── animal
+│   │           ├── fill
+│   │           ├── outline
+│   │           └── twotone
+│   ├── e2e
+│   │   └── src
+│   └── src
+│       ├── app
+│       │   ├── components
+│       │   │   ├── bom-m
+│       │   │   ├── bom-p
+│       │   │   ├── cost
+│       │   │   ├── history
+│       │   │   ├── inventory
+│       │   │   ├── nopage
+│       │   │   ├── pandian
+│       │   │   ├── pdedit
+│       │   │   ├── pdinput
+│       │   │   └── rdsin
+│       │   ├── entities
+│       │   ├── interceptors
+│       │   └── services
+│       ├── assets
+│       └── environments
+└── server
+    ├── dist
+    │   ├── base
+    │   ├── entities
+    │   ├── misc
+    │   └── modules
+    │       ├── bom
+    │       ├── database
+    │       ├── history
+    │       ├── hourrate
+    │       └── inventory
+    ├── src
+    │   ├── base
+    │   ├── entities
+    │   ├── misc
+    │   └── modules
+    │       ├── aps
+    │       ├── bom
+    │       ├── database
+    │       ├── history
+    │       ├── hourrate
+    │       ├── inventory
+    │       ├── mo
+    │       └── stocktaking
+    └── test
+.
+├── client
+│   ├── dist
+│   │   └── client
+│   │       └── assets
+│   │           ├── animal
+│   │           ├── fill
+│   │           ├── outline
+│   │           └── twotone
+│   ├── e2e
+│   │   └── src
+│   └── src
+│       ├── app
+│       │   ├── components
+│       │   │   ├── bom-m
+│       │   │   ├── bom-p
+│       │   │   ├── cost
+│       │   │   ├── history
+│       │   │   ├── inventory
+│       │   │   ├── nopage
+│       │   │   ├── pandian
+│       │   │   ├── pdedit
+│       │   │   ├── pdinput
+│       │   │   └── rdsin
+│       │   ├── entities
+│       │   ├── interceptors
+│       │   └── services
+│       ├── assets
+│       └── environments
+└── server
+    ├── dist
+    │   ├── base
+    │   ├── entities
+    │   ├── misc
+    │   └── modules
+    │       ├── bom
+    │       ├── database
+    │       ├── history
+    │       ├── hourrate
+    │       └── inventory
+    ├── src
+    │   ├── base
+    │   ├── entities
+    │   ├── misc
+    │   └── modules
+    │       ├── aps
+    │       ├── bom
+    │       ├── database
+    │       ├── history
+    │       ├── hourrate
+    │       ├── inventory
+    │       ├── mo
+    │       └── stocktaking
+    └── test
+.
+├── client
+│   ├── dist
+│   │   └── client
+│   │       └── assets
+│   │           ├── animal
+│   │           ├── fill
+│   │           ├── outline
+│   │           └── twotone
+│   ├── e2e
+│   │   └── src
+│   └── src
+│       ├── app
+│       │   ├── components
+│       │   │   ├── bom-m
+│       │   │   ├── bom-p
+│       │   │   ├── cost
+│       │   │   ├── history
+│       │   │   ├── inventory
+│       │   │   ├── nopage
+│       │   │   ├── pandian
+│       │   │   ├── pdedit
+│       │   │   ├── pdinput
+│       │   │   └── rdsin
+│       │   ├── entities
+│       │   ├── interceptors
+│       │   └── services
+│       ├── assets
+│       └── environments
+└── server
+    ├── dist
+    │   ├── base
+    │   ├── entities
+    │   ├── misc
+    │   └── modules
+    │       ├── bom
+    │       ├── database
+    │       ├── history
+    │       ├── hourrate
+    │       └── inventory
+    ├── src
+    │   ├── base
+    │   ├── entities
+    │   ├── misc
+    │   └── modules
+    │       ├── aps
+    │       ├── bom
+    │       ├── database
+    │       ├── history
+    │       ├── hourrate
+    │       ├── inventory
+    │       ├── mo
+    │       └── stocktaking
+    └── test
+
 ```
 
 客户端使用 [Angular CLI](https://github.com/angular/angular-cli) version 8.1.3生成。

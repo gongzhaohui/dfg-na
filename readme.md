@@ -1,3 +1,10 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: Zhaohui Gong
+ * @Date: 2019-08-05 11:56:24
+ * @LastEditTime: 2019-08-13 10:48:47
+ * @LastEditors: Please set LastEditors
+ -->
 # DFG-NA
 
 ## What is the name meaning
@@ -18,20 +25,61 @@ The Server of this project was generated with [Nest CLI](https://github.com/nest
 ## Directory structure
 
 ```
-Root
-├─client
-│  └─src
-│     └─app
-│      │─components
-│      │─entities
-│      │─intercepetors
-│      └─services
-└─server
-   └─src
-       │─base
-       │─entities
-       │─misc
-       └─modules
+.
+├── client
+│   ├── dist
+│   │   └── client
+│   │       └── assets
+│   │           ├── animal
+│   │           ├── fill
+│   │           ├── outline
+│   │           └── twotone
+│   ├── e2e
+│   │   └── src
+│   └── src
+│       ├── app
+│       │   ├── components
+│       │   │   ├── bom-m
+│       │   │   ├── bom-p
+│       │   │   ├── cost
+│       │   │   ├── history
+│       │   │   ├── inventory
+│       │   │   ├── nopage
+│       │   │   ├── pandian
+│       │   │   ├── pdedit
+│       │   │   ├── pdinput
+│       │   │   └── rdsin
+│       │   ├── entities
+│       │   ├── interceptors
+│       │   └── services
+│       ├── assets
+│       └── environments
+└── server
+    ├── dist
+    │   ├── base
+    │   ├── entities
+    │   ├── misc
+    │   └── modules
+    │       ├── bom
+    │       ├── database
+    │       ├── history
+    │       ├── hourrate
+    │       └── inventory
+    ├── src
+    │   ├── base
+    │   ├── entities
+    │   ├── misc
+    │   └── modules
+    │       ├── aps
+    │       ├── bom
+    │       ├── database
+    │       ├── history
+    │       ├── hourrate
+    │       ├── inventory
+    │       ├── mo
+    │       └── stocktaking
+    └── test
+
 ```
 
 ## Package install

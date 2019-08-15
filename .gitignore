@@ -43,3 +43,4 @@ testem.log
 .DS_Store
 Thumbs.db
 client/dist/client/favicon.ico
+tree.txt
