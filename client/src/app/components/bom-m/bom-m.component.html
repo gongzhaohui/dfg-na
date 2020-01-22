@@ -1,3 +1,11 @@
+<!--
+ * @Author: Gong
+ * @Date: 2019-05-14 10:05:35
+ * @LastEditTime : 2020-01-22 13:14:07
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \dfg-na\client\src\app\components\bom-m\bom-m.component.html
+ -->
 <!-- <span>{{bom|json}}</span> -->
 <nz-table #nestedTable [nzData]="bom" [nzPageSize]="10">
     <thead>
@@ -14,7 +22,7 @@
         <ng-template ngFor let-data [ngForOf]="nestedTable.data">
             <tr>
                 <td nzShowExpand [(nzExpand)]="data.expand"></td>
-                <td>{{ data.lvl}}</td>
+                <td>{{ data.lvl }}</td>
                 <td>{{ data.inv.cinvcode }}</td>
                 <td>{{ data.inv.cinvstd }}</td>
                 <td>{{ data.inv.cinvaddcode }}</td>
@@ -23,7 +31,7 @@
             <tr [nzExpand]="data.expand">
                 <td></td>
                 <td colspan="7">
-                    <nz-table #innerTable [nzData]="data.routings" nzSize="middle" [nzShowPagination]="false">
+                    <nz-table #innerTable [nzData]="data.routings" nzSize="middle" [nzShowPagination]="false" [nzPageSize]="1000">
                         <thead>
                             <tr>
                                 <th>序号</th>
@@ -39,7 +47,9 @@
                                 <td>{{ data.opname }}</td>
                                 <td>{{ data.remark }}</td>
                                 <td>{{ data.resqty }}</td>
-                                <td>{{ data.amount |currency:'CNY':'symbol-narrow' }}</td>
+                                <td>
+                                    {{ data.amount | currency: 'CNY':'symbol-narrow' }}
+                                </td>
                             </tr>
                         </tbody>
                     </nz-table>

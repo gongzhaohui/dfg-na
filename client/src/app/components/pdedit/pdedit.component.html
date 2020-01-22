@@ -1,4 +1,11 @@
-<nz-table #basicTable [nzData]="pdData" [nzLoading]="loading" [(nzPageIndex)]="pageIndex" [(nzPageSize)]="pageSize" [nzLoadingDelay]=100 style="height: 100%">
+<!--
+ * @Description: In User Settings Edit
+ * @Author: Gong
+ * @Date: 2019-07-26 11:16:49
+ * @LastEditTime : 2020-01-22 13:06:26
+ * @LastEditors  : Please set LastEditors
+ -->
+<nz-table #basicTable [nzData]="pdData" [nzLoading]="loading" [(nzPageIndex)]="pageIndex" [(nzPageSize)]="pageSize" [nzShowPagination]="true" [nzLoadingDelay]="100" style="height: 100%">
     <thead>
         <tr>
             <th>分类</th>

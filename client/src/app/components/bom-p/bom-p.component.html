@@ -1,3 +1,11 @@
+<!--
+ * @Author: Gong
+ * @Date: 2019-05-14 10:15:16
+ * @LastEditTime : 2020-01-22 13:16:07
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \dfg-na\client\src\app\components\bom-p\bom-p.component.html
+ -->
 <nz-table #nestedTable [nzData]="bom" [nzPageSize]="10">
     <thead>
         <tr>
@@ -15,32 +23,34 @@
         <ng-template ngFor let-data [ngForOf]="nestedTable.data">
             <tr>
                 <td nzShowExpand [(nzExpand)]="data.expand"></td>
-                <td>{{ data.lvl}}</td>
+                <td>{{ data.lvl }}</td>
                 <td>{{ data.inv.cinvcode }}</td>
                 <td>{{ data.inv.cinvstd }}</td>
                 <td>{{ data.inv.cinvaddcode }}</td>
                 <td>{{ data.qty }}</td>
-                <td>{{ data.inv.unitcost|currency:'CNY':'symbol-narrow' }}</td>
-                <td>{{ data.amount|currency:'CNY':'symbol-narrow' }}</td>
+                <td>
+                    {{ data.inv.unitcost | currency: 'CNY':'symbol-narrow' }}
+                </td>
+                <td>{{ data.amount | currency: 'CNY':'symbol-narrow' }}</td>
             </tr>
             <tr [nzExpand]="data.expand">
                 <td></td>
                 <td colspan="7">
-                    <nz-table #innerTable [nzData]="data.inv.rdsins" nzSize="middle" [nzShowPagination]="false">
+                    <nz-table #innerTable [nzData]="data.inv.rdsins" nzSize="middle" [nzShowPagination]="false" [nzPageSize]="1000">
                         <thead>
                             <tr>
                                 <th>日期</th>
                                 <th>数量</th>
                                 <th>单价</th>
-
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let data of innerTable.data">
-                                <td>{{ data.rdate |date:'yyyy-MM-dd'}}</td>
-                                <td>{{ data.qty}}</td>
-                                <td>{{ data.unitcost|currency:'CNY':'symbol-narrow' }}</td>
-
+                                <td>{{ data.rdate | date: 'yyyy-MM-dd' }}</td>
+                                <td>{{ data.qty }}</td>
+                                <td>
+                                    {{ data.unitcost | currency: 'CNY':'symbol-narrow' }}
+                                </td>
                             </tr>
                         </tbody>
                     </nz-table>
