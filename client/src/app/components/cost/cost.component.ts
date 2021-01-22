@@ -110,7 +110,7 @@ export class CostComponent implements OnInit, AfterViewInit {
             .subscribe(hr => {
                 //  = '小时单价完成。';
                 this.notiSvr.info('status', '小时单价查询完成。');
-                this.hourRate = hr;
+                this.hourRate = hr?hr:{hourrate:1};
                 // console.log('hr:'+JSON.stringify(this.hourRate));
                 this.CalcCost();
             });
