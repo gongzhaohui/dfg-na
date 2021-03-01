@@ -3,12 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {
-    NgZorroAntdModule,
-    NZ_I18N,
-    zh_CN,
-    NzNotificationService,
-} from 'ng-zorro-antd';
+// import {
+//     NgZorroAntdModule,
+//     NZ_I18N,
+//     zh_CN,
+//     NzNotificationService,
+// } from 'ng-zorro-antd';
+
+import {NZ_I18N,zh_CN} from 'ng-zorro-antd/i18n';
+import {NzNotificationService} from 'ng-zorro-antd/notification';
+import {NzTableModule} from 'ng-zorro-antd/table'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,6 +31,7 @@ import { NoPageComponent } from './components/nopage/nopage.component';
 import { PandianComponent } from './components/pandian/pandian.component';
 import { PdInputComponent } from './components/pdinput/pdinput.component';
 import { PdEditComponent } from './components/pdedit/pdedit.component';
+import { ReghistoryComponent } from './components/reg/reghistory.component';
 registerLocaleData(zh);
 
 @NgModule({
@@ -42,11 +47,13 @@ registerLocaleData(zh);
         PandianComponent,
         PdInputComponent,
         PdEditComponent,
+        ReghistoryComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        NgZorroAntdModule,
+        NzTableModule,
+        // NgZorroAntdModule,
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,

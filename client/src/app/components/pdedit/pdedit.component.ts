@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { StockTaking } from '../../entities/stocktaking.entity';
 import { StockTakingService } from 'src/app/services/stocktaking.service';
-import { NzTableComponent } from 'ng-zorro-antd';
+import { NzTableComponent } from 'ng-zorro-antd/table';
 
 @Component({
     selector: 'dfg-pdedit',
