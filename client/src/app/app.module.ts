@@ -13,6 +13,16 @@ import { AppComponent } from './app.component';
 import {NZ_I18N,zh_CN} from 'ng-zorro-antd/i18n';
 import {NzNotificationService} from 'ng-zorro-antd/notification';
 import {NzTableModule} from 'ng-zorro-antd/table'
+import { NzLayoutModule } from 'ng-zorro-antd/layout'
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzRadioModule } from 'ng-zorro-antd/radio';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+import {NzButtonModule} from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -53,6 +63,15 @@ registerLocaleData(zh);
         BrowserModule,
         AppRoutingModule,
         NzTableModule,
+        NzLayoutModule,
+        NzDividerModule,
+        NzPaginationModule,
+        NzDropDownModule,
+        NzRadioModule,
+        NzGridModule,
+        NzBreadCrumbModule,
+        NzButtonModule,
+        NzIconModule,
         // NgZorroAntdModule,
         FormsModule,
         ReactiveFormsModule,
