@@ -1,4 +1,4 @@
-export class Reg_Op{
+export class Operator{
   id:number;
   name:string
 }

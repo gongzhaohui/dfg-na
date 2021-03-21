@@ -15,9 +15,9 @@
             [(ngModel)]="term"
             placeholder="input search text"
             (keyup.enter)="Search()"
-            (focus)="$event.target.select()"
             nz-select-on-focus
         />
+        <!-- ↑(focus)="$event.target.select()" -->
         <button nz-button nzType="primary" nzSearch (click)="Search()">
             <i nz-icon [nzType]="'search'"></i>
         </button>

@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { StockTakingService } from '../../services/stocktaking.service';
 import { StockTaking } from '../../entities/stocktaking.entity';
-import { PdInputComponent } from '../pdinput/pdinput.component';
-import { PdEditComponent } from '../pdedit/pdedit.component';
+import { PdInputComponent } from './pd-input/pdinput.component';
+import { PdEditComponent } from './pd-edit/pdedit.component';
 
 @Component({
     selector: 'dfg-pandian',

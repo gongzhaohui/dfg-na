@@ -1,4 +1,4 @@
-export class Reg_Order_Info{
+export class Order_Info{
   isodid:number;
   cdefine31:string;
   ccusabbname:string;

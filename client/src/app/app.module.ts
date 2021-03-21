@@ -22,6 +22,9 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import {NzButtonModule} from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzFormModule } from 'ng-zorro-antd/form';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -33,15 +36,17 @@ import { BomMComponent } from './components/bom-m/bom-m.component';
 import { BomPComponent } from './components/bom-p/bom-p.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { HttpErrorInterceptor } from './interceptors/HttpErrorInterceptor';
-import { RdsinComponent } from './components/rdsin/rdsin.component';
+import { RdsinComponent } from './components/rds-in/rdsin.component';
 // import {HttpClientModule} from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { CostComponent } from './components/cost/cost.component';
 import { NoPageComponent } from './components/nopage/nopage.component';
 import { PandianComponent } from './components/pandian/pandian.component';
-import { PdInputComponent } from './components/pdinput/pdinput.component';
-import { PdEditComponent } from './components/pdedit/pdedit.component';
-import { ReghistoryComponent } from './components/reg/reghistory.component';
+import { PdInputComponent } from './components/pandian/pd-input/pdinput.component';
+import { PdEditComponent } from './components/pandian/pd-edit/pdedit.component';
+import { logComponent } from './components/log/log.component';
+import { LogInputComponent } from './components/log/log-input/log-input.component';
+import { LogListComponent } from './components/log/log-list/log-list.component';
 registerLocaleData(zh);
 
 @NgModule({
@@ -57,7 +62,9 @@ registerLocaleData(zh);
         PandianComponent,
         PdInputComponent,
         PdEditComponent,
-        ReghistoryComponent,
+        logComponent,
+        LogInputComponent,
+        LogListComponent,
     ],
     imports: [
         BrowserModule,
@@ -72,6 +79,9 @@ registerLocaleData(zh);
         NzBreadCrumbModule,
         NzButtonModule,
         NzIconModule,
+        NzInputModule,
+        NzSelectModule,
+        NzFormModule,
         // NgZorroAntdModule,
         FormsModule,
         ReactiveFormsModule,

@@ -4,7 +4,7 @@ import {
     AfterViewInit,
     ViewChild,
 } from '@angular/core';
-import { StockTaking } from '../../entities/stocktaking.entity';
+import { StockTaking } from '../../../entities/stocktaking.entity';
 import { StockTakingService } from 'src/app/services/stocktaking.service';
 import { NzTableComponent } from 'ng-zorro-antd/table';
 
