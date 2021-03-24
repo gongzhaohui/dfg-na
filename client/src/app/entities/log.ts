@@ -1,4 +1,4 @@
-import {Order_Info} from './order_info'
+import {OrderInfo} from './order_info'
 export class Log{
   id:number;
   barcode:string;

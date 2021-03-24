@@ -47,6 +47,7 @@ import { PdEditComponent } from './components/pandian/pd-edit/pdedit.component';
 import { logComponent } from './components/log/log.component';
 import { LogInputComponent } from './components/log/log-input/log-input.component';
 import { LogListComponent } from './components/log/log-list/log-list.component';
+import { OrderInfoComponent } from './components/log/order-info/order-info.component';
 registerLocaleData(zh);
 
 @NgModule({
@@ -65,6 +66,7 @@ registerLocaleData(zh);
         logComponent,
         LogInputComponent,
         LogListComponent,
+        OrderInfoComponent,
     ],
     imports: [
         BrowserModule,

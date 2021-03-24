@@ -30,28 +30,13 @@
         </nz-input-group>
       </nz-form-control>
     </nz-col>
-    <!-- <nz-form-label [nzSpan]="1" nzRequired nzFor="location"
-            >货架号</nz-form-label
-        > -->
-    <!-- <nz-form-control
 
-            nzErrorTip="在制可以不填，集合架及库房选填"
-        >
-            <nz-input-group nzPrefixIcon="tag">
-                <input
-                    formControlName="location"
-                    nz-input
-                    placeholder="货架号"
-                    tabindex="2"
-                />
-            </nz-input-group>
-        </nz-form-control> -->
     <nz-col [nzSpan]="4">
-
       <nz-form-label nzRequired nzFor="barcode">条码</nz-form-label>
-      <nz-form-control nzErrorTip="生产订单号条码或销售订单条码">
+      <nz-form-control nzErrorTip="销售订单条码">
         <nz-input-group nzPrefixIcon="barcode">
-          <input #barcode formControlName="barcode" nz-input placeholder="条码" tabindex="2" />
+          <input #barcode formControlName="barcode" nz-input placeholder="条码" tabindex="2"
+            (blur)="barcodeChanged($event.target.value)" />
         </nz-input-group>
       </nz-form-control>
     </nz-col>
@@ -64,9 +49,10 @@
       </nz-form-control>
     </nz-col>
     <nz-col [nzSpan]="4">
+      <nz-form-control></nz-form-control>
       <nz-form-control>
-        <button nz-button nzType="primary" [disabled]="!inputForm.valid" tabindex="4">
-          提交
+        <button nz-button #btnSave nzType="primary" [disabled]="!inputForm.valid" tabindex="4">
+          添加
         </button>
       </nz-form-control>
     </nz-col>

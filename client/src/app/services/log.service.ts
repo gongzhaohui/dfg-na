@@ -6,7 +6,7 @@ import { Log } from '../entities/log';
 @Injectable({
     providedIn: 'root',
 })
-export class RegHistoryService {
+export class LogService {
     private url = `${this.baseUrl}/api/reg/history`;
 
     constructor(

@@ -1,3 +1,6 @@
-<dfg-reg-input (submitData)="saveHistory($event)"></dfg-reg-input>
+<dfg-log-input (saveLog)="onSaveLog($event)" (getOder)="onGetOrder($event)" (getList)="onGetList($event)">
+</dfg-log-input>
 <nz-divider></nz-divider>
-<dfg-reg-list></dfg-reg-list>
+<dfg-order-info [orderInfo]="orderInfo"></dfg-order-info>
+<nz-divider></nz-divider>
+<dfg-log-list [logs]="logs" (updateLog)="onUpdateLog($event)" (deleteLog)="onDeleteLog($event)"></dfg-log-list>

@@ -1,4 +1,4 @@
-export class Order_Info{
+export class OrderInfo{
   isodid:number;
   cdefine31:string;
   ccusabbname:string;
