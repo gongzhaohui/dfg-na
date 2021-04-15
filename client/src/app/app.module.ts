@@ -10,9 +10,9 @@ import { AppComponent } from './app.component';
 //     NzNotificationService,
 // } from 'ng-zorro-antd';
 
-import {NZ_I18N,zh_CN} from 'ng-zorro-antd/i18n';
-import {NzNotificationService} from 'ng-zorro-antd/notification';
-import {NzTableModule} from 'ng-zorro-antd/table'
+import { NZ_I18N, zh_CN } from 'ng-zorro-antd/i18n';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
+import { NzTableModule } from 'ng-zorro-antd/table'
 import { NzLayoutModule } from 'ng-zorro-antd/layout'
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
@@ -20,12 +20,12 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
-import {NzButtonModule} from 'ng-zorro-antd/button';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzFormModule } from 'ng-zorro-antd/form';
-import {NzDescriptionsModule} from 'ng-zorro-antd/descriptions'
+// import {NzDescriptionsModule} from 'ng-zorro-antd/descriptions'
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -47,65 +47,65 @@ import { PandianComponent } from './components/pandian/pandian.component';
 import { PdInputComponent } from './components/pandian/pd-input/pdinput.component';
 import { PdEditComponent } from './components/pandian/pd-edit/pdedit.component';
 import { logComponent } from './components/log/log.component';
-import { LogInputComponent } from './components/log/log-input/log-input.component';
+// import { LogInputComponent } from './components/log/log-input/log-input.component';
 import { LogListComponent } from './components/log/log-list/log-list.component';
 import { OrderInfoComponent } from './components/log/order-info/order-info.component';
 registerLocaleData(zh);
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HistoryComponent,
-        BomMComponent,
-        BomPComponent,
-        InventoryComponent,
-        RdsinComponent,
-        CostComponent,
-        NoPageComponent,
-        PandianComponent,
-        PdInputComponent,
-        PdEditComponent,
-        logComponent,
-        LogInputComponent,
-        LogListComponent,
-        OrderInfoComponent,
-    ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        NzTableModule,
-        NzLayoutModule,
-        NzDividerModule,
-        NzPaginationModule,
-        NzDropDownModule,
-        NzRadioModule,
-        NzGridModule,
-        NzBreadCrumbModule,
-        NzButtonModule,
-        NzIconModule,
-        NzInputModule,
-        NzSelectModule,
-        NzFormModule,
-        // NgZorroAntdModule,
-        NzDescriptionsModule,
-        NzPopconfirmModule,
+  declarations: [
+    AppComponent,
+    HistoryComponent,
+    BomMComponent,
+    BomPComponent,
+    InventoryComponent,
+    RdsinComponent,
+    CostComponent,
+    NoPageComponent,
+    PandianComponent,
+    PdInputComponent,
+    PdEditComponent,
+    logComponent,
+    // LogInputComponent,
+    LogListComponent,
+    OrderInfoComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NzTableModule,
+    NzLayoutModule,
+    NzDividerModule,
+    NzPaginationModule,
+    NzDropDownModule,
+    NzRadioModule,
+    NzGridModule,
+    NzBreadCrumbModule,
+    NzButtonModule,
+    NzIconModule,
+    NzInputModule,
+    NzSelectModule,
+    NzFormModule,
+    // NgZorroAntdModule,
+    // NzDescriptionsModule,
+    NzPopconfirmModule,
 
-        FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-    ],
-    providers: [
-        { provide: NZ_I18N, useValue: zh_CN },
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: HttpErrorInterceptor,
-            multi: true,
-        },
-        { provide: NzNotificationService, useClass: NzNotificationService },
-        { provide: 'BASE_URL', useValue: environment.apiHost },
-    ],
-    bootstrap: [AppComponent],
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+  ],
+  providers: [
+    { provide: NZ_I18N, useValue: zh_CN },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true,
+    },
+    { provide: NzNotificationService, useClass: NzNotificationService },
+    { provide: 'BASE_URL', useValue: environment.apiHost },
+  ],
+  bootstrap: [ AppComponent ],
 })
-export class AppModule {}
+export class AppModule { }
