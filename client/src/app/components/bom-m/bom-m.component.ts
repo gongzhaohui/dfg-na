@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 // import { Bom } from 'src/app/entities/bom_m';
 import { BomItem } from 'src/app/entities/bomitem';
-import { NzTableComponent } from 'ng-zorro-antd';
+import { NzTableComponent } from 'ng-zorro-antd/table';
 
 @Component({
     selector: 'dfg-bom-m',

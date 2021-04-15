@@ -1,0 +1,42 @@
+<!-- <nz-descriptions nzTitle="订单信息" nzBordered>
+  <nz-descriptions-item nzTitle="Jno">{{orderInfo?.jno}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="存货编码">{{orderInfo?.cinvcode}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="规格型号">{{orderInfo?.cinvstd}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="存货代码">{{orderInfo?.cinvaddcode}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="客户">{{orderInfo?.ccusabbname}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="数量">{{orderInfo?.qty}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="交货期">{{orderInfo?.dpredate|date }} </nz-descriptions-item>
+</nz-descriptions> -->
+<h3>订单信息</h3>
+<div class="wrap">
+  <div nz-row class="extra-content" [nzGutter]="2">
+    <div nz-col nzSpan="3">
+      <span class="label">Jno</span>
+      <p class="detail">{{orderInfo?.jno}}</p>
+    </div>
+    <div nz-col nzSpan="2">
+      <span class="label">客户</span>
+      <p class="detail">{{orderInfo?.ccusabbname}}</p>
+    </div>
+    <div nz-col nzSpan="3">
+      <span class="label">存货编码</span>
+      <p class="detail">{{orderInfo?.cinvcode}}</p>
+    </div>
+    <div nz-col nzSpan="2">
+      <span class="label">规格</span>
+      <p class="detail">{{orderInfo?.cinvstd}}</p>
+    </div>
+    <div nz-col nzSpan="3">
+      <span class="label">代码</span>
+      <p class="detail">{{orderInfo?.cinvaddcode}}</p>
+    </div>
+    <div nz-col nzSpan="2">
+      <span class="label">交货期</span>
+      <p class="detail">{{orderInfo?.dpredate |date:"yyyy-MM-dd"}}</p>
+    </div>
+    <div nz-col nzSpan="2">
+      <span class="label">数量</span>
+      <p class="detail">{{orderInfo?.qty}}</p>
+    </div>
+  </div>
+</div>

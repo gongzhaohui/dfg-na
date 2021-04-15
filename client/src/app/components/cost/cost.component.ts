@@ -14,7 +14,7 @@ import { PeriodService } from '../../services/period.service';
 import { BomItem } from '../../entities/bomitem';
 import { BomPlanService } from '../../services/bom_plan.service';
 import { concatMap } from 'rxjs/operators';
-import { NzNotificationService } from 'ng-zorro-antd';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { Rdsin } from '../../entities/rdsin';
 @Component({
     selector: 'dfg-cost',

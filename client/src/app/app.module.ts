@@ -3,12 +3,31 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {
-    NgZorroAntdModule,
-    NZ_I18N,
-    zh_CN,
-    NzNotificationService,
-} from 'ng-zorro-antd';
+// import {
+//     NgZorroAntdModule,
+//     NZ_I18N,
+//     zh_CN,
+//     NzNotificationService,
+// } from 'ng-zorro-antd';
+
+import {NZ_I18N,zh_CN} from 'ng-zorro-antd/i18n';
+import {NzNotificationService} from 'ng-zorro-antd/notification';
+import {NzTableModule} from 'ng-zorro-antd/table'
+import { NzLayoutModule } from 'ng-zorro-antd/layout'
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzRadioModule } from 'ng-zorro-antd/radio';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+import {NzButtonModule} from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import {NzDescriptionsModule} from 'ng-zorro-antd/descriptions'
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,14 +38,18 @@ import { BomMComponent } from './components/bom-m/bom-m.component';
 import { BomPComponent } from './components/bom-p/bom-p.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { HttpErrorInterceptor } from './interceptors/HttpErrorInterceptor';
-import { RdsinComponent } from './components/rdsin/rdsin.component';
+import { RdsinComponent } from './components/rds-in/rdsin.component';
 // import {HttpClientModule} from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { CostComponent } from './components/cost/cost.component';
 import { NoPageComponent } from './components/nopage/nopage.component';
 import { PandianComponent } from './components/pandian/pandian.component';
-import { PdInputComponent } from './components/pdinput/pdinput.component';
-import { PdEditComponent } from './components/pdedit/pdedit.component';
+import { PdInputComponent } from './components/pandian/pd-input/pdinput.component';
+import { PdEditComponent } from './components/pandian/pd-edit/pdedit.component';
+import { logComponent } from './components/log/log.component';
+import { LogInputComponent } from './components/log/log-input/log-input.component';
+import { LogListComponent } from './components/log/log-list/log-list.component';
+import { OrderInfoComponent } from './components/log/order-info/order-info.component';
 registerLocaleData(zh);
 
 @NgModule({
@@ -42,11 +65,31 @@ registerLocaleData(zh);
         PandianComponent,
         PdInputComponent,
         PdEditComponent,
+        logComponent,
+        LogInputComponent,
+        LogListComponent,
+        OrderInfoComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        NgZorroAntdModule,
+        NzTableModule,
+        NzLayoutModule,
+        NzDividerModule,
+        NzPaginationModule,
+        NzDropDownModule,
+        NzRadioModule,
+        NzGridModule,
+        NzBreadCrumbModule,
+        NzButtonModule,
+        NzIconModule,
+        NzInputModule,
+        NzSelectModule,
+        NzFormModule,
+        // NgZorroAntdModule,
+        NzDescriptionsModule,
+        NzPopconfirmModule,
+
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,

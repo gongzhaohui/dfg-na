@@ -16,7 +16,7 @@ export class RdsinService {
 
     GetRdsIn(searchType: string, term: string): Observable<Rdsin[]> {
         const params = new HttpParams({
-            fromString: `type=' + ${searchType} &term=${term}`,
+            fromString: `type= ${searchType}&term=${term}`,
         });
         return this.http.get<Rdsin[]>(this.url, { params: params });
     }

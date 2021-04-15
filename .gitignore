@@ -44,3 +44,4 @@ testem.log
 Thumbs.db
 client/dist/client/favicon.ico
 tree.txt
+node_modules

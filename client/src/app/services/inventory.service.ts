@@ -16,7 +16,7 @@ export class InventoryService {
 
     GetInventory(searchType: string, term: string): Observable<Inventory> {
         const params = new HttpParams({
-            fromString: `type=' + ${searchType} &term=${term}`,
+            fromString: `type=${searchType} &term=${term}`,
         });
         return this.http.get<Inventory>(this.url, { params: params });
     }

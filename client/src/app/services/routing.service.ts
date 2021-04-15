@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
     providedIn: 'root',
 })
 export class RoutingService {
-    private url = `${this.baseUrl}/api/rounting`;
+    private url = `${this.baseUrl}/api/routing`;
 
     constructor(
         @Inject('BASE_URL') private baseUrl: string,
@@ -15,7 +15,7 @@ export class RoutingService {
     ) {}
     GetRounting(searchType: string, term: string): Observable<Routing> {
         const params = new HttpParams({
-            fromString: `type=' + ${searchType} &term=${term}`,
+            fromString: `type=${searchType}&term=${term}`,
         });
         return this.http.get<Routing>(this.url, { params: params });
     }

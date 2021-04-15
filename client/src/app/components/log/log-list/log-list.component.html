@@ -1,0 +1,60 @@
+<h3>已录入数据</h3>
+<nz-table #logList [nzData]="logs" [nzLoading]="loading" [(nzPageIndex)]="pageIndex" [(nzPageSize)]="pageSize"
+  [nzShowPagination]="true" [nzLoadingDelay]="100" style="height: 100%">
+  <thead>
+    <tr>
+      <th>录入日</th>
+      <th>工序</th>
+      <th>操作者</th>
+      <th>管理号</th>
+      <th>客户</th>
+      <th>存货编码</th>
+      <th>规格型号</th>
+      <th>存货代码</th>
+      <th>交货期</th>
+      <th>数量</th>
+      <th>动作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of logList.data">
+      <td>{{ data.log_date|date:"yyyy-MM-dd" }}</td>
+      <td>{{ data.operation }}</td>
+      <td>{{ data.cname }}</td>
+      <td>{{ data.jno }}</td>
+      <td>{{ data.ccusabbname }}</td>
+      <td>{{ data.cinvcode }}</td>
+      <td>{{ data.cinvstd }}</td>
+      <td>{{ data.cinvaddcode }}</td>
+      <td>{{ data.dpredate|date:"yyyy-MM-dd" }}</td>
+
+      <td>
+        <ng-container *ngIf="
+                      !_editCache[data.id] || !_editCache[data.id].edit;
+                      else pdsInputTpl
+                  ">
+          {{ data.qty }}
+        </ng-container>
+        <ng-template #pdsInputTpl>
+          <input type="text" nz-input [(ngModel)]="_editCache[data.id].data.qty" />
+        </ng-template>
+      </td>
+      <td>
+        <div class="editable-row-operations">
+          <ng-container *ngIf="
+                          !_editCache[data.id] || !_editCache[data.id].edit;
+                          else saveTpl
+                      ">
+            <a (click)="startEdit(data.id)">Edit </a>
+            <a *ngIf="deleteable" nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="deleteRow(data.id)">
+              Delete</a>
+          </ng-container>
+          <ng-template #saveTpl>
+            <a (click)="saveEdit(data.id)">Save</a>
+            <a (click)="cancelEdit(data.id)">Cancel</a>
+          </ng-template>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

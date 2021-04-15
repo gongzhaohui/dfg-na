@@ -5,7 +5,7 @@ import {
     Input,
     AfterViewInit,
 } from '@angular/core';
-import { NzTableComponent } from 'ng-zorro-antd';
+import { NzTableComponent } from 'ng-zorro-antd/table';
 import { BomItem } from 'src/app/entities/bomitem';
 
 @Component({
