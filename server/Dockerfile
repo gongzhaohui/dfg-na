@@ -2,10 +2,11 @@ FROM node:alpine as build
 
 COPY . /app
 WORKDIR /app
-
+RUN apk add --update python make g++\
+   && rm -rf /var/cache/apk/*
 RUN yarn && \
     yarn cache clean && \
-    yarn run prestart:prod 
+    yarn run build 
     
 
 FROM node:alpine
