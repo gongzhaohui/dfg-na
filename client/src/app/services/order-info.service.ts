@@ -1,14 +1,14 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { OrderInfo } from '../entities/order_info';
+import { OrderInfo } from '../entities/order-info';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderInfoService
 {
-  private url = `${ this.baseUrl }/api/orderinfo`;
+  private url = `${ this.baseUrl }/api/log/orderinfo`;
 
   constructor(
     @Inject('BASE_URL') private baseUrl: string,

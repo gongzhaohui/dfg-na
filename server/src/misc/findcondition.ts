@@ -11,3 +11,12 @@ export class StockTakingFindCondition {
   period: string;
   creator: string;
 }
+export class LogFindCondition {
+  operation: string;
+  period: string;
+  // operator: string;
+}
+export class OrderFindCondition {
+  barcode: string;
+  type: string;
+}

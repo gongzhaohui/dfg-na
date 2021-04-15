@@ -3,7 +3,7 @@ import { Inventory } from './inventory.entity';
 
 @Entity('dfg_na_history')
 export class History {
-  @PrimaryColumn({ type: 'int', name: 'isodid' })
+  @PrimaryColumn({ type: 'int'})
   isodid: number;
 
   @Column({ type: 'nvarchar', length: 14, name: 'jno' })
@@ -22,9 +22,9 @@ export class History {
   @Column({ type: 'float' })
   sounitprice: number;
   @Column({ type: 'smalldatetime', name: 'ddate' })
-  ddate: number;
+  ddate: Date;
   @Column({ type: 'smalldatetime', name: 'mdate' })
-  mdate: number;
+  mdate: Date;
   @Column({ type: 'int', name: 'moid' })
   moid: number;
 }

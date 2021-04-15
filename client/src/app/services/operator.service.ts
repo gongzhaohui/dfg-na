@@ -7,7 +7,7 @@ import { Operator } from '../entities/operator';
   providedIn: 'root'
 })
 export class OperatorService {
-  private url = `${this.baseUrl}/api/operator`;
+  private url = `${this.baseUrl}/api/log/operator`;
 
   constructor(
       @Inject('BASE_URL') private baseUrl: string,

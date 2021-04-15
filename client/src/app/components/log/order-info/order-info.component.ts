@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { OrderInfo } from 'src/app/entities/order_info';
+import { OrderInfo } from 'src/app/entities/order-info';
 
 @Component({
   selector: 'dfg-order-info',

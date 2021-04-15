@@ -25,6 +25,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzFormModule } from 'ng-zorro-antd/form';
+import {NzDescriptionsModule} from 'ng-zorro-antd/descriptions'
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -85,6 +87,9 @@ registerLocaleData(zh);
         NzSelectModule,
         NzFormModule,
         // NgZorroAntdModule,
+        NzDescriptionsModule,
+        NzPopconfirmModule,
+
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,

@@ -1,6 +1,83 @@
-<dfg-log-input (saveLog)="onSaveLog($event)" (getOder)="onGetOrder($event)" (getList)="onGetList($event)">
-</dfg-log-input>
-<nz-divider></nz-divider>
-<dfg-order-info [orderInfo]="orderInfo"></dfg-order-info>
-<nz-divider></nz-divider>
-<dfg-log-list [logs]="logs" (updateLog)="onUpdateLog($event)" (deleteLog)="onDeleteLog($event)"></dfg-log-list>
+<!-- <dfg-log-input (saveLog)="onSaveLog($event)" [operation]="operation" [operator]="operator">
+</dfg-log-input> -->
+<nz-content>
+  <dfg-order-info [orderInfo]="orderInfo"></dfg-order-info>
+  <nz-divider></nz-divider>
+  <form nz-form [nzLayout]="'inline'" [formGroup]="inputForm" (ngSubmit)="submitForm()" #formGroupAccessor="ngForm">
+    <!-- ↓ [nzGutter]="{ xs: 8, sm: 16, md: 24 }" -->
+    <!-- <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24 }"> -->
+    <nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24 }">
+      <nz-form-item>
+        <nz-col>
+
+          <nz-form-label nzRequired nzFor="period">时间段</nz-form-label>
+          <nz-form-control nzErrorTip="YYYYMM,202103代表2021年3月">
+            <nz-input-group nzPrefixIcon="clock-circle">
+              <input formControlName="period" nz-input placeholder="时间段" />
+            </nz-input-group>
+          </nz-form-control>
+
+        </nz-col>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-col>
+
+          <nz-form-label nzRequired nzFor="operation">工序</nz-form-label>
+          <nz-form-control nzErrorTip="不存在的工序！">
+            <!-- <nz-input-group nzSuffixIcon="shop"> -->
+            <nz-select formControlName="operation" placeholder="工序" nzShowSearch nzAllowClear style="text-align: right"
+              tabindex="10" (ngModelChange)="onOperationChange($event)">
+              <nz-option *ngFor=" let item of operations" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
+            </nz-select>
+            <!-- </nz-input-group> -->
+          </nz-form-control>
+
+        </nz-col>
+      </nz-form-item>
+      <nz-col [nzSpan]="5">
+        <nz-form-label nzRequired nzFor="operator">操作者</nz-form-label>
+        <nz-form-control nzErrorTip="用户名必输">
+          <!-- <nz-input-group nzPrefixIcon="user"> -->
+          <nz-select nzPrefixIcon="user" formControlName="operator" nzShowSearch nzAllowClear placeholder="用友用户编码"
+            tabindex="10">
+            <nz-option *ngFor=" let item of operators" [nzValue]="item.cuser_id"
+              [nzLabel]="item.cuser_id + '-' + item.name">
+            </nz-option>
+          </nz-select>
+          <!-- </nz-input-group> -->
+        </nz-form-control>
+      </nz-col>
+
+      <nz-col [nzSpan]="4">
+        <nz-form-label nzRequired nzFor="barcode">条码</nz-form-label>
+        <nz-form-control nzErrorTip="销售订单条码">
+          <nz-input-group nzPrefixIcon="barcode">
+            <input #barcode formControlName="jno" nz-input placeholder="条码" tabindex="0"
+              (blur)="onBarcodeChanged($event)" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-col>
+      <nz-col [nzSpan]="4">
+        <nz-form-label nzRequired nzFor="qty">数量</nz-form-label>
+        <nz-form-control nzErrorTip="数量必输">
+          <nz-input-group nzPrefixIcon="number">
+            <input formControlName="qty" nz-input placeholder="数量" tabindex="1" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-col>
+
+      <nz-col [nzSpan]="4">
+        <nz-form-control></nz-form-control>
+        <nz-form-control>
+          <button nz-button #btnSave nzType="default" [disabled]="!isCanSave()" tabindex="2">
+            添加
+          </button>
+        </nz-form-control>
+      </nz-col>
+    </nz-row>
+    <!-- </nz-form-item> -->
+  </form>
+  <nz-divider></nz-divider>
+  <dfg-log-list [logs]="logs" (updateLog)="onUpdateLog($event)" (deleteLog)="onDeleteLog($event)"
+    [deleteable]="deleteable"></dfg-log-list>
+</nz-content>

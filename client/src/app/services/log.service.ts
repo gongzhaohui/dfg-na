@@ -7,7 +7,7 @@ import { Log } from '../entities/log';
     providedIn: 'root',
 })
 export class LogService {
-    private url = `${this.baseUrl}/api/reg/history`;
+    private url = `${this.baseUrl}/api/log/history`;
 
     constructor(
         @Inject('BASE_URL') private baseUrl: string,
@@ -32,11 +32,10 @@ export class LogService {
 
     getList(
         period: string,
-        operation: string,
-        creator: string
+        operation: number
     ): Observable<Log[]> {
         const params = new HttpParams({
-            fromString: `period=${period}&operation=${operation}&creator=${creator}`,
+            fromString: `period=${period}&operation=${operation}`,
         });
         return this.http.get<Log[]>(this.url, { params: params });
     }

@@ -1,4 +1,4 @@
 export class Operator{
-  id:number;
+  cuser_id:string;
   name:string
 }

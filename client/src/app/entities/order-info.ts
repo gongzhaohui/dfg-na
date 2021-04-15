@@ -1,6 +1,6 @@
 export class OrderInfo{
   isodid:number;
-  cdefine31:string;
+  jno:string;
   ccusabbname:string;
   cinvcode:string;
   cinvstd:string;
