@@ -10,7 +10,7 @@ import { OperationService } from 'src/app/services/operation.service';
 import { OperatorService } from 'src/app/services/operator.service';
 import { OrderInfoService } from 'src/app/services/order-info.service';
 import { PeriodService } from 'src/app/services/period.service';
-import { LogInputComponent } from './log-input/log-input.component';
+// import { LogInputComponent } from './log-input/log-input.component';
 import { LogListComponent } from './log-list/log-list.component';
 import { OrderInfoComponent } from './order-info/order-info.component';
 
@@ -21,7 +21,7 @@ import { OrderInfoComponent } from './order-info/order-info.component';
 })
 export class logComponent implements OnInit
 {
-  @ViewChild(LogInputComponent, { static: true }) inputCmp: LogInputComponent;
+  // @ViewChild(LogInputComponent, { static: true }) inputCmp: LogInputComponent;
   @ViewChild(LogListComponent, { static: true }) listCmp: LogListComponent;
   @ViewChild(OrderInfoComponent, { static: true }) orderCmp: LogListComponent;
   operation: number = 0;

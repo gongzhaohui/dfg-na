@@ -6,7 +6,7 @@ RUN apk add --update python make g++\
    && rm -rf /var/cache/apk/*
 RUN yarn && \
     yarn cache clean && \
-    yarn run build 
+    yarn run prestart:prod 
     
 
 FROM node:alpine
