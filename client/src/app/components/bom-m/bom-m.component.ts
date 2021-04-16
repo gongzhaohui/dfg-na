@@ -21,7 +21,14 @@ export class BomMComponent implements OnInit, AfterViewInit, AfterContentInit {
 
     @ViewChild('nestedTable', { static: true })
     tabComp: NzTableComponent;
-
+    expandSet = new Set<number>();
+    onExpandChange(id: number, checked: boolean): void {
+      if (checked) {
+        this.expandSet.add(id);
+      } else {
+        this.expandSet.delete(id);
+      }
+    }
     ngOnInit(): void {
         this.bom = [];
         // console.log('bom-data:' + JSON.stringify(this.bom_m));
