@@ -3,8 +3,8 @@
     "angularCompilerOptions": {
         "fullTemplateTypeCheck": true,
         "strictTemplates": true,
-        "debug": true,
-        "disableTypeScriptVersionCheck":true
+        "debug": true
+        // "disableTypeScriptVersionCheck":true
     },
     "compilerOptions": {
         "baseUrl": "./",

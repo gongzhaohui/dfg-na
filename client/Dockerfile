@@ -1,10 +1,12 @@
 # Stage 1: Build Angular static assets
-FROM node:lts-alpine3.13 as builder
+FROM node:lts-alpine3.10 as builder
 COPY . /app
 LABEL author="Zhaohui Gong"
 WORKDIR /app
+RUN npm install -D typescript@4.1.5
 RUN npm install
-RUN npm run build  --prod
+
+RUN npm run build --prod
 
 # Stage 2: Serve Angular assets using NGINX
 FROM nginx:alpine
