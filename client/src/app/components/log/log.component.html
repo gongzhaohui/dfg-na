@@ -25,10 +25,17 @@
           <nz-form-label nzRequired nzFor="operation">工序</nz-form-label>
           <nz-form-control nzErrorTip="不存在的工序！">
             <!-- <nz-input-group nzSuffixIcon="shop"> -->
-            <nz-select formControlName="operation" placeholder="工序" nzShowSearch nzAllowClear style="text-align: right"
-              tabindex="10" (ngModelChange)="onOperationChange($event)">
+            <!-- <div *ngIf="opChangeable; then operationSelect else operationInput">
+              <ng-template #operationSelect> -->
+            <nz-select formControlName="operation" placeholder="工序" [nzDisabled]="!opChangeable" nzShowSearch
+              style="text-align: right" tabindex="10" (ngModelChange)="onOperationChange($event)">
               <nz-option *ngFor=" let item of operations" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
             </nz-select>
+            <!-- </ng-template>
+              <ng-template #operationInput>
+                <nz-input formControlName="operation" [disabled]="true" []></nz-input>
+              </ng-template>
+            </div> -->
             <!-- </nz-input-group> -->
           </nz-form-control>
 
@@ -38,8 +45,7 @@
         <nz-form-label nzRequired nzFor="operator">操作者</nz-form-label>
         <nz-form-control nzErrorTip="用户名必输">
           <!-- <nz-input-group nzPrefixIcon="user"> -->
-          <nz-select nzPrefixIcon="user" formControlName="operator" nzShowSearch nzAllowClear placeholder="用友用户编码"
-            tabindex="10">
+          <nz-select nzPrefixIcon="user" formControlName="operator" nzShowSearch placeholder="用友用户编码" tabindex="10">
             <nz-option *ngFor=" let item of operators" [nzValue]="item.cuser_id"
               [nzLabel]="item.cuser_id + '-' + item.name">
             </nz-option>

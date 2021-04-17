@@ -36,7 +36,9 @@ export class logComponent implements OnInit
   private operations: Operation[];
   private operators: Operator[];
   private controlCount: number = 2;
-  private deleteable:boolean;
+  deleteable:boolean;
+  opChangeable:boolean;
+
   editId: number | null;
   _editCache = new Map();
   pageIndex = 1;
@@ -51,6 +53,8 @@ export class logComponent implements OnInit
   {
     this.route.queryParams.subscribe(params =>
     {
+      this.opChangeable=!params[ 'operation' ];
+      console.log('opchangeable:',this.opChangeable);
       this.operation = + params[ 'operation' ];
       this.operator = params[ 'operator' ];
       this.deleteable=params['deleteable'];
@@ -83,7 +87,7 @@ export class logComponent implements OnInit
 
   set Op(op)
   {
-    const operation = this.operations.find(element => element.id == op)?.id || this.operations[ 0 ].id;
+    const operation = this.operations?.find(element => element.id == op)?.id || this.operations[ 0 ].id;
     this.operation = operation;
     this.inputForm.get('operation').setValue(operation);
   }
@@ -111,6 +115,7 @@ export class logComponent implements OnInit
   {
     let log: Log = Object.assign({}, this.inputForm.value);
     log.isodid = this.orderInfo.isodid;
+    // console.log('op disabled log:',log)
     this.saveLog(log);
     const formState = {
       period: this.period,
