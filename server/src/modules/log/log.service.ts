@@ -28,10 +28,11 @@ export class LogHistoryService {
   }
   public async add(data: DeepPartial<LogHistory>) {
     const record = this.repository.create(data);
-    console.log('record:',record);
+    // console.log('record:',record);
     return await this.repository.save(record);
   }
   public async update(data: DeepPartial<LogHistory>) {
+    data.updated=new Date();
     return await this.repository.save(data);
   }
   public async remove(id: number) {

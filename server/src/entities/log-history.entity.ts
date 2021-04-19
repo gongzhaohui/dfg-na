@@ -19,6 +19,8 @@ export class LogHistory {
   log_date?: Date;
   @Column({ type: 'bit' ,default:true })
   active?: boolean;
+  @Column({ type: 'smalldatetime' })
+  updated?: Date;
 
 }
 @Entity('dfg_na_log_List')
@@ -31,7 +33,8 @@ export class LogList {
   isodid: number;
   @Column({ type: 'int' })
   operation: number;
-  
+  @Column({ type: 'nvarchar', length: 50 })
+  opname: string; 
   @Column({ type: 'nvarchar', length: 20 })
   operator: string;
   @Column({ type: 'nvarchar', length: 20 })

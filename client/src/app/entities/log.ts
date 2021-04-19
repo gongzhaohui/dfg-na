@@ -10,6 +10,7 @@ export class Log{
   ccusabbname?:string;
   qty:number;
   operation:number;
+  opname:string;
   operator:string;
   cname:string;
   log_date:Date;

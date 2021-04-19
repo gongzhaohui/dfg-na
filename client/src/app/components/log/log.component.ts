@@ -228,8 +228,8 @@ export class logComponent implements OnInit
       logs =>
       {
         this.logs = logs;
-        // this.listCmp.logs = logs;
-        // console.log('logs:', logs);
+        this.listCmp.logs = logs;
+        console.log('logs:', logs);
       }
     )
 
