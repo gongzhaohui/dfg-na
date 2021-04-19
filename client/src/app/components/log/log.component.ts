@@ -54,7 +54,7 @@ export class logComponent implements OnInit
     this.route.queryParams.subscribe(params =>
     {
       this.opChangeable=!params[ 'operation' ];
-      console.log('opchangeable:',this.opChangeable);
+      // console.log('opchangeable:',this.opChangeable);
       this.operation = + params[ 'operation' ];
       this.operator = params[ 'operator' ];
       this.deleteable=params['deleteable'];
@@ -65,7 +65,7 @@ export class logComponent implements OnInit
     this.period = this.periodSvc.GetPeriod(new Date());
 
     this.inputForm = this.fb.group({
-      period: [ this.period ],
+      period: [ {value:this.period,disabled:true} ],
       operator: [ null, [ Validators.required ] ],
       operation: [ null, [ Validators.required ] ],
       // location: [null],

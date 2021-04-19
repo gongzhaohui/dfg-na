@@ -45,7 +45,8 @@
         <nz-form-label nzRequired nzFor="operator">操作者</nz-form-label>
         <nz-form-control nzErrorTip="用户名必输">
           <!-- <nz-input-group nzPrefixIcon="user"> -->
-          <nz-select nzPrefixIcon="user" formControlName="operator" nzShowSearch placeholder="用友用户编码" tabindex="10">
+          <nz-select nzPrefixIcon="user" formControlName="operator" nzShowSearch placeholder="用友用户编码" tabindex="10"
+            [nzDisabled]="true">
             <nz-option *ngFor=" let item of operators" [nzValue]="item.cuser_id"
               [nzLabel]="item.cuser_id + '-' + item.name">
             </nz-option>
