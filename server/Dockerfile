@@ -2,13 +2,10 @@ FROM node:alpine as build
 
 COPY . /app
 WORKDIR /app
-RUN apk add --no-cache --virtual .gyp \
-    python \
-    make \
-    g++ \
-    RUN yarn && \
-    yarn cache clean && \
-    yarn run prestart:prod \
+RUN apk add --no-cache --virtual .gyp python3 make g++ \
+    && yarn \
+    && yarn cache clean \
+    && yarn run prestart:prod \
     && apk del .gyp
 
 
