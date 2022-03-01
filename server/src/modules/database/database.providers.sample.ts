@@ -10,11 +10,10 @@ export const databaseProviders = [
         port: 1433,
         username: 'XXX',
         password: 'XXX',
-        domain: 'XXX',
         database: 'XXX',
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
         synchronize: false,
-        options: { tdsVersion: '7_1' },
+        options: { "tdsVersion": '7_1',"encrypt":false  },
       }),
   },
 ];

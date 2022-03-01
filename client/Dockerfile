@@ -1,5 +1,5 @@
 # Stage 1: Build Angular static assets
-FROM node:alpine as builder
+FROM node:lts-alpine3.10 as builder
 COPY . /app
 LABEL author="Zhaohui Gong"
 WORKDIR /app
