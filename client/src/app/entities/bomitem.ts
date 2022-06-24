@@ -1,5 +1,5 @@
-import { Routing } from './routing';
 import { Inventory } from './inventory';
+import { Routing } from './routing';
 
 export class BomItem {
     parentbomid: number;
@@ -13,5 +13,5 @@ export class BomItem {
     routings?: Routing[];
     children?: BomItem[];
     amount?: number;
-    expend: boolean = false;
+    expand: boolean = false;
 }

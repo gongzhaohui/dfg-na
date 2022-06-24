@@ -1,12 +1,11 @@
-import {
-    Component,
-    OnInit,
-    AfterViewInit,
-    ViewChild,
-} from '@angular/core';
-import { StockTaking } from '../../../entities/stocktaking.entity';
-import { StockTakingService } from 'src/app/services/stocktaking.service';
+import
+  {
+    AfterViewInit, Component,
+    OnInit, ViewChild
+  } from '@angular/core';
 import { NzTableComponent } from 'ng-zorro-antd/table';
+import { StockTakingService } from 'src/app/services/stocktaking.service';
+import { StockTaking } from '../../../entities/stocktaking.entity';
 
 @Component({
     selector: 'dfg-pdedit',
@@ -15,7 +14,7 @@ import { NzTableComponent } from 'ng-zorro-antd/table';
 })
 export class PdEditComponent implements OnInit, AfterViewInit {
     @ViewChild('basicTable', { static: true })
-    tabComp: NzTableComponent;
+    tabComp: NzTableComponent<StockTaking>;
     pdData: StockTaking[];
     editId: number | null;
     _editCache = new Map();

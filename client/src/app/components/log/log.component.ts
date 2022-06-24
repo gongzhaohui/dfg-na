@@ -32,10 +32,10 @@ export class logComponent implements OnInit
   @ViewChild('barcode', { static: true })
   barEl: ElementRef;
   period: string;
-  private orderLoaded: boolean;
-  private operations: Operation[];
-  private operators: Operator[];
-  private controlCount: number = 2;
+   orderLoaded: boolean;
+  operations: Operation[];
+   operators: Operator[];
+  controlCount: number = 2;
   deleteable:boolean;
   opChangeable:boolean;
 
@@ -214,8 +214,8 @@ export class logComponent implements OnInit
       this.GetList();
     });
   }
-  onUpdateLog(log: Log) { }
-  onDeleteLog(log: Log) { }
+  onUpdateLog() { }
+  onDeleteLog() { }
   // onGetOrder(o: any)
   // {
   //   console.log('getorder o:', o)

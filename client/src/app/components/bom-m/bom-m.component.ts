@@ -1,16 +1,10 @@
-import {
-    Component,
-    OnInit,
-    Input,
-    AfterViewInit,
-    AfterContentInit,
-    ComponentRef,
-    ViewChild,
-    SimpleChange,
-} from '@angular/core';
+import
+  {
+    AfterContentInit, AfterViewInit, Component, Input, OnInit, SimpleChange, ViewChild
+  } from '@angular/core';
 // import { Bom } from 'src/app/entities/bom_m';
-import { BomItem } from 'src/app/entities/bomitem';
 import { NzTableComponent } from 'ng-zorro-antd/table';
+import { BomItem } from 'src/app/entities/bomitem';
 
 @Component({
     selector: 'dfg-bom-m',
@@ -20,7 +14,7 @@ export class BomMComponent implements OnInit, AfterViewInit, AfterContentInit {
     @Input() bom: BomItem[] = [];
 
     @ViewChild('nestedTable', { static: true })
-    tabComp: NzTableComponent;
+    tabComp: NzTableComponent<BomItem>;
     expandSet = new Set<number>();
     onExpandChange(id: number, checked: boolean): void {
       if (checked) {
