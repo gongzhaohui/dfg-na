@@ -1,28 +1,28 @@
-import { BaseEntity, DeleteResult, DeepPartial } from 'typeorm';
-import {
-  Body,
-  Delete,
-  Get,
-  Param,
-  Patch,
-  Post,
-  Put,
-  Query,
-} from '@nestjs/common';
+import
+  {
+    Body,
+    Delete,
+    Get,
+    Param,
+    Patch,
+    Post,
+    Put,
+    Query
+  } from '@nestjs/common';
+import { BaseEntity, DeepPartial, DeleteResult, FindOneOptions } from 'typeorm';
 import { BaseService } from './base.service';
-import { FindConditions } from 'typeorm/find-options/FindConditions';
 
 export class BaseController<T extends BaseEntity> {
   protected service: BaseService<T>;
 
   @Get()
-  public async find(@Query() query: FindConditions<T>): Promise<T> {
+  public async find(@Query() query: FindOneOptions<T>): Promise<T> {
     // console.log(JSON.stringify(query));
     return this.service.findOne(query);
   }
 
   @Get('/:id')
-  public async findOne(@Param('id') id: string) {
+  public async findOne(@Param('id') id: number) {
     return this.service.findOneById(id);
   }
 
@@ -33,7 +33,7 @@ export class BaseController<T extends BaseEntity> {
 
   @Put('/:id')
   public async update(
-    @Param('id') id: string,
+    @Param('id') id: number,
     @Body() data: DeepPartial<T>,
   ): Promise<T> {
     return this.service.update(id, data);
@@ -41,14 +41,14 @@ export class BaseController<T extends BaseEntity> {
 
   @Patch('/:id')
   public async patch(
-    @Param('id') id: string,
+    @Param('id') id: number,
     @Body() data: DeepPartial<T>,
   ): Promise<T> {
     return this.service.patch(id, data);
   }
 
   @Delete('/:id')
-  public async delete(@Param('id') id: string): Promise<DeleteResult> {
+  public async delete(@Param('id') id: number): Promise<DeleteResult> {
     return this.service.delete(id);
   }
 }

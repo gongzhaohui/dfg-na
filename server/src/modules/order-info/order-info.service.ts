@@ -1,10 +1,9 @@
-import { Injectable, Inject } from '@nestjs/common';
-import { Repository, FindOperator } from 'typeorm';
-import { History } from '../../entities/history.entity';
-import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
-import { FindConditions } from 'typeorm/find-options/FindConditions';
-import { OrderFindCondition } from '../../misc/findcondition';
+import { Inject, Injectable } from '@nestjs/common';
+import { Repository } from 'typeorm';
+// import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
+// import { FindConditions } from 'typeorm/find-options/FindConditions';
 import { OrderInfo } from '../../entities/order-info.entity';
+import { OrderFindCondition } from '../../misc/findcondition';
 
 @Injectable()
 export class OrderInfoService {

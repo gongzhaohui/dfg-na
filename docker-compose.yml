@@ -20,24 +20,11 @@ services:
       context: ./server
       dockerfile: Dockerfile
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
     ports:
       - "3000:3000"
     networks:
       - na-network
-
-  cadvisor:
-    container_name: cadvisor
-    image: google/cadvisor
-    volumes:
-    - /:/rootfs:ro
-    - /var/run:/var/run:rw
-    - /sys:/sys:ro
-    - /var/lib/docker/:/var/lib/docker:ro
-    ports:
-    - "8080:8080"
-    networks:
-    - na-network
 
 networks:
   na-network:

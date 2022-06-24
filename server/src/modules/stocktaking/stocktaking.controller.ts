@@ -1,18 +1,14 @@
-import {
-  Body,
-  Get,
-  Param,
-  Query,
-  Controller,
-  Post,
-  Put,
-  Delete,
-} from '@nestjs/common';
+import
+  {
+    Body, Controller, Delete, Get,
+    Param, Post,
+    Put, Query
+  } from '@nestjs/common';
 import { StockTakingService } from './stocktaking.service';
-import { FindConditions } from 'typeorm/find-options/FindConditions';
-import { StockTakingFindCondition } from '../../misc/findcondition';
+// import { FindConditions } from 'typeorm/find-options/FindConditions';
 import { StockTaking } from 'src/entities/stocktaking.entity';
 import { DeepPartial } from 'typeorm';
+import { StockTakingFindCondition } from '../../misc/findcondition';
 @Controller('/api/stocktaking')
 export class StockTakingController {
   constructor(protected service: StockTakingService) {}

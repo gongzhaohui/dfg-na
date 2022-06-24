@@ -5,21 +5,17 @@
  * @LastEditTime: 2019-08-10 11:21:56
  * @LastEditors: Please set LastEditors
  */
-import {
-  Body,
-  Get,
-  Param,
-  Query,
-  Controller,
-  Post,
-  Put,
-  Delete,
-} from '@nestjs/common';
+import
+  {
+    Body, Controller, Delete, Get,
+    Param, Post,
+    Put, Query
+  } from '@nestjs/common';
 import { ApsService } from './aps.service';
-import { FindConditions } from 'typeorm/find-options/FindConditions';
-import { StockTakingFindCondition } from '../../misc/findcondition';
+// import { FindConditions } from 'typeorm/find-options/FindConditions';
 import { StockTaking } from 'src/entities/stocktaking.entity';
 import { DeepPartial } from 'typeorm';
+import { StockTakingFindCondition } from '../../misc/findcondition';
 @Controller('/api/aps')
 export class ApsController {
   constructor(protected service: ApsService) {}
