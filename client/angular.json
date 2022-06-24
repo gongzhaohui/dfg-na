@@ -47,13 +47,11 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
               "buildOptimizer": true,
+              "vendorChunk": false,
+              "extractLicenses": true,
+              "sourceMap": false,
+              "namedChunks": false,
               "budgets": [
                 {
                   "type": "initial",
@@ -61,6 +59,14 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           }
         },
@@ -72,6 +78,9 @@
           "configurations": {
             "production": {
               "browserTarget": "client:build:production"
+            },
+            "development": {
+              "browserTarget": "client:build:development"
             }
           }
         },

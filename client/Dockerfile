@@ -5,7 +5,7 @@ LABEL author="Zhaohui Gong"
 WORKDIR /app
 RUN npm install
 
-RUN npm run build --prod --build-optimizer
+RUN npm run build --configuration production
 
 # Stage 2: Serve Angular assets using NGINX
 FROM nginx:alpine
