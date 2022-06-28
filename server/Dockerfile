@@ -1,15 +1,13 @@
-FROM node:alpine as build
+FROM node:latest as build
 
 COPY . /app
 WORKDIR /app
-RUN apk add --no-cache --virtual .gyp python3 make g++ \
-    && yarn \
+RUN yarn \
     && yarn cache clean \
-    && yarn run prestart:prod \
-    && apk del .gyp
+    && yarn run prestart:prod 
 
 
-FROM node:alpine
+FROM node:lts-alpine
 COPY --from=build /app/tsconfig.json /opt/app/tsconfig.json
 COPY --from=build /app/tslint.json /opt/app/tslint.json
 COPY --from=build /app/dist /opt/app
