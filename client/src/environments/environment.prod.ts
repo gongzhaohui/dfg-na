@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiHost: 'http://cluster.local',
+    apiHost: 'http://localhost',
 };
