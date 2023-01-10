@@ -3,9 +3,9 @@ FROM node:lts-alpine as builder
 COPY . /app
 LABEL author="Zhaohui Gong"
 WORKDIR /app
-RUN yarn
+RUN npm i
 
-RUN yarn run build --configuration production
+RUN npm run build --configuration production
 
 # Stage 2: Serve Angular assets using NGINX
 FROM nginx:alpine

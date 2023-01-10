@@ -2,9 +2,8 @@ FROM node:latest as build
 
 COPY . /app
 WORKDIR /app
-RUN yarn \
-    && yarn cache clean \
-    && yarn run prestart:prod 
+RUN npm install \
+    && mpm run prestart:prod 
 
 
 FROM node:lts-alpine
