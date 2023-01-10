@@ -3,7 +3,9 @@ FROM node:lts-alpine as builder
 COPY . /app
 LABEL author="Zhaohui Gong"
 WORKDIR /app
-RUN npm i
+RUN npm config rm proxy
+RUN npm config rm https-proxy
+RUN npm install
 
 RUN npm run build --configuration production
 

@@ -18,11 +18,11 @@ spec:
         k8s.kuboard.cn/name: dfgna
     spec:
       containers:
-        - image: "gongzhaohui/dfgna-ns:v1.0.0"
+        - image: "gongzhaohui/dfgna-n:latest"
           imagePullPolicy: IfNotPresent
           name: ns
           resources: {}
-        - image: "gongzhaohui/dfgna-ng:v1.0.2"
+        - image: "gongzhaohui/dfgna-a:latest"
           imagePullPolicy: IfNotPresent
           name: ng
           resources: {}

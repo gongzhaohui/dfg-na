@@ -2,6 +2,8 @@ FROM node:latest as build
 
 COPY . /app
 WORKDIR /app
+RUN npm config rm proxy
+RUN npm config rm https-proxy
 RUN npm install \
     && mpm run prestart:prod 
 
