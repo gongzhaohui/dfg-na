@@ -3,6 +3,9 @@ FROM node:lts-alpine as builder
 COPY . /app
 LABEL author="Zhaohui Gong"
 WORKDIR /app
+RUN echo "dash dash/sh boolean false" | debconf-set-selections
+ENV DEBIAN_FRONTEND=noninteractive
+RUN dpkg-reconfigure dash
 RUN npm install
 
 RUN npm run build --configuration production
