@@ -3,7 +3,7 @@ FROM node:lts-alpine as builder
 COPY . /app
 LABEL author="Zhaohui Gong"
 WORKDIR /app
-RUN npm config set dns '[10.151.255.1,8.8.8.8]'
+#RUN npm config set dns '[10.151.255.1,8.8.8.8]'
 RUN npm install
 
 RUN npm run build --configuration production
