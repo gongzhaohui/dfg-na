@@ -6,7 +6,7 @@ WORKDIR /app
 #RUN npm config set dns '[10.151.255.1,8.8.8.8]'
 RUN npm install
 
-RUN npm run build --configuration production
+RUN npm run build:prod
 
 # Stage 2: Serve Angular assets using NGINX
 FROM nginx:alpine
