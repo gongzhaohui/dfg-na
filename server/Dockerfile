@@ -3,7 +3,7 @@ FROM node:latest as build
 COPY . /app
 WORKDIR /app
 RUN npm install \
-    && mpm run prestart:prod 
+    && npm run prestart:prod 
 
 
 FROM node:lts-alpine
