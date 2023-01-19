@@ -40,7 +40,6 @@ pnpm-debug.log
 yarn-error.log
 testem.log
 /typings
-**/**/**/database/database.providers.ts
 # System Files
 .DS_Store
 Thumbs.db
