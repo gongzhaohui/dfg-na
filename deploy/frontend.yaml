@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dfgna-a
+spec:
+  selector:
+    matchLabels:
+      app: dfgna
+      tier: frontend
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dfgna
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+        - name: dfgna-a
+          image: "doker.io/gongzhaohui/dfgna-a:latest"
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/usr/sbin/nginx","-s","quit"]
+          resources:
+...
