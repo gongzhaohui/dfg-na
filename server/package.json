@@ -25,7 +25,7 @@
     },
     "dependencies": {
         "@nestjs/common": "^8.4.7",
-        "@nestjs/core": "^8.4.7",
+        "@nestjs/core": "^9.0.5",
         "@nestjs/platform-express": "^8.4.7",
         "class-validator": "^0.13.2",
         "mssql": "^7.3.0",
