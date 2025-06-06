@@ -1,26 +1,28 @@
-import { Injectable, Inject } from '@nestjs/common';
-import { Repository, DeepPartial } from 'typeorm';
+import { Inject, Injectable } from '@nestjs/common';
+import { DeepPartial, Repository } from 'typeorm';
 import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
-import { FindConditions } from 'typeorm/find-options/FindConditions';
-import {
-  HourRateFindCondition,
-  StockTakingFindCondition,
-} from '../../misc/findcondition';
+// import { FindConditions } from 'typeorm/find-options/FindConditions';
+import
+  {
+    StockTakingFindCondition
+  } from '../../misc/findcondition';
 // import { BomItem } from 'entities/bomitem.entity';
 import { StockTaking } from '../../entities/stocktaking.entity';
 
 @Injectable()
-export class StockTakingService {
+export class StockTakingService
+{
   // i: number;
   constructor(
     @Inject('StockTakingRepositoryToken')
     protected sRepository: Repository<StockTaking>,
-  ) {}
+  ) { }
 
   public async find(
-    conditions: FindConditions<StockTakingFindCondition>,
+    conditions: StockTakingFindCondition,
     options?: FindOneOptions<StockTaking>,
-  ): Promise<StockTaking[]> {
+  ): Promise<StockTaking[]>
+  {
     const st = await this.sRepository
       .createQueryBuilder('st')
       .where('st.period =:period')
@@ -34,15 +36,18 @@ export class StockTakingService {
       .getMany();
     return st;
   }
-  public async add(data: DeepPartial<StockTaking>) {
+  public async add(data: DeepPartial<StockTaking>)
+  {
     const record = this.sRepository.create(data);
     // console.log(record);
     return await this.sRepository.save(record);
   }
-  public async update(data: DeepPartial<StockTaking>) {
+  public async update(data: DeepPartial<StockTaking>)
+  {
     return await this.sRepository.save(data);
   }
-  public async remove(id: number) {
+  public async remove(id: number)
+  {
     return await this.sRepository.delete(id);
   }
 }

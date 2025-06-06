@@ -1,0 +1,30 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dfgna-a
+  namespace: dfgbi
+  labels:
+    app: dfgna
+    app.kubernetes.io/name: dfgna-a
+    app.kubernetes.io/version: v1
+    tier: frontend
+    version: v1
+  annotations:
+    kubesphere.io/creator: gongzhaohui
+    kubesphere.io/serviceType: statelessservice
+    servicemesh.kubesphere.io/enabled: 'false'
+spec:
+  selector:
+    app: dfgna
+    app.kubernetes.io/name: dfgna-a
+    app.kubernetes.io/version: v1
+    tier: frontend
+  ports:
+  - protocol: "TCP"
+    port: 4200
+    targetPort: 4200
+    nodePort: 30101
+  type: NodePort
+
+...

@@ -1,0 +1,29 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dfgna-n
+spec:
+  selector:
+    matchLabels:
+      app: dfgna
+      app.kubernetes.io/name: dfgna-n
+      tier: backend
+      track: stable
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: dfgna
+        app.kubernetes.io/name: dfgna-n
+        tier: backend
+        track: stable
+    spec:
+      containers:
+        - name: dfgna-n
+          image: "doker.io/gongzhaohui/dfgna-n:latest"
+          ports:
+            - name: svcport
+              containerPort: 3000
+          resources:
+...

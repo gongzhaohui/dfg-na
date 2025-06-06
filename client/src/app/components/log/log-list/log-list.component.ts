@@ -12,7 +12,7 @@ export class LogListComponent implements OnInit {
  @Input()logs:Log[]
  @Input() deleteable:boolean;
  @ViewChild('logList', { static: true })
-    tabComp: NzTableComponent;
+    tabComp: NzTableComponent<Log>;
  editId: number | null;
   _editCache = new Map();
   pageIndex = 1;

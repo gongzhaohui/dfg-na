@@ -1,11 +1,11 @@
-import { Injectable, Inject } from '@nestjs/common';
-import { Repository, DeepPartial } from 'typeorm';
+import { Inject, Injectable } from '@nestjs/common';
+import { DeepPartial, Repository } from 'typeorm';
 import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
-import { FindConditions } from 'typeorm/find-options/FindConditions';
-import {
-  HourRateFindCondition,
-  StockTakingFindCondition,
-} from '../../misc/findcondition';
+// import { FindConditions } from 'typeorm/find-options/FindConditions';
+import
+  {
+    StockTakingFindCondition
+  } from '../../misc/findcondition';
 // import { BomItem } from 'entities/bomitem.entity';
 import { StockTaking } from '../../entities/stocktaking.entity';
 
@@ -18,7 +18,7 @@ export class ApsService {
   ) {}
 
   public async find(
-    conditions: FindConditions<StockTakingFindCondition>,
+    conditions: StockTakingFindCondition,
     options?: FindOneOptions<StockTaking>,
   ): Promise<StockTaking[]> {
     const st = await this.sRepository

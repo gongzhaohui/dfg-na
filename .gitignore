@@ -2,7 +2,6 @@
 
 # compiled output
 /server/dist
-/server/client
 /client/dist
 /tmp
 /out-tsc
@@ -10,7 +9,6 @@
 # dependencies
 /server/node_modules
 /client/node_modules
-/client0/node_modules
 
 
 # IDEs and editors
@@ -28,20 +26,22 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.history/*
+
 
 # misc
+/client/.angular/cache
 /.sass-cache
 /connect.lock
 /coverage
 /libpeerconnection.log
 npm-debug.log
+pnpm-debug.log
 yarn-error.log
 testem.log
 /typings
-**/**/**/database/database.providers.ts
 # System Files
 .DS_Store
 Thumbs.db
-client/dist/client/favicon.ico
 tree.txt
 node_modules

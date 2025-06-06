@@ -1,9 +1,9 @@
 import { UnprocessableEntityException } from '@nestjs/common';
-import { BaseEntity, DeleteResult, Repository, DeepPartial } from 'typeorm';
 import { validate } from 'class-validator';
+import { BaseEntity, DeepPartial, DeleteResult, Repository } from 'typeorm';
 // import {Config} from '../../config/config';
-import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
-import { FindConditions } from 'typeorm/find-options/FindConditions';
+import { FindOneOptions } from 'typeorm';
+// import { FindConditions } from 'typeorm/find-options/FindConditions';
 
 export class BaseService<T extends BaseEntity> {
   protected repository: Repository<T>;
@@ -12,15 +12,17 @@ export class BaseService<T extends BaseEntity> {
     return await this.repository.find();
   }
 
-  public async findOneById(id: string): Promise<T> {
-    return this.repository.findOneOrFail(id);
+  public async findOneById(id: number): Promise<T> {
+      return this.repository.findOneBy({
+        id,
+    } as any);
   }
 
   public async findOne(
-    conditions?: FindConditions<T>,
+    // conditions?: FindConditions<T>,
     options?: FindOneOptions<T>,
   ): Promise<T> {
-    return this.repository.findOne(conditions, options);
+    return this.repository.findOne( options);
   }
 
   public async create(data: DeepPartial<T>): Promise<T> {
@@ -29,18 +31,18 @@ export class BaseService<T extends BaseEntity> {
     return entity.save();
   }
 
-  public async update(id: string, data: DeepPartial<T>): Promise<T> {
+  public async update(id: number, data: DeepPartial<T>): Promise<T> {
     return this.create(data);
   }
 
-  public async patch(id: string, data: DeepPartial<T>): Promise<T> {
+  public async patch(id: number, data: DeepPartial<T>): Promise<T> {
     const entity: T = await this.findOneById(id);
     Object.assign(entity, data);
     await this.validate(entity);
     return entity.save();
   }
 
-  public async delete(id: string): Promise<DeleteResult> {
+  public async delete(id: number): Promise<DeleteResult> {
     return this.repository.delete(id);
   }
 

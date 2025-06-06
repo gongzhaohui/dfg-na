@@ -1,0 +1,85 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations: {}
+  labels:
+    k8s.kuboard.cn/name: dfgna
+  name: dfgna
+  namespace: dfg-na
+spec:
+  selector:
+    matchLabels:
+      k8s.kuboard.cn/name: dfgna
+  template:
+    metadata:
+      annotations: {}
+      labels:
+        k8s.kuboard.cn/name: dfgna
+    spec:
+      containers:
+        - image: "gongzhaohui/dfgna-n:latest"
+          imagePullPolicy: IfNotPresent
+          name: ns
+          resources: {}
+        - image: "gongzhaohui/dfgna-a:latest"
+          imagePullPolicy: IfNotPresent
+          name: ng
+          resources: {}
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations: {}
+  labels:
+    k8s.kuboard.cn/name: dfgna
+  name: dfgna
+  namespace: dfg-na
+spec:
+  ports:
+    - name: b86jgn
+      port: 80
+      protocol: TCP
+      targetPort: 3000
+    - name: fbrwt7
+      port: 4200
+      protocol: TCP
+      targetPort: 4200
+  selector:
+    k8s.kuboard.cn/name: dfgna
+  sessionAffinity: None
+  type: ClusterIP
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations: {}
+  labels:
+    k8s.kuboard.cn/name: dfgna
+  name: dfgna
+  namespace: dfg-na
+spec:
+  ingressClassName: public
+  rules:
+    - host: cluster.local
+      http:
+        paths:
+          - backend:
+              service:
+                name: dfgna
+                port:
+                  number: 4200
+            path: /
+            pathType: Prefix
+          - backend:
+              service:
+                name: dfgna
+                port:
+                  number: 80
+            path: /api
+            pathType: Prefix

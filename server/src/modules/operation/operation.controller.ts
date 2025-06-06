@@ -1,6 +1,6 @@
-import { Get,  Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
+import { Operation } from '../../entities/mes/operation.entity';
 import { OperationService } from './operation.service';
-import { Operation } from '../../entities/operation.entity';
 @Controller('/api/log/operation')
 export class OperationController {
   constructor(protected service: OperationService) {}

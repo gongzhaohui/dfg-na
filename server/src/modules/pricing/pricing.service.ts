@@ -8,7 +8,7 @@ import { HistoryService } from '../history/history.service';
 import { InventoryService } from '../inventory/inventory.service';
 
 @Injectable()
-export class BomPlanService {
+export class PricingService {
   // i: number;
   constructor(
     @Inject('BomPlanRepositoryToken')

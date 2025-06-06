@@ -1,0 +1,25 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dfgna-n
+  namespace: dfgbi
+  labels:
+    app: dfgna
+    app.kubernetes.io/name: dfgna-n
+    app.kubernetes.io/version: v1
+    tier: backend
+    version: v1
+  annotations:
+    deployment.kubernetes.io/revision: '1'
+    kubesphere.io/creator: gongzhaohui
+spec:
+  selector:
+    app: dfgna
+    app.kubernetes.io/name: dfgna-n
+    tier: backend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000
+...

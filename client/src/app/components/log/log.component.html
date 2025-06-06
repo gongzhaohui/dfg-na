@@ -85,6 +85,6 @@
     <!-- </nz-form-item> -->
   </form>
   <nz-divider></nz-divider>
-  <dfg-log-list [logs]="logs" (updateLog)="onUpdateLog($event)" (deleteLog)="onDeleteLog($event)"
-    [deleteable]="deleteable"></dfg-log-list>
+  <dfg-log-list [logs]="logs" (updateLog)="onUpdateLog()" (deleteLog)="onDeleteLog()" [deleteable]="deleteable">
+  </dfg-log-list>
 </nz-content>

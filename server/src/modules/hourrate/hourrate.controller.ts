@@ -1,15 +1,14 @@
-import {
-  Body,
-  Get,
-  Param,
-  ParseIntPipe,
-  Query,
-  Controller,
-} from '@nestjs/common';
+import
+  {
+    Controller, Get,
+    // Param,
+    // ParseIntPipe,
+    Query
+  } from '@nestjs/common';
 import { HourRateService } from './hourrate.service';
-import { FindConditions } from 'typeorm/find-options/FindConditions';
-import { HourRateFindCondition } from '../../misc/findcondition';
+// import { FindConditions } from 'typeorm/find-options/FindConditions';
 import { HourRate } from '../../entities/hourrate.entity';
+import { HourRateFindCondition } from '../../misc/findcondition';
 @Controller('/api/hourrate')
 export class HourRateController {
   constructor(protected service: HourRateService) {}
