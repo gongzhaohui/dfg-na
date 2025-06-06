@@ -1,21 +1,22 @@
-import {
-    Component,
-    OnInit,
+import
+  {
     AfterViewInit,
-    ViewChild,
+    Component,
     ElementRef,
-} from '@angular/core';
-import { HistoryService } from '../../services/history.service';
-import { HistoryItem } from '../../entities/historyitem';
-import { Inventory } from '../../entities/inventory';
-import { HourRateService } from '../../services/hourrate.service';
-import { HourRate } from '../../entities/hourrate';
-import { PeriodService } from '../../services/period.service';
-import { BomItem } from '../../entities/bomitem';
-import { BomPlanService } from '../../services/bom_plan.service';
-import { concatMap } from 'rxjs/operators';
+    OnInit,
+    ViewChild,
+  } from '@angular/core';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
+import { concatMap } from 'rxjs/operators';
+import { BomItem } from '../../entities/bomitem';
+import { HistoryItem } from '../../entities/historyitem';
+import { HourRate } from '../../entities/hourrate';
+import { Inventory } from '../../entities/inventory';
 import { Rdsin } from '../../entities/rdsin';
+import { BomPlanService } from '../../services/bom_plan.service';
+import { HistoryService } from '../../services/history.service';
+import { HourRateService } from '../../services/hourrate.service';
+import { PeriodService } from '../../services/period.service';
 @Component({
     selector: 'dfg-cost',
     templateUrl: './cost.component.html',
@@ -110,7 +111,7 @@ export class CostComponent implements OnInit, AfterViewInit {
             .subscribe(hr => {
                 //  = '小时单价完成。';
                 this.notiSvr.info('status', '小时单价查询完成。');
-                this.hourRate = hr?hr:{hourrate:1};
+                this.hourRate = hr?hr:{hourrate:100};
                 // console.log('hr:'+JSON.stringify(this.hourRate));
                 this.CalcCost();
             });

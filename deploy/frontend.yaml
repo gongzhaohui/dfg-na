@@ -3,10 +3,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dfgna-a
+  namespace: dfgbi
+  labels:
+    app: dfgna
+    app.kubernetes.io/name: dfgna-a
+    app.kubernetes.io/version: v1
+    tier: frontend
+    version: v1
 spec:
   selector:
     matchLabels:
       app: dfgna
+      app.kubernetes.io/name: dfgna-a
+      app.kubernetes.io/version: v1
       tier: frontend
       track: stable
   replicas: 1
@@ -14,15 +23,25 @@ spec:
     metadata:
       labels:
         app: dfgna
+        app.kubernetes.io/name: dfgna-a
+        app.kubernetes.io/version: v1
         tier: frontend
         track: stable
     spec:
       containers:
         - name: dfgna-a
           image: "doker.io/gongzhaohui/dfgna-a:latest"
+          ports:
+            - name: http4200
+              containerPort: 4200
+              protocol: "TCP"
           lifecycle:
             preStop:
               exec:
                 command: ["/usr/sbin/nginx","-s","quit"]
           resources:
+            limits:
+              cpu: 4
+              memory: 1000Mi
+
 ...
