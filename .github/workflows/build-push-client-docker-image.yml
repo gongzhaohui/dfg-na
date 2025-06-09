@@ -34,9 +34,9 @@ jobs:
             version=${{ github.sha }}
             description=dfg-na client Docker image
           # Set tags for the image (adjust your repo/image name)
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/dfg-na-client:latest
+          #tags: ${{ secrets.DOCKERHUB_USERNAME }}/dfg-na-client:latest
           # Optionally, add more tags for versioning
-          # tags: ${{ secrets.DOCKERHUB_USERNAME }}/dfg-na-client:latest,${{ secrets.DOCKERHUB_USERNAME }}/dfg-na-client:${{ github.sha }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/dfg-na-client:latest,${{ secrets.DOCKERHUB_USERNAME }}/dfg-na-client:${{ github.sha }}
           # Support multi-platform builds if needed
           platforms: linux/amd64,linux/arm64
           push: true
